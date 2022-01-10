@@ -131,7 +131,7 @@ img{
     background-color: var(--mainrose);
     color: var(--mainwhite);
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 2.5;
 }
 
 #projects ul {
@@ -145,12 +145,13 @@ img{
     font-size: 1rem;
 }
 #projects img {
-    margin: wrem 0 4rem 0;
+    margin: 2rem 0 4rem 0;
     border-left: 1px solid var(--mainwhite);
     border-top: 1px solid var(--mainwhite);
     border-radius: 25px;
     padding: 1rem;
 }
+
 
 /* contact section */
 
