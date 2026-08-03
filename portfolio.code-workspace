@@ -21,6 +21,10 @@
             "path": "../C3-G45"
         },
         {
+            "name": "catalina-design",
+            "path": "../catalina-design"
+        },
+        {
             "name": "tiendatuya",
             "path": "../tiendatuya"
         }
