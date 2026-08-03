@@ -1,0 +1,33 @@
+{
+    "folders": [
+        {
+            "name": "portfolio",
+            "path": "."
+        },
+        {
+            "name": "calendar",
+            "path": "../calendar"
+        },
+        {
+            "name": "connect-nodes",
+            "path": "../connect-nodes"
+        },
+        {
+            "name": "flipbook",
+            "path": "../flipbook"
+        },
+        {
+            "name": "C3-G45 (dualipa-events)",
+            "path": "../C3-G45"
+        },
+        {
+            "name": "tiendatuya",
+            "path": "../tiendatuya"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/node_modules": true
+        }
+    }
+}
