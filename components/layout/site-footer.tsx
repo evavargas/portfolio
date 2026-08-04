@@ -27,13 +27,13 @@ export async function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href={`${home}/about`} className="hover:underline">
-                {t("about")}
+              <Link href={`${home}#projects`} className="hover:underline">
+                {t("projects")}
               </Link>
             </li>
             <li>
-              <Link href={`${home}#projects`} className="hover:underline">
-                {t("projects")}
+              <Link href={`${home}/about`} className="hover:underline">
+                {t("about")}
               </Link>
             </li>
             <li>

@@ -67,13 +67,23 @@ export function ContactForm() {
       <TurnstileField onToken={onToken} onExpire={onExpire} />
 
       <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit" disabled={pending || !token}>
-          {pending ? t("form.sending") : t("form.submit")}
+        <Button type="submit" disabled={pending || !token} magnetic={false}>
+          {pending ? (
+            <>
+              <span className="btn-spinner" aria-hidden="true" />
+              {t("form.sending")}
+            </>
+          ) : (
+            t("form.submit")
+          )}
         </Button>
         {statusMessage ? (
           <p
+            key={`${state.status}-${statusMessage}`}
             role="status"
-            className={`text-sm ${state.status === "success" ? "text-[var(--accent-blue)]" : "text-[var(--accent-pink)]"}`}
+            className={`form-status text-sm ${
+              state.status === "success" ? "form-status-success" : "form-status-error"
+            }`}
           >
             {statusMessage}
           </p>

@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { locales, type Locale } from "@/i18n/config";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { AnalyticsProviders } from "@/components/providers/analytics-providers";
-import { HeaderScrollState } from "@/components/layout/header-scroll-state";
+import { PageEffects } from "@/components/layout/page-effects";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { themeInitScript } from "@/lib/theme";
@@ -51,7 +51,7 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="font-body antialiased">
-        <HeaderScrollState />
+        <PageEffects />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <div className="page-shell flex min-h-screen flex-col">

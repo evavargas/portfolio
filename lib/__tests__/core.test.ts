@@ -72,6 +72,7 @@ describe("message helpers", () => {
         description: "Desc",
         tech: ["React"],
         href: "https://example.com",
+        repo: "https://github.com/example/demo",
         image: "/img/demo.png",
       },
     ]);
@@ -84,13 +85,23 @@ describe("message helpers", () => {
       {
         role: "Engineer",
         company: "Acme",
+        companyUrl: "https://acme.example",
         dates: "2024",
         summary: "Built things",
         stack: ["TypeScript"],
       },
+      {
+        role: "Freelance",
+        company: "Independent",
+        dates: "2020",
+        summary: "Shipped sites",
+        stack: ["React"],
+      },
     ]);
 
     expect(jobs[0]?.role).toBe("Engineer");
+    expect(jobs[0]?.companyUrl).toBe("https://acme.example");
+    expect(jobs[1]?.companyUrl).toBeUndefined();
   });
 
   it("parses skill groups", () => {

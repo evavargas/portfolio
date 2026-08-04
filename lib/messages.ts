@@ -24,6 +24,7 @@ export function asProjectItems(value: unknown): ProjectItem[] {
       typeof (item as ProjectItem).id !== "string" ||
       typeof (item as ProjectItem).title !== "string" ||
       typeof (item as ProjectItem).href !== "string" ||
+      typeof (item as ProjectItem).repo !== "string" ||
       typeof (item as ProjectItem).image !== "string" ||
       !Array.isArray((item as ProjectItem).tech)
     ) {
@@ -50,6 +51,12 @@ export function asAboutJobs(value: unknown): AboutJob[] {
     ) {
       throw new Error("Invalid about job");
     }
+
+    const companyUrl = (item as AboutJob & { companyUrl?: unknown }).companyUrl;
+    if (companyUrl !== undefined && typeof companyUrl !== "string") {
+      throw new Error("Invalid about job companyUrl");
+    }
+
     return item as AboutJob;
   });
 }

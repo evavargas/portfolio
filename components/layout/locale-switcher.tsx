@@ -2,7 +2,7 @@
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, useTransition } from "react";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
 
 export function LocaleSwitcher({ label }: { label: string }) {
@@ -10,14 +10,39 @@ export function LocaleSwitcher({ label }: { label: string }) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
 
   const onChange = (next: Locale) => {
+    if (next === locale) {
+      setOpen(false);
+      return;
+    }
+
     const segments = pathname.split("/");
     segments[1] = next;
-    router.replace(segments.join("/") || `/${next}`);
-    setOpen(false);
+    const href = segments.join("/") || `/${next}`;
+
+    const navigate = () => {
+      startTransition(() => {
+        router.replace(href);
+      });
+      setOpen(false);
+    };
+
+    const doc = document as Document & {
+      startViewTransition?: (callback: () => void) => void;
+    };
+
+    if (
+      typeof doc.startViewTransition === "function" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      doc.startViewTransition(navigate);
+    } else {
+      navigate();
+    }
   };
 
   useEffect(() => {
@@ -44,10 +69,10 @@ export function LocaleSwitcher({ label }: { label: string }) {
   }, [open]);
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className={`relative locale-switcher${isPending ? " is-pending" : ""}`}>
       <button
         type="button"
-        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)] py-1.5 pl-3.5 pr-3 text-sm font-medium text-[var(--ink)]"
+        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)] py-1.5 pl-3.5 pr-3 text-sm font-medium text-[var(--ink)] transition-opacity"
         aria-label={label}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -78,7 +103,7 @@ export function LocaleSwitcher({ label }: { label: string }) {
           id={listId}
           role="listbox"
           aria-label={label}
-          className="absolute right-0 z-50 mt-2 min-w-full overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] py-1 shadow-lg"
+          className="locale-menu absolute right-0 z-50 mt-2 min-w-full overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] py-1 shadow-lg"
         >
           {locales.map((code) => {
             const selected = code === locale;
