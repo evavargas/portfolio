@@ -36,7 +36,7 @@ export function Button({
   disabled,
   ...rest
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-opacity disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${className}`;
+  const classes = `ui-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${className}`;
 
   if (href) {
     return (

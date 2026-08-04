@@ -16,12 +16,6 @@ export function Reveal({ children, className = "", delayMs = 0 }: RevealProps) {
     const node = ref.current;
     if (!node) return;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      setVisible(true);
-      return;
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 type ProjectMediaLinkProps = {
@@ -16,15 +17,12 @@ export function ProjectMediaLink({ href, image, title, cta }: ProjectMediaLinkPr
       className="project-media"
       aria-label={`${cta}: ${title}`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={image}
         alt=""
-        width={800}
-        height={500}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 40vw"
         className="project-media-image"
-        loading="lazy"
-        decoding="async"
       />
       <span className="project-media-overlay" aria-hidden="true" />
       <span className="project-media-cta">

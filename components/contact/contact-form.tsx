@@ -2,8 +2,9 @@
 
 import { useActionState, useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
-import { sendContactMessage, type ContactActionState } from "@/app/actions/contact";
+import { sendContactMessage, type ContactActionState } from "@/lib/actions/contact";
 import { Button } from "@/components/ui/button";
+import { Field, TextInput, TextTextarea } from "@/components/ui/field";
 import { TurnstileField } from "@/components/contact/turnstile-field";
 
 const initialState: ContactActionState = { status: "idle" };
@@ -25,52 +26,38 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="flex flex-col gap-4">
-      <div className="grid gap-2">
-        <label htmlFor="contact-subject" className="text-sm font-semibold">
-          {t("form.subject")}
-        </label>
-        <input
+      <Field id="contact-subject" label={t("form.subject")}>
+        <TextInput
           id="contact-subject"
           name="subject"
           required
           minLength={3}
           maxLength={120}
-          className="rounded-2xl border border-[var(--line)] bg-[var(--canvas)] px-4 py-3 text-[var(--ink)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus)]"
           autoComplete="off"
         />
-      </div>
+      </Field>
 
-      <div className="grid gap-2">
-        <label htmlFor="contact-email" className="text-sm font-semibold">
-          {t("form.email")}{" "}
-          <span className="font-normal text-[var(--muted)]">({t("form.optional")})</span>
-        </label>
-        <input
+      <Field id="contact-email" label={t("form.email")} optionalLabel={t("form.optional")}>
+        <TextInput
           id="contact-email"
           name="email"
           type="email"
           maxLength={200}
-          className="rounded-2xl border border-[var(--line)] bg-[var(--canvas)] px-4 py-3 text-[var(--ink)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus)]"
           autoComplete="email"
         />
-      </div>
+      </Field>
 
-      <div className="grid gap-2">
-        <label htmlFor="contact-message" className="text-sm font-semibold">
-          {t("form.message")}
-        </label>
-        <textarea
+      <Field id="contact-message" label={t("form.message")}>
+        <TextTextarea
           id="contact-message"
           name="message"
           required
           minLength={10}
           maxLength={2000}
           rows={5}
-          className="resize-y rounded-2xl border border-[var(--line)] bg-[var(--canvas)] px-4 py-3 text-[var(--ink)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus)]"
         />
-      </div>
+      </Field>
 
-      {/* Honeypot */}
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
         <label htmlFor="contact-website">Website</label>
         <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />

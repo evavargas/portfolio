@@ -1,27 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SectionTitle } from "@/components/ui/section-heading";
 import { ResumeGallery } from "@/components/resumes/resume-gallery";
+import { asAboutJobs, asSkillGroups, asStringArray } from "@/lib/messages";
 
 export async function AboutPageContent() {
   const t = await getTranslations("about");
   const nav = await getTranslations("nav");
   const locale = await getLocale();
-  const achievements = t.raw("achievements") as string[];
-  const skills = t.raw("skills") as string[];
-  const jobs = t.raw("jobs") as Array<{
-    role: string;
-    company: string;
-    dates: string;
-    summary: string;
-    stack: string[];
-  }>;
+  const intro = asStringArray(t.raw("intro"));
+  const experienceIntro = asStringArray(t.raw("experienceIntro"));
+  const jobs = asAboutJobs(t.raw("jobs"));
+  const skillGroups = asSkillGroups(t.raw("skillGroups"));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-20">
-      <p className="section-title">{t("eyebrow")}</p>
-      <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
+      <SectionTitle>{t("eyebrow")}</SectionTitle>
+      <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight md:text-5xl">
         {t("title")}
       </h1>
 
@@ -40,40 +38,35 @@ export async function AboutPageContent() {
 
       <section className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
-          <p className="section-title">{t("profileTitle")}</p>
-          <p className="mt-5 text-lg leading-relaxed text-[var(--muted)]">{t("profile")}</p>
+          <div className="space-y-5 text-lg leading-relaxed text-[var(--muted)]">
+            {intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
-        <div className="overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+        <div className="relative min-h-[20rem] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] lg:min-h-0">
+          <Image
             src="/img/profile.png"
             alt="Eva Vargas"
-            width={800}
-            height={800}
-            className="h-full w-full object-cover"
-            loading="eager"
-            decoding="async"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="object-cover"
           />
         </div>
       </section>
 
-      <section className="mt-16">
-        <p className="section-title">{t("achievementsTitle")}</p>
-        <ul className="mt-6 grid gap-3 md:grid-cols-2">
-          {achievements.map((item) => (
-            <li
-              key={item}
-              className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-5 py-4 text-[var(--muted)]"
-            >
-              {item}
-            </li>
+      <section className="mt-16" aria-labelledby="about-experience">
+        <SectionTitle>{t("experienceTitle")}</SectionTitle>
+        <h2 id="about-experience" className="sr-only">
+          {t("experienceTitle")}
+        </h2>
+        <div className="mt-5 max-w-3xl space-y-4 text-lg leading-relaxed text-[var(--muted)]">
+          {experienceIntro.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
           ))}
-        </ul>
-      </section>
-
-      <section className="mt-16">
-        <p className="section-title">{t("experienceTitle")}</p>
-        <p className="mt-3 text-sm text-[var(--muted)]">{t("experienceNote")}</p>
+        </div>
+        <p className="mt-4 text-sm text-[var(--muted)]">{t("experienceNote")}</p>
         <ol className="mt-8 grid gap-5">
           {jobs.map((job, index) => (
             <li
@@ -81,7 +74,7 @@ export async function AboutPageContent() {
               className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h2 className="text-xl font-semibold md:text-2xl">{job.role}</h2>
+                <h3 className="text-xl font-semibold md:text-2xl">{job.role}</h3>
                 <p className="text-sm font-semibold text-[var(--muted)]">{job.dates}</p>
               </div>
               <p className="mt-1 text-sm font-medium text-[var(--accent-blue)]">{job.company}</p>
@@ -98,19 +91,32 @@ export async function AboutPageContent() {
         </ol>
       </section>
 
-      <section className="mt-16">
-        <p className="section-title">{t("skillsTitle")}</p>
-        <ul className="mt-6 flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <li key={skill}>
-              <Badge>{skill}</Badge>
-            </li>
+      <section className="mt-16" aria-labelledby="about-skills">
+        <SectionTitle>{t("skillsTitle")}</SectionTitle>
+        <h2 id="about-skills" className="sr-only">
+          {t("skillsTitle")}
+        </h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {skillGroups.map((group) => (
+            <div
+              key={group.title}
+              className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6"
+            >
+              <h3 className="text-lg font-semibold">{group.title}</h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((skill) => (
+                  <li key={skill}>
+                    <Badge>{skill}</Badge>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section className="mt-16 rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
-        <p className="section-title">{t("educationTitle")}</p>
+        <SectionTitle>{t("educationTitle")}</SectionTitle>
         <h2 className="mt-4 text-2xl font-semibold">{t("education.degree")}</h2>
         <p className="mt-2 text-[var(--muted)]">{t("education.school")}</p>
         <p className="mt-1 text-sm font-semibold text-[var(--muted)]">

@@ -1,7 +1,9 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { getContactQrDataUrl } from "@/lib/contact-qr";
 import { getWhatsAppUrl, site } from "@/lib/site";
 
@@ -13,11 +15,7 @@ export async function ContactSection() {
   return (
     <section id="contact" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-16 md:px-6">
       <Reveal>
-        <div className="max-w-2xl">
-          <p className="section-title">{t("title")}</p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{t("title")}</h2>
-          <p className="mt-3 text-[var(--muted)]">{t("body")}</p>
-        </div>
+        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} subtitle={t("body")} />
       </Reveal>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
@@ -54,12 +52,12 @@ export async function ContactSection() {
             <div className="rounded-3xl border border-dashed border-[var(--line)] bg-[var(--canvas)] p-5 text-center">
               {qrDataUrl ? (
                 <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={qrDataUrl}
                     alt={t("qrAlt")}
                     width={180}
                     height={180}
+                    unoptimized
                     className="mx-auto rounded-2xl bg-[var(--surface)] p-3"
                   />
                   <p className="mt-4 text-sm font-semibold">{t("qrTitle")}</p>
@@ -73,7 +71,7 @@ export async function ContactSection() {
         </Reveal>
 
         <Reveal delayMs={80}>
-          <div className="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
+          <div className="relative rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
             <h3 className="text-xl font-semibold">{t("formTitle")}</h3>
             <p className="mt-2 text-sm text-[var(--muted)]">{t("formIntro")}</p>
             <div className="relative mt-6">

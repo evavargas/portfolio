@@ -1,13 +1,12 @@
 "use client";
 
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/providers/theme-provider";
 import { useSyncExternalStore } from "react";
+import type { ThemeMode } from "@/lib/theme";
 
 function subscribe() {
   return () => {};
 }
-
-type ThemeMode = "light" | "dark" | "system";
 
 const cycle: ThemeMode[] = ["light", "dark", "system"];
 

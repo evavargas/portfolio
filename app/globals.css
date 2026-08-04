@@ -2,9 +2,9 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-@theme {
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+@theme inline {
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
 
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
@@ -59,6 +59,9 @@
     font-family: var(--font-body);
     min-height: 100vh;
     text-rendering: optimizeLegibility;
+    transition:
+      background-color 280ms ease,
+      color 280ms ease;
   }
 
   h1,
@@ -131,6 +134,71 @@
     opacity: 0.9;
     pointer-events: none;
     z-index: -1;
+    will-change: transform;
+    animation: ambient-drift 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes ambient-drift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(4%, 3%, 0) scale(1.06);
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    padding-bottom: 0.1rem;
+    transition: color 180ms ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.5px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent-pink), var(--accent-blue));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .mobile-nav-panel {
+    animation: mobile-nav-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes mobile-nav-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .highlight-card {
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent-blue) 36%, var(--line));
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--ink) 8%, transparent);
   }
 
   .section-title {
@@ -207,8 +275,57 @@
     border-color: color-mix(in srgb, var(--accent-pink) 45%, var(--line));
   }
 
+  .site-header {
+    transition:
+      box-shadow 220ms ease,
+      background-color 220ms ease,
+      border-color 220ms ease;
+  }
+
+  :root[data-scrolled="true"] .site-header {
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--ink) 8%, transparent);
+    background: color-mix(in srgb, var(--canvas) 92%, transparent);
+  }
+
+  .ui-button {
+    transition:
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .ui-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  .ui-button:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .hero-idea {
+    background-image: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-pink) 70%, transparent),
+      color-mix(in srgb, var(--accent-blue) 70%, transparent)
+    );
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    animation: hero-underline 900ms cubic-bezier(0.22, 1, 0.36, 1) 480ms forwards;
+  }
+
+  @keyframes hero-underline {
+    to {
+      background-size: 100% 2px;
+    }
+  }
+
   /* Soft L-shaped ring: accent fades into page canvas so only one corner reads. */
   .project-card {
+    min-width: 0;
+    max-width: 100%;
     padding: 1px;
     border-radius: 2rem;
     background: linear-gradient(
@@ -237,6 +354,8 @@
   }
 
   .project-card-inner {
+    min-width: 0;
+    overflow: hidden;
     border-radius: calc(2rem - 1px);
     background: var(--surface);
   }
@@ -244,11 +363,21 @@
   .project-media {
     position: relative;
     display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     overflow: hidden;
-    border-radius: 1.5rem;
+    aspect-ratio: 16 / 10;
+    border-radius: 1.25rem;
     border: 1px solid var(--line);
     background: var(--canvas);
     isolation: isolate;
+  }
+
+  @media (min-width: 768px) {
+    .project-media {
+      border-radius: 1.5rem;
+    }
   }
 
   .project-media:focus-visible {
@@ -257,10 +386,8 @@
   }
 
   .project-media-image {
-    display: block;
-    width: 100%;
-    height: auto;
     object-fit: cover;
+    object-position: top center;
     transition:
       transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
       filter 420ms ease;
@@ -289,12 +416,13 @@
     align-items: center;
     gap: 0.45rem;
     translate: -50% -50%;
+    max-width: calc(100% - 1.5rem);
     border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--surface) 45%, transparent);
     background: color-mix(in srgb, var(--surface) 72%, transparent);
     color: var(--ink);
-    padding: 0.7rem 1.15rem;
-    font-size: 0.875rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     opacity: 0.42;
@@ -307,6 +435,13 @@
       border-color 420ms ease,
       box-shadow 420ms ease,
       color 420ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .project-media-cta {
+      padding: 0.7rem 1.15rem;
+      font-size: 0.875rem;
+    }
   }
 
   .project-media:hover .project-media-image,
@@ -373,16 +508,17 @@
   }
 
   .reveal {
+    min-width: 0;
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(18px) scale(0.985);
     transition:
-      opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   .resume-card {
@@ -465,11 +601,15 @@
     }
 
     .hero-enter,
-    .reveal {
+    .reveal,
+    .hero-idea,
+    .page-shell::before,
+    .mobile-nav-panel {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
+      background-size: 100% 2px !important;
     }
 
     *,

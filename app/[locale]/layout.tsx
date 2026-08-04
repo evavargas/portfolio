@@ -5,19 +5,22 @@ import { Outfit, Source_Sans_3 } from "next/font/google";
 import type { ReactNode } from "react";
 import { locales, type Locale } from "@/i18n/config";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { AnalyticsProviders } from "@/components/providers/analytics-providers";
+import { HeaderScrollState } from "@/components/layout/header-scroll-state";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-outfit",
   display: "swap",
 });
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-source-sans",
   display: "swap",
 });
 
@@ -44,7 +47,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${outfit.variable} ${sourceSans.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="font-body antialiased">
+        <HeaderScrollState />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <div className="page-shell flex min-h-screen flex-col">
@@ -59,6 +66,7 @@ export default async function LocaleLayout({
             </div>
           </NextIntlClientProvider>
         </ThemeProvider>
+        <AnalyticsProviders />
       </body>
     </html>
   );

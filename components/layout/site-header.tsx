@@ -23,7 +23,7 @@ export function SiteHeader() {
   const linkClass = (highlight?: boolean) =>
     highlight
       ? "nav-link-highlight"
-      : "text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--ink)]";
+      : "nav-link text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]";
 
   const mobileLinkClass = (highlight?: boolean) =>
     highlight
@@ -32,7 +32,7 @@ export function SiteHeader() {
 
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--canvas)_86%,transparent)] backdrop-blur-md">
+    <header className="site-header sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--canvas)_86%,transparent)] backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Link href={home} className="font-display text-lg font-semibold tracking-tight">
           <span aria-hidden="true" className="mr-2 inline-block text-[var(--accent-pink)]">
@@ -51,7 +51,7 @@ export function SiteHeader() {
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
+            className="nav-link text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
           >
             LinkedIn
           </a>
@@ -59,7 +59,7 @@ export function SiteHeader() {
             href={site.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
+            className="nav-link text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
           >
             GitHub
           </a>
@@ -112,7 +112,7 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-[var(--line)] px-4 py-4 md:hidden"
+          className="mobile-nav-panel border-t border-[var(--line)] px-4 py-4 md:hidden"
           aria-label={t("primary")}
         >
           <ul className="flex flex-col gap-3">

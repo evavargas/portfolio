@@ -1,21 +1,11 @@
 "use server";
 
 import { headers } from "next/headers";
-import { z } from "zod";
 import { Resend } from "resend";
+import { contactSchema } from "@/lib/contact-schema";
+import { checkRateLimit } from "@/lib/rate-limit";
 import { getContactEmail } from "@/lib/site";
 import { verifyTurnstileToken } from "@/lib/turnstile";
-
-const contactSchema = z.object({
-  subject: z.string().trim().min(3).max(120),
-  message: z.string().trim().min(10).max(2000),
-  email: z.preprocess(
-    (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
-    z.email().max(200).optional()
-  ),
-  website: z.string().optional(),
-  turnstileToken: z.string().min(1),
-});
 
 export type ContactActionState = {
   status: "idle" | "success" | "error";
@@ -24,7 +14,7 @@ export type ContactActionState = {
 
 export async function sendContactMessage(
   _prev: ContactActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<ContactActionState> {
   const parsed = contactSchema.safeParse({
     subject: formData.get("subject"),
@@ -38,9 +28,18 @@ export async function sendContactMessage(
     return { status: "error", message: "invalid" };
   }
 
-  // Honeypot: bots fill hidden fields.
   if (parsed.data.website) {
     return { status: "success", message: "ok" };
+  }
+
+  const headerStore = await headers();
+  const ip =
+    headerStore.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    headerStore.get("x-real-ip") ||
+    "unknown";
+
+  if (!checkRateLimit(`contact:${ip}`, 5, 60_000)) {
+    return { status: "error", message: "rate_limited" };
   }
 
   const to = getContactEmail();
@@ -51,12 +50,7 @@ export async function sendContactMessage(
     return { status: "error", message: "not_configured" };
   }
 
-  const headerStore = await headers();
-  const ip =
-    headerStore.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    headerStore.get("x-real-ip");
-
-  const captcha = await verifyTurnstileToken(parsed.data.turnstileToken, ip);
+  const captcha = await verifyTurnstileToken(parsed.data.turnstileToken, ip === "unknown" ? null : ip);
   if (!captcha.ok) {
     return { status: "error", message: "captcha" };
   }

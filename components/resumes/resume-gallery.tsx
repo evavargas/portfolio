@@ -3,41 +3,16 @@
 import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 import { resumes, type ResumeId } from "@/lib/site";
+import { probeResumeFile, triggerBrowserDownload } from "@/lib/resume-download";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 type DialogState =
   | { open: false }
   | { open: true; status: "success" | "error"; id: ResumeId };
-
-async function probeResume(id: ResumeId) {
-  const resume = resumes[id];
-  if (!resume.available) {
-    return { ok: false as const, href: resume.href };
-  }
-
-  try {
-    const response = await fetch(resume.href, { method: "HEAD", cache: "no-store" });
-    if (!response.ok) {
-      return { ok: false as const, href: resume.href };
-    }
-    return { ok: true as const, href: resume.href, fileName: resume.fileName };
-  } catch {
-    return { ok: false as const, href: resume.href };
-  }
-}
-
-function triggerDownload(href: string, fileName: string) {
-  const anchor = document.createElement("a");
-  anchor.href = href;
-  anchor.download = fileName;
-  anchor.rel = "noopener";
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-}
 
 export function ResumeGallery({ id = "resumes" }: { id?: string }) {
   const t = useTranslations("resumes");
@@ -47,13 +22,14 @@ export function ResumeGallery({ id = "resumes" }: { id?: string }) {
   const handleDownload = useCallback(async (resumeId: ResumeId) => {
     setPendingId(resumeId);
     try {
-      const result = await probeResume(resumeId);
-      if (!result.ok) {
+      const resume = resumes[resumeId];
+      const ok = await probeResumeFile(resume.href, resume.available);
+      if (!ok) {
         setDialog({ open: true, status: "error", id: resumeId });
         return;
       }
 
-      triggerDownload(result.href, result.fileName);
+      triggerBrowserDownload(resume.href, resume.fileName);
       setDialog({ open: true, status: "success", id: resumeId });
     } finally {
       setPendingId(null);
@@ -65,13 +41,13 @@ export function ResumeGallery({ id = "resumes" }: { id?: string }) {
   return (
     <section id={id} className="scroll-mt-28" aria-labelledby={`${id}-title`}>
       <Reveal>
-        <div className="mb-8 max-w-2xl">
-          <p className="section-title">{t("title")}</p>
-          <h2 id={`${id}-title`} className="mt-4 text-3xl font-semibold md:text-4xl">
-            {t("title")}
-          </h2>
-          <p className="mt-3 text-[var(--muted)]">{t("subtitle")}</p>
-        </div>
+        <SectionHeading
+          className="mb-8 max-w-2xl"
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          subtitle={t("subtitle")}
+          titleId={`${id}-title`}
+        />
       </Reveal>
 
       <ul className="grid gap-4 md:grid-cols-3">
