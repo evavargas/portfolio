@@ -38,6 +38,7 @@ export function getContactPhoneE164() {
   return process.env.CONTACT_PHONE_E164?.replace(/\D/g, "") || "";
 }
 
+/** Universal link: opens the WhatsApp app when available, otherwise WhatsApp Web. */
 export function getWhatsAppUrl() {
   const phone = getContactPhoneE164();
   return phone ? `https://wa.me/${phone}` : "";

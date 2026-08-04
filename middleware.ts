@@ -8,5 +8,6 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ["/", "/(en|es|fr)/:path*", "/((?!_next|_vercel|.*\\..*).*)"],
+  // Keep API routes (and static assets) out of locale middleware.
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

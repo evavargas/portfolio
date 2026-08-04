@@ -46,6 +46,7 @@ export function Button({
         download={download}
         target={target}
         rel={rel}
+        onClick={onClick}
         {...rest}
       >
         {children}
