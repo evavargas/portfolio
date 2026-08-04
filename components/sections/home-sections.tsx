@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
+import { ProjectMediaLink } from "@/components/sections/project-media-link";
 
 export async function HeroSection() {
   const t = await getTranslations("hero");
@@ -39,7 +40,7 @@ export async function HighlightsSection() {
   const items = t.raw("items") as string[];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pb-16 md:px-6">
+    <section className="mx-auto max-w-6xl px-4 pb-8 md:px-6 md:pb-12">
       <p className="section-title">{t("title")}</p>
       <ul className="mt-6 grid gap-4 md:grid-cols-3">
         {items.map((item) => (
@@ -68,7 +69,7 @@ export async function ProjectsSection() {
   }>;
 
   return (
-    <section id="projects" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-16 md:px-6">
+    <section id="projects" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-16">
       <div className="max-w-2xl">
         <p className="section-title">{t("title")}</p>
         <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{t("title")}</h2>
@@ -97,24 +98,13 @@ export async function ProjectsSection() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6">
-                  <Button href={project.href} target="_blank" rel="noopener noreferrer" variant="secondary">
-                    {t("visit")}
-                  </Button>
-                </div>
               </div>
-              <div className="overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--canvas)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={project.image}
-                  alt=""
-                  width={800}
-                  height={500}
-                  className="h-auto w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <ProjectMediaLink
+                href={project.href}
+                image={project.image}
+                title={project.title}
+                cta={t("visit")}
+              />
             </div>
           </article>
         ))}
