@@ -1,14 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact/contact-form";
-import { WhatsAppButton } from "@/components/contact/whatsapp-button";
 import { Button } from "@/components/ui/button";
 import { getContactQrDataUrl } from "@/lib/contact-qr";
-import { getContactPhoneE164, site } from "@/lib/site";
+import { getWhatsAppUrl, site } from "@/lib/site";
 
 export async function ContactSection() {
   const t = await getTranslations("contact");
   const qrDataUrl = await getContactQrDataUrl();
-  const phone = getContactPhoneE164();
+  const whatsappUrl = getWhatsAppUrl();
 
   return (
     <section id="contact" className="scroll-mt-28 mx-auto max-w-6xl px-4 py-16 md:px-6">
@@ -34,7 +33,11 @@ export async function ContactSection() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {phone ? <WhatsAppButton phone={phone} label={t("whatsapp")} /> : null}
+            {whatsappUrl ? (
+              <Button href="/api/whatsapp" target="_blank" rel="noopener noreferrer" variant="secondary">
+                {t("whatsapp")}
+              </Button>
+            ) : null}
             <Button href={site.linkedin} target="_blank" rel="noopener noreferrer" variant="ghost">
               LinkedIn
             </Button>

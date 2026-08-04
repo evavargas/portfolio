@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type ButtonProps = {
   children: ReactNode;
   href?: string;
-  onClick?: () => void;
+  onClick?: (event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   variant?: "primary" | "secondary" | "ghost";
   className?: string;
   type?: "button" | "submit";
