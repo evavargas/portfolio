@@ -17,16 +17,6 @@ export async function SiteFooter() {
         <nav aria-label="Footer">
           <ul className="grid grid-cols-2 gap-3 text-sm font-medium">
             <li>
-              <Link href={`${home}/about`} className="hover:underline">
-                {t("about")}
-              </Link>
-            </li>
-            <li>
-              <Link href={`${home}#projects`} className="hover:underline">
-                {t("projects")}
-              </Link>
-            </li>
-            <li>
               <Link href={`${home}#resumes`} className="hover:underline">
                 {t("resumes")}
               </Link>
@@ -34,6 +24,16 @@ export async function SiteFooter() {
             <li>
               <Link href={`${home}#contact`} className="hover:underline">
                 {t("contact")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`${home}/about`} className="hover:underline">
+                {t("about")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`${home}#projects`} className="hover:underline">
+                {t("projects")}
               </Link>
             </li>
             <li>

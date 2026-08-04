@@ -333,9 +333,143 @@
     transform: scale(1.04);
   }
 
+  .hero-enter {
+    animation: hero-fade-up 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-enter-1 {
+    animation-delay: 40ms;
+  }
+
+  .hero-enter-2 {
+    animation-delay: 100ms;
+  }
+
+  .hero-enter-3 {
+    animation-delay: 160ms;
+  }
+
+  .hero-enter-4 {
+    animation-delay: 210ms;
+  }
+
+  .hero-enter-5 {
+    animation-delay: 260ms;
+  }
+
+  .hero-enter-6 {
+    animation-delay: 320ms;
+  }
+
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .resume-card {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 1.25rem;
+    text-align: left;
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      background-color 200ms ease;
+  }
+
+  .resume-card:hover:not(:disabled),
+  .resume-card:focus-visible:not(:disabled) {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent-blue) 42%, var(--line));
+    background: linear-gradient(
+      160deg,
+      var(--surface),
+      color-mix(in srgb, var(--accent-blue-soft) 55%, var(--surface))
+    );
+    box-shadow: 0 14px 32px color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+
+  .resume-card:active:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  .resume-card:disabled {
+    opacity: 0.72;
+    cursor: wait;
+  }
+
+  .resume-card:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .resume-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+  }
+
+  .resume-card-arrow {
+    display: inline-block;
+    transition: transform 200ms ease;
+  }
+
+  .resume-card:hover:not(:disabled) .resume-card-arrow,
+  .resume-card:focus-visible:not(:disabled) .resume-card-arrow {
+    transform: translateX(4px);
+  }
+
+  .contact-channel {
+    transition:
+      transform 180ms ease,
+      filter 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .contact-channel:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.06);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+
+    .hero-enter,
+    .reveal {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
 
     *,

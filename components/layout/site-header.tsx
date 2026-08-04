@@ -14,10 +14,10 @@ export function SiteHeader() {
   const home = `/${locale}`;
 
   const links = [
-    { href: `${home}#projects`, label: t("projects") },
-    { href: `${home}/about`, label: t("about") },
     { href: `${home}#resumes`, label: t("resumes"), highlight: true },
     { href: `${home}#contact`, label: t("contact") },
+    { href: `${home}/about`, label: t("about") },
+    { href: `${home}#projects`, label: t("projects") },
   ];
 
   const linkClass = (highlight?: boolean) =>

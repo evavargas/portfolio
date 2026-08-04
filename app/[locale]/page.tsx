@@ -42,12 +42,12 @@ export default async function HomePage({
     <>
       <HeroSection />
       <HighlightsSection />
-      <ProjectsSection />
-      <BridgeSection />
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
         <ResumeGallery />
       </div>
       <ContactSection />
+      <ProjectsSection />
+      <BridgeSection />
     </>
   );
 }

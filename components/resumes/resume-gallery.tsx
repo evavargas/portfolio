@@ -6,6 +6,7 @@ import { resumes, type ResumeId } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/ui/reveal";
 
 type DialogState =
   | { open: false }
@@ -41,55 +42,71 @@ function triggerDownload(href: string, fileName: string) {
 export function ResumeGallery({ id = "resumes" }: { id?: string }) {
   const t = useTranslations("resumes");
   const [dialog, setDialog] = useState<DialogState>({ open: false });
+  const [pendingId, setPendingId] = useState<ResumeId | null>(null);
 
   const handleDownload = useCallback(async (resumeId: ResumeId) => {
-    const result = await probeResume(resumeId);
-    if (!result.ok) {
-      setDialog({ open: true, status: "error", id: resumeId });
-      return;
-    }
+    setPendingId(resumeId);
+    try {
+      const result = await probeResume(resumeId);
+      if (!result.ok) {
+        setDialog({ open: true, status: "error", id: resumeId });
+        return;
+      }
 
-    triggerDownload(result.href, result.fileName);
-    setDialog({ open: true, status: "success", id: resumeId });
+      triggerDownload(result.href, result.fileName);
+      setDialog({ open: true, status: "success", id: resumeId });
+    } finally {
+      setPendingId(null);
+    }
   }, []);
 
   const cards: ResumeId[] = ["en", "es", "ats"];
 
   return (
     <section id={id} className="scroll-mt-28" aria-labelledby={`${id}-title`}>
-      <div className="mb-8 max-w-2xl">
-        <p className="section-title">{t("title")}</p>
-        <h2 id={`${id}-title`} className="mt-4 text-3xl font-semibold md:text-4xl">
-          {t("title")}
-        </h2>
-        <p className="mt-3 text-[var(--muted)]">{t("subtitle")}</p>
-      </div>
+      <Reveal>
+        <div className="mb-8 max-w-2xl">
+          <p className="section-title">{t("title")}</p>
+          <h2 id={`${id}-title`} className="mt-4 text-3xl font-semibold md:text-4xl">
+            {t("title")}
+          </h2>
+          <p className="mt-3 text-[var(--muted)]">{t("subtitle")}</p>
+        </div>
+      </Reveal>
 
       <ul className="grid gap-4 md:grid-cols-3">
-        {cards.map((resumeId) => {
+        {cards.map((resumeId, index) => {
           const available = resumes[resumeId].available;
+          const pending = pendingId === resumeId;
           return (
             <li key={resumeId}>
-              <button
-                type="button"
-                onClick={() => handleDownload(resumeId)}
-                className="group flex h-full w-full flex-col rounded-3xl border border-[var(--line)] bg-[var(--surface)] p-5 text-left transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus)]"
-              >
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <span className="font-display text-xl font-semibold">
-                    {t(`items.${resumeId}.title`)}
+              <Reveal delayMs={index * 70}>
+                <button
+                  type="button"
+                  onClick={() => handleDownload(resumeId)}
+                  disabled={pending}
+                  aria-busy={pending}
+                  className="resume-card group"
+                >
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <span className="font-display text-xl font-semibold">
+                      {t(`items.${resumeId}.title`)}
+                    </span>
+                    <Badge tone={available ? "blue" : "pink"}>
+                      {available ? t("available") : t("comingSoon")}
+                    </Badge>
+                  </div>
+                  <p className="mb-6 flex-1 text-sm text-[var(--muted)]">
+                    {t(`items.${resumeId}.description`)}
+                  </p>
+                  <span className="resume-card-cta">
+                    {pending ? t("downloading") : t("download")}
+                    <span aria-hidden="true" className="resume-card-arrow">
+                      →
+                    </span>
                   </span>
-                  <Badge tone={available ? "blue" : "pink"}>
-                    {available ? t("available") : t("comingSoon")}
-                  </Badge>
-                </div>
-                <p className="mb-6 flex-1 text-sm text-[var(--muted)]">
-                  {t(`items.${resumeId}.description`)}
-                </p>
-                <span className="text-sm font-semibold text-[var(--accent-blue)] group-hover:underline">
-                  {t("download")} →
-                </span>
-              </button>
+                </button>
+              </Reveal>
             </li>
           );
         })}
