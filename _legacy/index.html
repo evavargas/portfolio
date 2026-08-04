@@ -3,14 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Frontend developer Eva Vargas's portfolio: accessible web experiences built with React, Vue, JavaScript and modern web technologies.">
+    <meta name="theme-color" content="#363440">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eva Vargas · Frontend Developer">
+    <meta property="og:description"
+        content="Selected frontend projects focused on useful, accessible digital experiences.">
+    <meta property="og:image" content="img/project5.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="code-solid.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <title>Eva Vargas's Portfolio Website</title>
+    <title>Eva Vargas · Frontend Developer</title>
 </head>
 
 <body>
-    <nav>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav aria-label="Primary navigation">
         <ul>
             <li>
                 <h1><a href="index.html"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code"
@@ -23,32 +35,34 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="https://www.linkedin.com/in/eva-estrella-vargas-zevallos/" target="_blank"><svg
+            <li><a href="https://www.linkedin.com/in/eva-estrella-vargas-zevallos/" target="_blank"
+                    rel="noopener noreferrer"><svg
                         aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in" class="fa-icon"
                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path fill="currentColor"
                             d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
                         </path>
                     </svg><span class="sr-only">LinkedIn</span></a></li>
-            <li><a href="https://github.com/evavargas"><svg aria-hidden="true" focusable="false" data-prefix="fab"
+            <li><a href="https://github.com/evavargas" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fab"
                         data-icon="github-alt" class="fa-icon" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 480 512">
                         <path fill="currentColor"
                             d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z">
                         </path>
                     </svg><span class="sr-only">Github</span></a></li>
-            <li><a class="button" href="https://1drv.ms/b/s!AheqvUV2c6G1gaAFOdXZcBUyiaTnIw?e=TG01jO">Resume</a></li>
+            <li><a class="button" href="https://1drv.ms/b/s!AheqvUV2c6G1gaAFOdXZcBUyiaTnIw?e=TG01jO"
+                    target="_blank" rel="noopener noreferrer">Resume</a></li>
         </ul>
     </nav>
 
-
+    <main id="main-content">
     <section id="presentation">
         <p class="greeting">Hi, my name is <span>Eva Vargas</span></p>
         <h2>I develop the front end of websites and digital experiences.</h2>
         <p>I'm a developer specializing in Vue js, React js, JavaScript, HTML, CSS, user experience and more.</p>
         <p>I'm particularly interested in web accessibility and mixed reality experiences.</p>
-        <p>Currently, I'm making a career in frontend. You can see <a href="https://github.com/evavargas"
-                target="_blank" rel="noopener">Github</a></p>
+        <p>Explore more of my work on <a href="https://github.com/evavargas"
+                target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
     </section>
     <div class="gradient-mn-bk-yw"></div>
     <div class="section-yellow">
@@ -74,26 +88,29 @@
                         <li>Stripe</li>
                     </ul>
                 </div>
-                <img src="img/project5.png" alt="TiendaTuya marketplace project." />
+                <img src="img/project5.png" alt="TiendaTuya marketplace browse screen." width="399" height="250"
+                    loading="lazy" decoding="async">
             </article>
             <article class="reverse">
                 <div class="text-box">
                     <h4>Calendar · 2022</h4>
                     <h3>Personal Calendar</h3>
-                    <p class="description-box">This project is a calendar where you can add, edit or remove events. It will have access login and register accounts sonn! ¡Try it! To
+                    <p class="description-box">A personal calendar where users can add, edit and remove events. Try it! To
                         see and test the app you can <a href="https://calendar-bay-kappa.vercel.app/"
                             class="button-act">Click Here</a>, and for more information about these technologies you can
-                        read about <a href="https://firebase.google.com/?hl=es-419" class="button-act">Firebase</a> and <a
-                            href="https://vuex.vuejs.org/" class="button-act">Vuex</a>.</p>
+                        read about <a href="https://fullcalendar.io/" class="button-act">FullCalendar</a> and <a
+                            href="https://pinia.vuejs.org/" class="button-act">Pinia</a>.</p>
                     <h4>Technologies used include:</h4>
                     <ul>
-                        <li>VUE2 JS</li>
-                        <li>Vuex</li>
-                        <li>Vuetify</li>
-                        <li>Firebase</li>
+                        <li>Vue 3</li>
+                        <li>Vite</li>
+                        <li>Pinia</li>
+                        <li>FullCalendar</li>
+                        <li>Optional Firebase</li>
                     </ul>
                 </div>
-                <img src="img/project4.png" alt="Calendar project." />
+                <img src="img/project4.png" alt="Personal Calendar application screen." width="670" height="395"
+                    loading="lazy" decoding="async">
             </article>
             <article>
                 <div class="text-box">
@@ -113,20 +130,22 @@
                             href="https://reactjs.org/" class="button-act">React JS</a>.</p>
                     <h4>Technologies used include:</h4>
                     <ul>
-                        <li>REACT JS</li>
-                        <li>Django Rest Framwork</li>
+                        <li>React 19</li>
+                        <li>Vite</li>
+                        <li>Django REST Framework</li>
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>Bootstrap</li>
                     </ul>
                 </div>
-                <img src="img/project0.png" alt="Dua Lipa Shows and Products project." />
+                <img src="img/project0.png" alt="Dua Lipa Shows and Products storefront." width="670" height="395"
+                    loading="lazy" decoding="async">
             </article>
             <article class="reverse">
                 <div class="text-box">
                     <h4>Catalog · 2021</h4>
                     <h3>Gatálogo</h3>
-                    <p class="description-box">This project was made for a tipical catalog, but as you can see, for now
+                    <p class="description-box">This project was made as a playful catalog centered on cats. For now,
                         it is about cats. ¡Try it! To
                         see and test the app you can <a href="https://flipbook-sooty.vercel.app/"
                             class="button-act">Click Here</a>, and for more information about these technologies you can
@@ -142,14 +161,15 @@
                         <li>CSS</li>
                     </ul>
                 </div>
-                <img src="img/project2.png" alt="Gatálogo project." />
+                <img src="img/project2.png" alt="Gatálogo cat catalog screen." width="670" height="395"
+                    loading="lazy" decoding="async">
             </article>
             <article>
                 <div class="text-box">
                     <h4>UML · 2021</h4>
                     <h3>Relationship Diagram Software</h3>
-                    <p class="description-box">This application is only-client based, to solve a specific purpose. In
-                        this project I use some simple and powerfull technologies. ¡Try it! To
+                    <p class="description-box">This client-side application creates relationship diagrams for a
+                        specific workflow, using a focused set of web technologies. Try it! To
                         see and test the app you can <a href="https://connect-nodes.vercel.app/"
                             class="button-act">Click Here</a>, and for more information about these technologies you can
                         read about <a href="https://d3js.org/" class="button-act">D3 JS</a> and <a
@@ -164,7 +184,8 @@
                         <li>CSS</li>
                     </ul>
                 </div>
-                <img src="img/project1.png" alt="Relationship Diagram Software project." />
+                <img src="img/project1.png" alt="Relationship Diagram Software canvas." width="670" height="395"
+                    loading="lazy" decoding="async">
             </article>
             <article class="reverse">
                 <div class="text-box">
@@ -185,7 +206,8 @@
                         <li>CSS</li>
                     </ul>
                 </div>
-                <img src="img/project3.png" alt="Catalina Designs Website project." />
+                <img src="img/project3.png" alt="Catalina Designs architecture website." width="670" height="395"
+                    loading="lazy" decoding="async">
             </article>
         </section>
 
@@ -208,12 +230,14 @@
     </div>
 
     <div class="gradient-mn-rs-bk"></div>
+    </main>
 
     <footer>
         <h2>Eva Vargas &middot; Web Dev</h2>
         <ul>
             <li>
-                <a href="https://www.linkedin.com/in/eva-estrella-vargas-zevallos/" target="_blank">
+                <a href="https://www.linkedin.com/in/eva-estrella-vargas-zevallos/" target="_blank"
+                    rel="noopener noreferrer">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                         class="fa-icon footer-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path fill="currentColor"
@@ -224,7 +248,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://github.com/evavargas" target="_blank">
+                <a href="https://github.com/evavargas" target="_blank" rel="noopener noreferrer">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github-alt"
                         class="fa-icon footer-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512">
                         <path fill="currentColor"
@@ -246,7 +270,7 @@
                 </a>
             </li>
         </ul>
-        <p><small>&copy; 2022 Eva Vargas. All rights reserved.</small></p>
+        <p><small>&copy; 2026 Eva Vargas. All rights reserved.</small></p>
     </footer>
 </body>
 

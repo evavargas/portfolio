@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "title": "Eva Vargas · Software Engineer",
+    "description": "Senior frontend developer specializing in product development and AI-assisted engineering. Selected projects and professional profile.",
+    "aboutTitle": "About · Eva Vargas"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "resumes": "Resumes",
+    "skip": "Skip to main content",
+    "primary": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode",
+    "themeSystem": "Switch to system theme"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Eva Vargas",
+    "role": "Software Engineer — Senior Frontend Developer",
+    "specialty": "Frontend · Product · AI-Assisted Development",
+    "lead": "I build digital products end-to-end: from product discovery and interface design to frontend architecture and production delivery.",
+    "ctaAbout": "Get to know me",
+    "ctaProjects": "See selected work",
+    "ctaContact": "Contact",
+    "ctaResume": "Download resume"
+  },
+  "highlights": {
+    "title": "At a glance",
+    "items": [
+      "Technical direction across product initiatives in fast-moving environments",
+      "Frontend architecture and reusable standards adopted across teams",
+      "AI-assisted workflows that raise engineering productivity"
+    ]
+  },
+  "projects": {
+    "title": "Selected projects",
+    "subtitle": "A few products I'm proud to share — demos you can try today.",
+    "visit": "Open demo",
+    "tech": "Built with",
+    "items": [
+      {
+        "id": "tiendatuya",
+        "eyebrow": "Marketplace · 2026",
+        "title": "TiendaTuya",
+        "description": "Multi-vendor marketplace with white-label storefronts, shared discovery, and per-tenant theming for sellers and buyers.",
+        "tech": ["Next.js 15", "React 19", "TypeScript", "Supabase", "Tailwind", "Stripe"],
+        "href": "https://tiendatuya-4bvr.vercel.app/",
+        "image": "/img/project5.png"
+      },
+      {
+        "id": "calendar",
+        "eyebrow": "Calendar · 2022",
+        "title": "Personal Calendar",
+        "description": "Local-first personal calendar for creating, editing, and organizing events across month, week, and day views.",
+        "tech": ["Vue 3", "Vite", "Pinia", "FullCalendar"],
+        "href": "https://calendar-bay-kappa.vercel.app/",
+        "image": "/img/project4.png"
+      },
+      {
+        "id": "dualipa",
+        "eyebrow": "Events store · 2022",
+        "title": "Dualipa Events",
+        "description": "Team-built events and merchandise experience. The live demo uses an in-browser mock so you can browse shows, manage a cart, and sign in.",
+        "tech": ["React 19", "Vite", "Redux Toolkit", "Bootstrap"],
+        "href": "https://c3-g45.vercel.app/",
+        "image": "/img/project0.png"
+      },
+      {
+        "id": "flipbook",
+        "eyebrow": "Catalog · 2021",
+        "title": "Gatálogo",
+        "description": "Interactive digital catalog with a page-turning reader — cover animation, thumbnails, zoom, and fullscreen browsing.",
+        "tech": ["Vue 2", "CoffeeScript", "Turn.js"],
+        "href": "https://flipbook-sooty.vercel.app/",
+        "image": "/img/project2.png"
+      },
+      {
+        "id": "connect",
+        "eyebrow": "Diagrams · 2021",
+        "title": "Connect Nodes",
+        "description": "Client-side relationship diagram editor: create nodes, link them, pan and zoom, then export or import JSON.",
+        "tech": ["Vue 3", "D3.js", "SVG"],
+        "href": "https://connect-nodes.vercel.app/",
+        "image": "/img/project1.png"
+      },
+      {
+        "id": "catalina",
+        "eyebrow": "Studio site · 2022",
+        "title": "Catalina Design",
+        "description": "Architecture studio website focused on image-led galleries, services, and an accessible project viewer.",
+        "tech": ["HTML", "CSS", "JavaScript"],
+        "href": "https://catalina-design.vercel.app/",
+        "image": "/img/project3.png"
+      }
+    ]
+  },
+  "bridge": {
+    "title": "Want the full story?",
+    "body": "Experience highlights, skills, and how I work live on the About page — built to be easy to reach from anywhere on the site.",
+    "cta": "Go to About"
+  },
+  "contact": {
+    "title": "Let's talk",
+    "body": "Get in touch — I'd love to hear from you.",
+    "formTitle": "Send a message",
+    "formIntro": "Subject and message are enough. Your email is optional if you'd like a reply.",
+    "channelsTitle": "Other ways",
+    "channelsBody": "Prefer chat or professional networking? Use WhatsApp or LinkedIn. The QR saves my contact card on your phone.",
+    "whatsapp": "WhatsApp",
+    "qrTitle": "Save my contact",
+    "qrBody": "Scan to add a vCard with phone, email, and links.",
+    "qrAlt": "QR code that saves Eva Vargas as a phone contact",
+    "qrUnavailable": "Contact QR will appear once phone or email env vars are configured.",
+    "form": {
+      "subject": "Subject",
+      "email": "Your email",
+      "optional": "optional",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Message sent. Thanks for reaching out.",
+      "errors": {
+        "invalid": "Please check the form and try again.",
+        "captcha": "Captcha verification failed. Please retry.",
+        "not_configured": "Messaging is not configured on this deployment yet.",
+        "send_failed": "Could not send the message. Please try again later."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Product-minded frontend engineering",
+    "profileTitle": "Profile",
+    "profile": "Software engineer with a strong frontend background and experience shipping digital products end-to-end. My work spans requirements, product design, frontend architecture, backend collaboration, automation, and production delivery — combining engineering craft with product thinking and AI-assisted development.",
+    "achievementsTitle": "Highlights",
+    "achievements": [
+      "Led technical direction for multiple product initiatives in rapidly changing environments",
+      "Defined frontend architecture and reusable standards adopted across projects",
+      "Designed end-to-end solutions from discovery and UX/UI to production",
+      "Acted as the technical reference for complex frontend and architecture decisions",
+      "Introduced AI-assisted development workflows that improved team productivity",
+      "Streamlined delivery with CI/CD improvements and automation"
+    ],
+    "experienceTitle": "Experience",
+    "experienceNote": "Summaries only — full detail is in the downloadable resumes.",
+    "jobs": [
+      {
+        "role": "Senior Frontend Developer / Frontend Lead",
+        "company": "ICASH.ONE · Montevideo, Uruguay",
+        "dates": "2024-07 — Present",
+        "summary": "Lead technical implementation across the product lifecycle: discovery, frontend architecture, backend services, data design, automation, and production delivery.",
+        "stack": ["TypeScript", "React", "Redux", "Tailwind", "Zustand", "Radix", "shadcn", "Nx"]
+      },
+      {
+        "role": "Frontend Software Engineer",
+        "company": "IUGO Software & Design Studio · Montevideo, Uruguay",
+        "dates": "2022-03 — 2024-07",
+        "summary": "Built enterprise web apps for international clients through staff augmentation, partnering with multidisciplinary teams on scalable, user-focused solutions.",
+        "stack": ["TypeScript", "React", "Next.js", "Vue", "Nuxt", "Tailwind", "Material UI"]
+      },
+      {
+        "role": "Cloud Analyst Developer",
+        "company": "Replica · Lima, Peru",
+        "dates": "2020-05 — 2021-09",
+        "summary": "Delivered web and cloud platforms across frontend, infrastructure touchpoints, data, and deployment.",
+        "stack": ["Vue", "Nuxt", "React", "JavaScript", "Material UI", "MJML"]
+      },
+      {
+        "role": "Freelance Frontend Developer",
+        "company": "Independent",
+        "dates": "2019-01 — 2020-05",
+        "summary": "Designed and shipped custom digital solutions from requirements and interface design through implementation and launch.",
+        "stack": ["JavaScript", "React", "HTML", "CSS", "Bootstrap", "D3"]
+      }
+    ],
+    "skillsTitle": "Skills",
+    "skills": [
+      "AI-Assisted Development",
+      "Claude",
+      "Cursor",
+      "Product Development",
+      "UX/UI Design",
+      "Design Systems",
+      "Figma",
+      "Module Federation",
+      "Responsive Design",
+      "Performance & UX Tracking",
+      "n8n",
+      "GitHub Workflows",
+      "Client-side Rendering"
+    ],
+    "educationTitle": "Education",
+    "education": {
+      "degree": "Information Systems Engineering",
+      "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
+      "dates": "2015-03 — 2019",
+      "note": "Not completed",
+      "languages": "English — Intermediate"
+    },
+    "ctaProjects": "Browse projects",
+    "ctaResume": "Download a resume"
+  },
+  "resumes": {
+    "title": "Resume gallery",
+    "subtitle": "Choose a format. Click a card to download — you'll get a confirmation with a backup link if the browser blocks the file.",
+    "available": "Ready",
+    "comingSoon": "Coming soon",
+    "download": "Download",
+    "items": {
+      "en": {
+        "title": "English",
+        "description": "Designed resume for hiring managers and portfolio readers."
+      },
+      "es": {
+        "title": "Spanish",
+        "description": "Same content, Spanish language version."
+      },
+      "ats": {
+        "title": "ATS-friendly",
+        "description": "Plain, parser-friendly layout for applicant tracking systems."
+      }
+    },
+    "dialog": {
+      "successTitle": "Download started",
+      "successBody": "If nothing appeared, use the backup link below.",
+      "errorTitle": "Download unavailable",
+      "errorBody": "This file is not in the repository yet, or the browser blocked the download. Use the link when available, or try again later.",
+      "backupLink": "Open / download file",
+      "close": "Close",
+      "retry": "Try again"
+    }
+  },
+  "footer": {
+    "tagline": "Eva Vargas · Software Engineer",
+    "about": "About me",
+    "projects": "Projects",
+    "resumes": "Resumes",
+    "contact": "Contact",
+    "rights": "© {year} Eva Vargas. All rights reserved."
+  }
+}

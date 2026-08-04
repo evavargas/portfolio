@@ -46,6 +46,7 @@
 
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -78,13 +79,26 @@ a:hover {
     text-decoration: none;
 }
 
-article a {
-    color: var(--mainyellow);
+a:focus-visible,
+button:focus-visible {
+    outline       : 3px solid var(--mainyellow);
+    outline-offset: 4px;
 }
 
-article a:hover {
-    color          : var(--mainwhite);
-    text-decoration: none;
+.skip-link {
+    position        : fixed;
+    top             : 0.75rem;
+    left            : 0.75rem;
+    z-index         : 10;
+    padding         : 0.65rem 1rem;
+    border-radius   : 5px;
+    color           : var(--mainblack);
+    background-color: var(--mainwhite);
+    transform       : translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
 }
 
 img {
@@ -111,14 +125,14 @@ img {
 
 .greeting span {
     font-family: var(--mainpoppins);
-    font-size  : 4rem;
+    font-size  : clamp(2.5rem, 10vw, 4rem);
     color      : var(--mainorange);
     display    : block;
     font-weight: 300;
 }
 
 #presentation h2 {
-    font-size  : 4rem;
+    font-size  : clamp(2.25rem, 9vw, 4rem);
     font-weight: normal;
 
 }
@@ -148,9 +162,20 @@ img {
     padding         : 1rem;
     border-radius   : 10px;
     background-color: var(--mainrose);
-    color           : var(--mainwhite);
+    color           : var(--mainblack);
     font-size       : 1rem;
-    line-height     : 2.5;
+    line-height     : 1.8;
+}
+
+.description-box a {
+    color           : var(--mainblack);
+    font-weight     : 600;
+    text-decoration : underline;
+    text-underline-offset: 0.2em;
+}
+
+.description-box a:hover {
+    color: var(--mainblack);
 }
 
 #projects ul {
@@ -178,7 +203,7 @@ img {
 
 
 #contact {
-    width     : 400px;
+    width     : min(400px, calc(100% - 2rem));
     text-align: center;
     margin    : 0 auto;
     padding   : 3rem 0;
@@ -194,6 +219,7 @@ img {
 nav {
     font-family: var(--mainpoppins);
     font-size  : 80%;
+    padding    : 1rem;
 }
 
 nav h1 a {
@@ -226,7 +252,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--mainorange);
+    color: var(--mainyellow);
 }
 
 nav [class*="fa-"] {
@@ -294,20 +320,21 @@ footer .footer-icon {
 }
 
 .button {
-    background-color: var(--mainorange);
+    color           : var(--mainblack);
+    background-color: var(--mainyellow);
     padding         : 0.5rem;
     border-radius   : 5px;
 
 }
 
 .button:hover {
-    color           : var(--mainwhite);
-    background-color: var(--mainrose);
+    color           : var(--mainblack);
+    background-color: var(--mainwhite);
 }
 
 .button-act {
     color           : var(--mainwhite);
-    background-color: var(--mainorange);
+    background-color: var(--mainblack);
     padding         : 0.5rem;
     border-radius   : 5px;
     text-decoration : none;
@@ -316,8 +343,23 @@ footer .footer-icon {
 }
 
 .button-act:hover {
-    color           : var(--mainrose);
-    background-color: var(--mainblack);
+    color           : var(--mainblack);
+    background-color: var(--mainwhite);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior : auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration : 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
 @media (min-width: 800px) {
