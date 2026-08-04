@@ -1,3 +1,3 @@
-Place the Spanish resume PDF here as: eva-vargas-es.pdf
-Place the ATS-friendly resume PDF here as: eva-vargas-ats.pdf
-English resume is available as: eva-vargas-en.pdf
+English resume: eva-vargas-en.pdf
+Spanish resume: eva-vargas-es.pdf
+ATS-friendly resume: place as eva-vargas-ats.pdf when ready

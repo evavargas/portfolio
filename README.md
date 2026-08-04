@@ -76,7 +76,7 @@ Files live in `public/resume/`:
 | File | Status |
 |------|--------|
 | `eva-vargas-en.pdf` | Available |
-| `eva-vargas-es.pdf` | Add when ready (placeholder present) |
+| `eva-vargas-es.pdf` | Available |
 | `eva-vargas-ats.pdf` | Add when ready (placeholder present) |
 
 After adding a PDF, set `available: true` for that entry in `lib/site.ts`.

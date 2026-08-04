@@ -20,7 +20,7 @@ export const resumes: Record<
   es: {
     fileName: "eva-vargas-es.pdf",
     href: "/resume/eva-vargas-es.pdf",
-    available: false,
+    available: true,
   },
   ats: {
     fileName: "eva-vargas-ats.pdf",
