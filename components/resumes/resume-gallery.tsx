@@ -7,7 +7,7 @@ import { probeResumeFile, triggerBrowserDownload } from "@/lib/resume-download";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Reveal } from "@/components/ui/reveal";
+import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 type DialogState =

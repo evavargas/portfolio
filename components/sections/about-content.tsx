@@ -1,12 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/ui/reveal";
-import { SectionTitle } from "@/components/ui/section-heading";
+import { AboutIntro } from "@/components/about/about-intro";
+import { EducationCard } from "@/components/about/education-card";
+import { JobCard } from "@/components/about/job-card";
+import { SkillGroupCard } from "@/components/about/skill-group-card";
+import { Reveal } from "@/components/motion/reveal";
+import { StaggerList } from "@/components/motion/stagger-list";
 import { ResumeGallery } from "@/components/resumes/resume-gallery";
+import { ButtonGroup, type ButtonAction } from "@/components/ui/button-group";
+import { Container } from "@/components/ui/container";
+import { ParagraphList } from "@/components/ui/prose";
+import { SectionTitle } from "@/components/ui/section-heading";
+import { TextLink } from "@/components/ui/text-link";
 import { asAboutJobs, asSkillGroups, asStringArray } from "@/lib/messages";
+import { site } from "@/lib/site";
 
 export async function AboutPageContent() {
   const t = await getTranslations("about");
@@ -17,8 +23,13 @@ export async function AboutPageContent() {
   const jobs = asAboutJobs(t.raw("jobs"));
   const skillGroups = asSkillGroups(t.raw("skillGroups"));
 
+  const actions: ButtonAction[] = [
+    { key: "projects", label: t("ctaProjects"), href: `/${locale}#projects` },
+    { key: "resume", label: t("ctaResume"), href: "#about-resumes", variant: "secondary" },
+  ];
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-20">
+    <Container className="py-14 md:py-20">
       <Reveal>
         <SectionTitle>{t("eyebrow")}</SectionTitle>
         <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight md:text-5xl">
@@ -27,43 +38,14 @@ export async function AboutPageContent() {
       </Reveal>
 
       <Reveal delayMs={80}>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button href={`/${locale}#projects`}>{t("ctaProjects")}</Button>
-          <Button href="#about-resumes" variant="secondary">
-            {t("ctaResume")}
-          </Button>
-          <Link
-            href={`/${locale}`}
-            className="inline-flex items-center text-sm font-semibold text-[var(--accent-blue)] underline-offset-4 hover:underline"
-          >
-            ← {nav("home")}
-          </Link>
-        </div>
+        <ButtonGroup
+          actions={actions}
+          className="mt-8"
+          trailing={<TextLink href={`/${locale}`}>← {nav("home")}</TextLink>}
+        />
       </Reveal>
 
-      <section className="mt-16 grid items-stretch gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <Reveal className="h-full">
-          <div className="h-full rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
-            <div className="space-y-5 text-lg leading-relaxed text-[var(--muted)]">
-              {intro.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delayMs={90} className="h-full min-h-[20rem]">
-          <div className="relative h-full min-h-[20rem] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)]">
-            <Image
-              src="/img/profile.png"
-              alt="Eva Vargas"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-top"
-            />
-          </div>
-        </Reveal>
-      </section>
+      <AboutIntro paragraphs={intro} imageAlt={site.name} />
 
       <section className="mt-16" aria-labelledby="about-experience">
         <Reveal>
@@ -71,47 +53,16 @@ export async function AboutPageContent() {
           <h2 id="about-experience" className="sr-only">
             {t("experienceTitle")}
           </h2>
-          <div className="mt-5 max-w-3xl space-y-4 text-lg leading-relaxed text-[var(--muted)]">
-            {experienceIntro.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
+          <ParagraphList items={experienceIntro} className="mt-5 max-w-3xl" />
           <p className="mt-4 text-sm text-[var(--muted)]">{t("experienceNote")}</p>
         </Reveal>
-        <ol className="mt-8 grid gap-5">
-          {jobs.map((job, index) => (
-            <li key={job.role + job.dates}>
-              <Reveal delayMs={index * 70}>
-                <div className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-xl font-semibold md:text-2xl">{job.role}</h3>
-                    <p className="text-sm font-semibold text-[var(--muted)]">{job.dates}</p>
-                  </div>
-                  {job.companyUrl ? (
-                    <a
-                      href={job.companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 inline-flex text-sm font-medium text-[var(--accent-blue)] underline-offset-4 hover:underline"
-                    >
-                      {job.company}
-                    </a>
-                  ) : (
-                    <p className="mt-1 text-sm font-medium text-[var(--accent-blue)]">{job.company}</p>
-                  )}
-                  <p className="mt-4 text-[var(--muted)]">{job.summary}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {job.stack.map((tech) => (
-                      <li key={tech}>
-                        <Badge tone={index % 2 === 0 ? "pink" : "blue"}>{tech}</Badge>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+        <StaggerList
+          items={jobs}
+          getKey={(job) => job.role + job.dates}
+          as="ol"
+          className="mt-8 grid gap-5"
+          renderItem={(job, index) => <JobCard job={job} index={index} />}
+        />
       </section>
 
       <section className="mt-16" aria-labelledby="about-skills">
@@ -121,39 +72,32 @@ export async function AboutPageContent() {
             {t("skillsTitle")}
           </h2>
         </Reveal>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {skillGroups.map((group, index) => (
-            <Reveal key={group.title} delayMs={index * 70}>
-              <div className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--surface)] p-5 md:p-6">
-                <h3 className="text-lg font-semibold">{group.title}</h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((skill) => (
-                    <li key={skill}>
-                      <Badge>{skill}</Badge>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <StaggerList
+          items={skillGroups}
+          getKey={(group) => group.title}
+          as="div"
+          itemAs="div"
+          className="mt-8 grid gap-6 md:grid-cols-2"
+          renderItem={(group) => <SkillGroupCard group={group} />}
+        />
       </section>
 
       <Reveal>
-        <section className="mt-16 rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-6 md:p-8">
-          <SectionTitle>{t("educationTitle")}</SectionTitle>
-          <h2 className="mt-4 text-2xl font-semibold">{t("education.degree")}</h2>
-          <p className="mt-2 text-[var(--muted)]">{t("education.school")}</p>
-          <p className="mt-1 text-sm font-semibold text-[var(--muted)]">
-            {t("education.dates")} · {t("education.note")}
-          </p>
-          <p className="mt-4 text-[var(--muted)]">{t("education.languages")}</p>
-        </section>
+        <div className="mt-16">
+          <EducationCard
+            eyebrow={t("educationTitle")}
+            degree={t("education.degree")}
+            school={t("education.school")}
+            dates={t("education.dates")}
+            note={t("education.note")}
+            languages={t("education.languages")}
+          />
+        </div>
       </Reveal>
 
       <div id="about-resumes" className="mt-20 scroll-mt-28">
         <ResumeGallery id="about-resumes-gallery" />
       </div>
-    </div>
+    </Container>
   );
 }

@@ -22,7 +22,7 @@ Live: [evavargasportfolio.vercel.app](https://evavargasportfolio.vercel.app)
 
 | Path | Purpose |
 |------|---------|
-| `/en`, `/es`, `/fr` | Home — hero, how I work, resumes, contact, projects |
+| `/en`, `/es`, `/fr` | Home — hero, how I work, resumes, projects, contact |
 | `/[locale]/about` | Profile narrative, experience, tools, education |
 | `/api/whatsapp` | Server redirect to WhatsApp (phone from env) |
 | `/resume/*.pdf` | Local resume files |

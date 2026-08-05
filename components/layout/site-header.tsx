@@ -6,12 +6,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { Container } from "@/components/ui/container";
+import { IconButton } from "@/components/ui/icon-button";
+import { MenuIcon } from "@/components/ui/icons";
+import { getHomeNavLinks, getSocialLinks, type SiteLink } from "@/lib/site-links";
 import { site } from "@/lib/site";
 
 type SectionId = "resumes" | "contact" | "projects";
 
-/** Home scroll order: resumes → contact → projects. About is a separate page (last). */
-const HOME_SECTIONS: SectionId[] = ["resumes", "contact", "projects"];
+/** Home scroll order: resumes → projects → contact. About is a separate page (last). */
+const HOME_SECTIONS: SectionId[] = ["resumes", "projects", "contact"];
 
 function readActiveSection(): SectionId | null {
   const marker = window.scrollY + Math.min(window.innerHeight * 0.28, 220);
@@ -28,6 +32,16 @@ function readActiveSection(): SectionId | null {
   return current;
 }
 
+function navLinkClass(active: boolean) {
+  return `nav-link text-sm font-medium ${
+    active ? "nav-link-active text-[var(--ink)]" : "text-[var(--muted)] hover:text-[var(--ink)]"
+  }`;
+}
+
+function mobileLinkClass(active: boolean) {
+  return `block rounded-xl px-2 py-2 text-base font-medium${active ? " text-[var(--ink)]" : ""}`;
+}
+
 export function SiteHeader() {
   const t = useTranslations("nav");
   const locale = useLocale();
@@ -38,12 +52,11 @@ export function SiteHeader() {
   const onAbout = pathname === `${home}/about` || pathname.startsWith(`${home}/about/`);
   const onHome = pathname === home || pathname === `${home}/`;
 
-  const links = [
-    { href: `${home}#resumes`, label: t("resumes"), section: "resumes" as const },
-    { href: `${home}#contact`, label: t("contact"), section: "contact" as const },
-    { href: `${home}#projects`, label: t("projects"), section: "projects" as const },
-    { href: `${home}/about`, label: t("about"), about: true },
-  ];
+  const pageLinks = getHomeNavLinks(home).map((link) => ({
+    ...link,
+    label: link.labelKey ? t(link.labelKey) : (link.label ?? ""),
+  }));
+  const socialLinks = getSocialLinks();
 
   useEffect(() => {
     if (!onHome) return;
@@ -71,17 +84,12 @@ export function SiteHeader() {
 
   const effectiveSection = onHome ? activeSection : null;
 
-  const linkClass = (active: boolean) =>
-    `nav-link text-sm font-medium ${
-      active ? "nav-link-active text-[var(--ink)]" : "text-[var(--muted)] hover:text-[var(--ink)]"
-    }`;
-
-  const mobileLinkClass = (active: boolean) =>
-    `block rounded-xl px-2 py-2 text-base font-medium${active ? " text-[var(--ink)]" : ""}`;
+  const isActive = (link: SiteLink) =>
+    link.about ? onAbout : link.section !== undefined && link.section === effectiveSection;
 
   return (
     <header className="site-header sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--canvas)_86%,transparent)] backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
+      <Container className="flex items-center justify-between gap-4 py-3">
         <Link href={home} className="font-display text-lg font-semibold tracking-tight">
           <span aria-hidden="true" className="mr-2 inline-block text-[var(--accent-pink)]">
             {"</>"}
@@ -90,35 +98,30 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-5 md:flex" aria-label={t("primary")}>
-          {links.map((link) => {
-            const active = link.about ? onAbout : link.section === effectiveSection;
+          {pageLinks.map((link) => {
+            const active = isActive(link);
             return (
               <Link
-                key={link.href}
+                key={link.key}
                 href={link.href}
-                className={linkClass(active)}
+                className={navLinkClass(active)}
                 aria-current={active ? "true" : undefined}
               >
                 {link.label}
               </Link>
             );
           })}
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={site.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
-          >
-            GitHub
-          </a>
+          {socialLinks.map((link) => (
+            <a
+              key={link.key}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link text-sm font-medium text-[var(--muted)] hover:text-[var(--ink)]"
+            >
+              {link.label}
+            </a>
+          ))}
           <LocaleSwitcher label={t("language")} />
           <ThemeToggle
             lightLabel={t("themeLight")}
@@ -134,36 +137,16 @@ export function SiteHeader() {
             darkLabel={t("themeDark")}
             systemLabel={t("themeSystem")}
           />
-          <button
-            type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--ink)]"
+          <IconButton
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("closeMenu") : t("openMenu")}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M6 6l12 12M18 6L6 18"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M4 7h16M4 12h16M4 17h16"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            )}
-          </button>
+            <MenuIcon open={open} />
+          </IconButton>
         </div>
-      </div>
+      </Container>
 
       {open ? (
         <nav
@@ -172,10 +155,26 @@ export function SiteHeader() {
           aria-label={t("primary")}
         >
           <ul className="flex flex-col gap-3">
-            {links.map((link) => {
-              const active = link.about ? onAbout : link.section === effectiveSection;
+            {[...pageLinks, ...socialLinks].map((link) => {
+              const active = isActive(link);
+              if (link.external) {
+                return (
+                  <li key={link.key}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-2 py-2"
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              }
+
               return (
-                <li key={link.href}>
+                <li key={link.key}>
                   <Link
                     href={link.href}
                     className={mobileLinkClass(active)}
@@ -187,16 +186,6 @@ export function SiteHeader() {
                 </li>
               );
             })}
-            <li>
-              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="block px-2 py-2">
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href={site.github} target="_blank" rel="noopener noreferrer" className="block px-2 py-2">
-                GitHub
-              </a>
-            </li>
           </ul>
         </nav>
       ) : null}

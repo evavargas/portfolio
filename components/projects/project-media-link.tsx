@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
+import { ExternalIcon } from "@/components/ui/icons";
 
 type ProjectMediaLinkProps = {
   href: string;
@@ -26,23 +26,9 @@ export function ProjectMediaLink({ href, image, title, cta }: ProjectMediaLinkPr
       />
       <span className="project-media-overlay" aria-hidden="true" />
       <span className="project-media-cta">
-        <CtaIcon />
+        <ExternalIcon />
         {cta}
       </span>
     </a>
-  );
-}
-
-function CtaIcon(): ReactNode {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M7 17L17 7M17 7H9M17 7v8"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

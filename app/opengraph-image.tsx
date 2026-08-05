@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { brandColors } from "@/lib/brand-colors";
 
 export const runtime = "edge";
 export const alt = "Eva Vargas — Software Engineer";
@@ -16,8 +17,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "linear-gradient(145deg, #f6f1f4 0%, #e8f0f8 48%, #f3d5db 100%)",
-          color: "#2a2433",
+          background: `linear-gradient(145deg, ${brandColors.canvas} 0%, ${brandColors.heroGlow} 48%, ${brandColors.accentPinkSoft} 100%)`,
+          color: brandColors.ink,
           fontFamily: "ui-sans-serif, system-ui, sans-serif",
         }}
       >
@@ -28,10 +29,10 @@ export default function OpenGraphImage() {
             gap: "12px",
             fontSize: 28,
             fontWeight: 600,
-            color: "#6a6275",
+            color: brandColors.muted,
           }}
         >
-          <span style={{ color: "#c97884" }}>{"</>"}</span>
+          <span style={{ color: brandColors.accentPink }}>{"</>"}</span>
           Portfolio
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
@@ -41,7 +42,7 @@ export default function OpenGraphImage() {
           <div style={{ fontSize: 34, fontWeight: 600, letterSpacing: "-0.02em", maxWidth: 900 }}>
             I enjoy turning ideas into products.
           </div>
-          <div style={{ fontSize: 24, color: "#5f87a8", maxWidth: 880 }}>
+          <div style={{ fontSize: 24, color: brandColors.accentBlue, maxWidth: 880 }}>
             Software Engineer · Frontend · Product · AI-Assisted Development
           </div>
         </div>

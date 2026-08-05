@@ -26,13 +26,9 @@
     "idea": "I enjoy turning ideas into products.",
     "role": "Software Engineer specialized in Frontend Engineering, Product Development, and AI-Assisted Software Development.",
     "paragraphs": [
-      "I build digital products that connect technology, design, and business.",
-      "My background is in Frontend Engineering, but over the years my work has naturally expanded into product design, software architecture, automation, and AI-assisted development.",
-      "I enjoy understanding problems before building solutions, collaborating with multidisciplinary teams, and creating software that makes a real impact."
+      "I build digital products that connect technology, design, and business — understanding problems before shipping solutions that people actually use."
     ],
     "ctaProjects": "Explore my work",
-    "ctaAbout": "About Me",
-    "ctaResume": "Download resume",
     "ctaContact": "Say hello"
   },
   "highlights": {
@@ -40,7 +36,7 @@
     "title": "How I work",
     "items": [
       "I start by understanding the problem — business, users, and constraints — before jumping into code.",
-      "Frontend is my home base, but I happily cross into product design, architecture, and automation when the product needs it.",
+      "Frontend is my home base, but I happily cross into product design, architecture, automation, and AI-assisted development when the product needs it.",
       "I use AI as a working companion: to think faster, explore options, and ship better software."
     ]
   },
@@ -48,8 +44,8 @@
     "eyebrow": "Projects",
     "title": "Things I've built",
     "subtitle": "A few products where you can see how I think, design, and ship.",
-    "visit": "Explore",
-    "repo": "View code",
+    "visit": "Live",
+    "repo": "GitHub",
     "tech": "Built with",
     "items": [
       {
@@ -170,8 +166,8 @@
         "role": "Senior Frontend Developer / Frontend Lead",
         "company": "ICASH.ONE · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
-        "dates": "2024-07 — Present",
-        "summary": "I lead technical work across the product lifecycle — from discovery and UX decisions to frontend architecture, backend collaboration, automation, and shipping to production.",
+        "dates": "2024-07 — 2026-07",
+        "summary": "I led technical work across the product lifecycle — from discovery and UX decisions to frontend architecture, backend collaboration, automation, and shipping to production.",
         "stack": ["TypeScript", "React", "Redux", "Tailwind", "Zustand", "Radix", "shadcn", "Nx"]
       },
       {

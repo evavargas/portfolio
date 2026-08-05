@@ -1,0 +1,97 @@
+/*
+  Design tokens — single source of truth for visual language.
+  Consume via CSS vars (var(--ink)) or Tailwind theme (bg-surface, text-ink, rounded-ds-md).
+  Component skins live in app/globals.css; domain content composes components/ui/*.
+*/
+
+@theme inline {
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-pink-soft: var(--accent-pink-soft);
+  --color-accent-blue-soft: var(--accent-blue-soft);
+  --color-hero-glow: var(--hero-glow);
+  --color-focus: var(--focus);
+
+  --radius-ds-sm: var(--radius-sm);
+  --radius-ds-md: var(--radius-md);
+  --radius-ds-lg: var(--radius-lg);
+  --radius-ds-xl: var(--radius-xl);
+  --radius-ds-pill: var(--radius-pill);
+
+  --ease-ds-out: var(--ease-out);
+  --shadow-ds-soft: var(--shadow-soft);
+  --shadow-ds-lift: var(--shadow-lift);
+  --container-ds: var(--container-max);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Color */
+  --canvas: #f6f1f4;
+  --surface: #fffbfe;
+  --ink: #2a2433;
+  --muted: #6a6275;
+  --line: #e5dbe3;
+  --accent-pink: #c97884;
+  --accent-blue: #5f87a8;
+  --accent-pink-soft: #f3d5db;
+  --accent-blue-soft: #d5e5f2;
+  --hero-glow: #e8f0f8;
+  --focus: #5f87a8;
+
+  /* Radius */
+  --radius-sm: 0.65rem;
+  --radius-md: 1.35rem;
+  --radius-lg: 1.75rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999px;
+  --radius-media: 1rem;
+  --radius-media-md: 1.15rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 180ms;
+  --duration-base: 220ms;
+  --duration-slow: 560ms;
+
+  /* Elevation */
+  --shadow-soft: 0 12px 28px color-mix(in srgb, var(--ink) 8%, transparent);
+  --shadow-lift: 0 14px 32px color-mix(in srgb, var(--ink) 10%, transparent);
+  --shadow-header: 0 10px 30px color-mix(in srgb, var(--ink) 8%, transparent);
+  --shadow-skip: 0 8px 24px color-mix(in srgb, var(--ink) 12%, transparent);
+  --overlay-scrim: color-mix(in srgb, var(--ink) 45%, transparent);
+
+  /* Layout */
+  --container-max: 72rem;
+  --page-gutter: 1rem;
+  --page-gutter-md: 1.5rem;
+
+  /* Type rhythm */
+  --tracking-eyebrow: 0.08em;
+  --tracking-eyebrow-lg: 0.14em;
+  --tracking-eyebrow-xl: 0.18em;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #17141f;
+  --surface: #211c2b;
+  --ink: #f4eef5;
+  --muted: #b7aebf;
+  --line: #3a3345;
+  --accent-pink: #e4a0aa;
+  --accent-blue: #8fb4d2;
+  --accent-pink-soft: #4a3340;
+  --accent-blue-soft: #2f4052;
+  --hero-glow: #243241;
+  --focus: #8fb4d2;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type CSSProperties, type MouseEvent, type ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 type SpotlightCardProps = {
   children: ReactNode;
@@ -33,7 +34,7 @@ export function SpotlightCard({ children, className = "" }: SpotlightCardProps) 
   return (
     <div
       ref={ref}
-      className={`spotlight-card ${className}`}
+      className={cn("spotlight-card", className)}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ "--spot-x": "50%", "--spot-y": "40%" } as CSSProperties}

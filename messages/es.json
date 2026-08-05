@@ -26,13 +26,9 @@
     "idea": "Me gusta convertir ideas en productos.",
     "role": "Ingeniera de software especializada en Frontend, Producto y desarrollo asistido por IA.",
     "paragraphs": [
-      "Construyo productos digitales que conectan tecnología, diseño y negocio.",
-      "Mi base es el Frontend, pero con el tiempo el trabajo se expandió de forma natural hacia diseño de producto, arquitectura, automatización y desarrollo asistido por IA.",
-      "Disfruto entender el problema antes de construir la solución, colaborar con equipos multidisciplinarios y crear software que genere un impacto real."
+      "Construyo productos digitales que conectan tecnología, diseño y negocio — entendiendo el problema antes de entregar soluciones que la gente realmente usa."
     ],
     "ctaProjects": "Explorar mi trabajo",
-    "ctaAbout": "Sobre mí",
-    "ctaResume": "Descargar CV",
     "ctaContact": "Decime hola"
   },
   "highlights": {
@@ -40,7 +36,7 @@
     "title": "Cómo trabajo",
     "items": [
       "Empiezo por entender el problema — negocio, usuarios y restricciones — antes de meterme en el código.",
-      "El frontend es mi casa, pero cruzo a diseño de producto, arquitectura y automatización cuando el producto lo pide.",
+      "El frontend es mi casa, pero cruzo a diseño de producto, arquitectura, automatización y desarrollo asistido por IA cuando el producto lo pide.",
       "Uso la IA como compañera de trabajo: para pensar más rápido, explorar opciones y entregar mejor software."
     ]
   },
@@ -48,8 +44,8 @@
     "eyebrow": "Proyectos",
     "title": "Cosas que construí",
     "subtitle": "Algunos productos donde se ve cómo pienso, diseño y entrego.",
-    "visit": "Explorar",
-    "repo": "Ver código",
+    "visit": "Live",
+    "repo": "GitHub",
     "tech": "Hecho con",
     "items": [
       {
@@ -199,8 +195,8 @@
         "role": "Senior Frontend Developer / Frontend Lead",
         "company": "ICASH.ONE · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
-        "dates": "2024-07 — Presente",
-        "summary": "Lidero el trabajo técnico en todo el ciclo de producto: desde discovery y decisiones de UX hasta arquitectura frontend, colaboración backend, automatización y salida a producción.",
+        "dates": "2024-07 — 2026-07",
+        "summary": "Lideré el trabajo técnico en todo el ciclo de producto: desde discovery y decisiones de UX hasta arquitectura frontend, colaboración backend, automatización y salida a producción.",
         "stack": [
           "TypeScript",
           "React",

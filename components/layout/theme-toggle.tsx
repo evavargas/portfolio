@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "@/components/providers/theme-provider";
+import { IconButton } from "@/components/ui/icon-button";
 import { useSyncExternalStore } from "react";
 import type { ThemeMode } from "@/lib/theme";
 
@@ -37,9 +38,8 @@ export function ThemeToggle({
     next === "light" ? lightLabel : next === "dark" ? darkLabel : systemLabel;
 
   return (
-    <button
-      type="button"
-      className="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--surface)]"
+    <IconButton
+      className="theme-toggle"
       onClick={() => setTheme(next)}
       aria-label={label}
       title={label}
@@ -58,6 +58,6 @@ export function ThemeToggle({
           <path d="M8 20h8M12 18v2" />
         </svg>
       </span>
-    </button>
+    </IconButton>
   );
 }

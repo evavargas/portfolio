@@ -26,13 +26,9 @@
     "idea": "J'aime transformer des idées en produits.",
     "role": "Ingénieure logicielle spécialisée en Frontend, Produit et développement assisté par l'IA.",
     "paragraphs": [
-      "Je construis des produits numériques qui relient technologie, design et business.",
-      "Mon ancrage est le Frontend, mais au fil des années mon travail s'est naturellement élargi au design produit, à l'architecture, à l'automatisation et au développement assisté par l'IA.",
-      "J'aime comprendre les problèmes avant de construire des solutions, collaborer avec des équipes pluridisciplinaires et créer des logiciels qui ont un vrai impact."
+      "Je construis des produits numériques qui relient technologie, design et business — en comprenant le problème avant de livrer des solutions que les gens utilisent vraiment."
     ],
     "ctaProjects": "Explorer mon travail",
-    "ctaAbout": "À propos",
-    "ctaResume": "Télécharger le CV",
     "ctaContact": "Discutons"
   },
   "highlights": {
@@ -40,7 +36,7 @@
     "title": "Ma façon de travailler",
     "items": [
       "Je commence par comprendre le problème — business, utilisateurs et contraintes — avant de plonger dans le code.",
-      "Le frontend est mon terrain de jeu, mais je traverse volontiers le design produit, l'architecture et l'automatisation quand le produit l'exige.",
+      "Le frontend est mon terrain de jeu, mais je traverse volontiers le design produit, l'architecture, l'automatisation et le développement assisté par l'IA quand le produit l'exige.",
       "J'utilise l'IA comme partenaire de travail : pour penser plus vite, explorer des options et livrer un meilleur logiciel."
     ]
   },
@@ -48,8 +44,8 @@
     "eyebrow": "Projets",
     "title": "Des choses que j'ai construites",
     "subtitle": "Quelques produits où l'on voit comment je pense, conçois et livre.",
-    "visit": "Explorer",
-    "repo": "Voir le code",
+    "visit": "Live",
+    "repo": "GitHub",
     "tech": "Réalisé avec",
     "items": [
       {
@@ -199,8 +195,8 @@
         "role": "Senior Frontend Developer / Frontend Lead",
         "company": "ICASH.ONE · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
-        "dates": "2024-07 — Présent",
-        "summary": "Je mène le travail technique sur tout le cycle produit — de la découverte et des décisions UX à l'architecture frontend, la collaboration backend, l'automatisation et la mise en production.",
+        "dates": "2024-07 — 2026-07",
+        "summary": "J'ai mené le travail technique sur tout le cycle produit — de la découverte et des décisions UX à l'architecture frontend, la collaboration backend, l'automatisation et la mise en production.",
         "stack": [
           "TypeScript",
           "React",

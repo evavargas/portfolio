@@ -5,8 +5,9 @@ import {
   HeroSection,
   HighlightsSection,
   ProjectsSection,
-} from "@/components/sections/home-sections";
+} from "@/components/sections";
 import { ContactSection } from "@/components/contact/contact-section";
+import { Container } from "@/components/ui/container";
 import { ResumeGallery } from "@/components/resumes/resume-gallery";
 
 export async function generateMetadata({
@@ -46,11 +47,11 @@ export default async function HomePage({
     <>
       <HeroSection />
       <HighlightsSection />
-      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
+      <Container className="py-10">
         <ResumeGallery />
-      </div>
-      <ContactSection />
+      </Container>
       <ProjectsSection />
+      <ContactSection />
       <BridgeSection />
     </>
   );
