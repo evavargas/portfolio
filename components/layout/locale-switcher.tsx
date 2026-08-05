@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState, useTransition } from "react";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
+import { CheckIcon, ChevronIcon } from "@/components/ui/icons";
 
 export function LocaleSwitcher({ label }: { label: string }) {
   const locale = useLocale() as Locale;
@@ -12,11 +13,14 @@ export function LocaleSwitcher({ label }: { label: string }) {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const rootRef = useRef<HTMLDivElement>(null);
-  const listId = useId();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
+  const currentLabel = localeLabels[locale];
 
   const onChange = (next: Locale) => {
     if (next === locale) {
       setOpen(false);
+      buttonRef.current?.focus();
       return;
     }
 
@@ -57,6 +61,7 @@ export function LocaleSwitcher({ label }: { label: string }) {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
+        buttonRef.current?.focus();
       }
     };
 
@@ -71,64 +76,44 @@ export function LocaleSwitcher({ label }: { label: string }) {
   return (
     <div ref={rootRef} className={`relative locale-switcher${isPending ? " is-pending" : ""}`}>
       <button
+        ref={buttonRef}
         type="button"
-        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)] py-1.5 pl-3.5 pr-3 text-sm font-medium text-[var(--ink)] transition-opacity"
-        aria-label={label}
-        aria-haspopup="listbox"
+        className="inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-3.5 pr-3 text-sm font-medium text-ink transition-opacity"
+        aria-label={`${label}: ${currentLabel}`}
+        aria-haspopup="menu"
         aria-expanded={open}
-        aria-controls={listId}
+        aria-controls={menuId}
         onClick={() => setOpen((value) => !value)}
       >
-        <span>{localeLabels[locale]}</span>
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          aria-hidden="true"
-          className={`shrink-0 text-[var(--muted)] transition-transform ${open ? "rotate-180" : ""}`}
-        >
-          <path
-            d="M2.5 4.5 6 8l3.5-3.5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <span aria-hidden="true">{currentLabel}</span>
+        <ChevronIcon
+          size={12}
+          className={`shrink-0 text-muted transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
       {open ? (
         <ul
-          id={listId}
-          role="listbox"
+          id={menuId}
+          role="menu"
           aria-label={label}
-          className="locale-menu absolute right-0 z-50 mt-2 min-w-full overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)] py-1 shadow-lg"
+          className="locale-menu absolute right-0 z-50 mt-2 min-w-full overflow-hidden rounded-2xl border border-line bg-surface py-1 shadow-lg"
         >
           {locales.map((code) => {
             const selected = code === locale;
             return (
-              <li key={code} role="option" aria-selected={selected}>
+              <li key={code} role="none">
                 <button
                   type="button"
-                  className={`flex w-full items-center justify-between gap-4 px-3.5 py-2 text-left text-sm transition-colors hover:bg-[var(--accent-blue-soft)] ${
-                    selected ? "font-semibold text-[var(--ink)]" : "text-[var(--muted)]"
+                  role="menuitemradio"
+                  aria-checked={selected}
+                  className={`flex w-full items-center justify-between gap-4 px-3.5 py-2 text-left text-sm transition-colors hover:bg-accent-blue-soft ${
+                    selected ? "font-semibold text-ink" : "text-muted"
                   }`}
                   onClick={() => onChange(code)}
                 >
                   <span>{localeLabels[code]}</span>
-                  {selected ? (
-                    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                      <path
-                        d="M2.5 7.5 5.5 10.5 11.5 3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  ) : null}
+                  {selected ? <CheckIcon size={14} /> : null}
                 </button>
               </li>
             );

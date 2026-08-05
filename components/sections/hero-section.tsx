@@ -23,16 +23,16 @@ export async function HeroSection() {
   return (
     <Container as="section" className="grid gap-10 pb-16 pt-14 md:pb-24 md:pt-20">
       <div className="max-w-3xl">
-        <p className="hero-enter hero-enter-1 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+        <p className="hero-enter hero-enter-1 text-sm font-semibold uppercase tracking-[0.18em] text-muted">
           {t("greeting")}
         </p>
         <h1 className="hero-enter hero-enter-2 mt-3 font-display text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
           {t("name")}
         </h1>
-        <p className="hero-enter hero-enter-3 mt-5 font-display text-2xl font-semibold tracking-tight text-[var(--ink)] md:text-3xl">
+        <p className="hero-enter hero-enter-3 mt-5 font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">
           <HeroIdea text={t("idea")} />
         </p>
-        <p className="hero-enter hero-enter-4 mt-4 text-base text-[var(--accent-blue)] md:text-lg">
+        <p className="hero-enter hero-enter-4 mt-4 text-base text-link md:text-lg">
           {t("role")}
         </p>
         <ParagraphList

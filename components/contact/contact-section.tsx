@@ -11,8 +11,10 @@ import { getWhatsAppUrl, site } from "@/lib/site";
 
 export async function ContactSection() {
   const t = await getTranslations("contact");
+  const nav = await getTranslations("nav");
   const qrDataUrl = await getContactQrDataUrl();
   const whatsappUrl = getWhatsAppUrl();
+  const opensNewTab = nav("opensNewTab");
 
   const channelActions: ButtonAction[] = [
     ...(whatsappUrl
@@ -25,6 +27,7 @@ export async function ContactSection() {
             rel: "noopener noreferrer",
             variant: "secondary" as const,
             className: "contact-channel",
+            newTabLabel: opensNewTab,
           },
         ]
       : []),
@@ -36,13 +39,24 @@ export async function ContactSection() {
       rel: "noopener noreferrer",
       variant: "ghost",
       className: "contact-channel",
+      newTabLabel: opensNewTab,
     },
   ];
 
   return (
-    <Container as="section" id="contact" className="scroll-mt-28 py-16">
+    <Container
+      as="section"
+      id="contact"
+      className="scroll-mt-28 py-16"
+      aria-labelledby="contact-title"
+    >
       <Reveal>
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} subtitle={t("body")} />
+        <SectionHeading
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          subtitle={t("body")}
+          titleId="contact-title"
+        />
       </Reveal>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
@@ -55,7 +69,7 @@ export async function ContactSection() {
           >
             <div>
               <h3 className="text-xl font-semibold">{t("channelsTitle")}</h3>
-              <p className="mt-2 text-sm text-[var(--muted)]">{t("channelsBody")}</p>
+              <p className="mt-2 text-sm text-muted">{t("channelsBody")}</p>
             </div>
 
             <ButtonGroup actions={channelActions} />
@@ -69,13 +83,13 @@ export async function ContactSection() {
                     width={180}
                     height={180}
                     unoptimized
-                    className="mx-auto rounded-2xl bg-[var(--surface)] p-3"
+                    className="mx-auto rounded-2xl bg-surface p-3"
                   />
                   <p className="mt-4 text-sm font-semibold">{t("qrTitle")}</p>
-                  <p className="mt-1 text-sm text-[var(--muted)]">{t("qrBody")}</p>
+                  <p className="mt-1 text-sm text-muted">{t("qrBody")}</p>
                 </>
               ) : (
-                <p className="text-sm text-[var(--muted)]">{t("qrUnavailable")}</p>
+                <p className="text-sm text-muted">{t("qrUnavailable")}</p>
               )}
             </Surface>
           </Surface>
@@ -84,7 +98,7 @@ export async function ContactSection() {
         <Reveal delayMs={80}>
           <Surface padding="lg" radius="xl" className="relative">
             <h3 className="text-xl font-semibold">{t("formTitle")}</h3>
-            <p className="mt-2 text-sm text-[var(--muted)]">{t("formIntro")}</p>
+            <p className="mt-2 text-sm text-muted">{t("formIntro")}</p>
             <div className="relative mt-6">
               <ContactForm />
             </div>

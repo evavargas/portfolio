@@ -13,6 +13,7 @@ Live: [evavargasportfolio.vercel.app](https://evavargasportfolio.vercel.app)
 - Tailwind CSS 4
 - next-intl (English, Spanish, French)
 - Custom theme provider (light / dark / system)
+- Iconsax (`iconsax-reactjs`) for UI icons
 - Resend + Cloudflare Turnstile for contact
 - Vercel Analytics + Speed Insights
 - Vitest for unit tests
@@ -45,12 +46,27 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) (redirects to `/en`).
 
+**Habit:** use `npm run dev` while iterating. It hot-reloads and avoids stale `_next/static` hashes.
+
+Use a production-like run only when you need to verify the built output:
+
+```sh
+npm run build
+npm run start
+```
+
+If `npm start` shows unstyled HTML / 500s on CSS or JS chunks, the build is out of sync — clean and rebuild:
+
+```sh
+rm -rf .next && npm run build && npm start
+```
+
+Quality checks:
+
 ```sh
 npm run typecheck
 npm run test
 npm run lint
-npm run build
-npm run start
 ```
 
 ## Environment variables
@@ -91,22 +107,21 @@ Toggle availability in `lib/site.ts`.
 Outfit + Source Sans 3, soft pink/blue accents, gradient project-card rings.
 Copy is conversational (portfolio) while resumes stay market-oriented.
 Motion stays light: hero entrance, scroll reveal, header scroll state, button/card microinteractions — respects `prefers-reduced-motion`.
+Tokens live in `styles/tokens.css`; map in `styles/DESIGN.md`.
 
 ## Project structure
 
 ```text
-app/[locale]/             Localized pages (home, about)
+app/[locale]/             Localized pages (home, about, error, not-found)
+app/global-error.tsx      Root error boundary
 app/opengraph-image.tsx   Generated OG image
 app/sitemap.ts            Sitemap
 lib/actions/              Server Actions (contact)
-components/               Layout, UI, contact, resumes, sections
+components/               Layout, UI, contact, resumes, sections, system
 messages/                 en / es / fr copy
 i18n/                     Locale config
 lib/                      Site config, theme, vCard, helpers
 public/img/               Project and profile images
 public/resume/            PDF resumes
+styles/                   Design tokens + map
 ```
-
-## Legacy
-
-The previous static HTML site is archived under `_legacy/` for reference.

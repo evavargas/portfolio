@@ -17,7 +17,7 @@ export async function BridgeSection() {
       <Reveal>
         <Surface padding="xl" radius="xl" tone="accent">
           <h2 className="text-3xl font-semibold md:text-4xl">{t("title")}</h2>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--ink)]/85">{t("body")}</p>
+          <p className="mt-4 max-w-2xl text-lg text-ink/85">{t("body")}</p>
           <ButtonGroup actions={actions} className="mt-6" />
         </Surface>
       </Reveal>

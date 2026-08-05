@@ -80,6 +80,50 @@ describe("message helpers", () => {
     expect(items[0]?.id).toBe("demo");
   });
 
+  it("rejects incomplete project items", () => {
+    expect(() =>
+      asProjectItems([
+        {
+          id: "demo",
+          title: "Demo",
+          href: "https://example.com",
+          repo: "https://github.com/example/demo",
+          image: "/img/demo.png",
+          tech: ["React"],
+        },
+      ]),
+    ).toThrow("Invalid project item");
+
+    expect(() =>
+      asProjectItems([
+        {
+          id: "demo",
+          eyebrow: "Demo",
+          title: "Demo",
+          description: "Desc",
+          tech: [1],
+          href: "https://example.com",
+          repo: "https://github.com/example/demo",
+          image: "/img/demo.png",
+        },
+      ]),
+    ).toThrow("Invalid project item");
+  });
+
+  it("rejects incomplete about jobs", () => {
+    expect(() =>
+      asAboutJobs([
+        {
+          role: "Engineer",
+          company: "Acme",
+          dates: "2024",
+          summary: "Built things",
+          stack: [1],
+        },
+      ]),
+    ).toThrow("Invalid about job");
+  });
+
   it("parses about jobs", () => {
     const jobs = asAboutJobs([
       {

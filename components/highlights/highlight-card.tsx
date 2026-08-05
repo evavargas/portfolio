@@ -9,7 +9,7 @@ type HighlightCardProps = {
 
 export function HighlightCard({ children, className = "" }: HighlightCardProps) {
   return (
-    <Surface padding="sm" radius="xl" className={cn("highlight-card text-[var(--muted)]", className)}>
+    <Surface padding="sm" radius="xl" className={cn("highlight-card text-muted", className)}>
       {children}
     </Surface>
   );

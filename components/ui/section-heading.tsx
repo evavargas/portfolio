@@ -21,7 +21,7 @@ export function SectionHeading({
       <h2 id={titleId} className="mt-4 text-3xl font-semibold md:text-4xl">
         {title}
       </h2>
-      {subtitle ? <p className="mt-3 text-[var(--muted)]">{subtitle}</p> : null}
+      {subtitle ? <p className="mt-3 text-muted">{subtitle}</p> : null}
     </div>
   );
 }

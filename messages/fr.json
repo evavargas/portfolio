@@ -18,7 +18,8 @@
     "theme": "Thème",
     "themeLight": "Passer en mode clair",
     "themeDark": "Passer en mode sombre",
-    "themeSystem": "Utiliser le thème système"
+    "themeSystem": "Utiliser le thème système",
+    "opensNewTab": "(s'ouvre dans un nouvel onglet)"
   },
   "hero": {
     "greeting": "Bonjour, je suis",
@@ -165,6 +166,9 @@
       "submit": "Envoyer",
       "sending": "Envoi…",
       "success": "Message envoyé. Au plaisir d'échanger.",
+      "verifyHint": "Complétez la vérification de sécurité pour activer l'envoi.",
+      "captchaLabel": "Vérification de sécurité",
+      "captchaMissing": "La vérification de sécurité n'est pas configurée.",
       "errors": {
         "invalid": "Vérifiez le formulaire et réessayez.",
         "captcha": "Échec de la vérification. Réessayez.",
@@ -177,6 +181,7 @@
   "about": {
     "eyebrow": "À propos",
     "title": "Bonjour, je suis Eva.",
+    "photoAlt": "Portrait d'Eva Vargas",
     "intro": [
       "Je suis ingénieure logicielle avec plus de six ans d'expérience dans la construction de produits numériques.",
       "J'ai commencé concentrée sur le frontend, mais la curiosité m'a toujours poussée plus loin. Aujourd'hui, j'aime travailler sur tout le cycle produit — de la compréhension des besoins et du design d'expérience à la définition de solutions techniques et à la mise en production.",
@@ -349,6 +354,23 @@
     "projects": "Projets",
     "resumes": "CV",
     "contact": "Contact",
-    "rights": "© {year} Eva Vargas. Tous droits réservés."
+    "rights": "© {year} Eva Vargas. Tous droits réservés.",
+    "navLabel": "Pied de page"
+  },
+  "system": {
+    "notFound": {
+      "eyebrow": "404",
+      "title": "Cette page s'est égarée.",
+      "body": "Le lien est peut-être obsolète, ou la page n'a jamais existé.",
+      "home": "Retour à l'accueil",
+      "projects": "Voir les projets"
+    },
+    "error": {
+      "eyebrow": "Glitch",
+      "title": "Ça n'a pas tourné comme prévu.",
+      "body": "Un souci de mon côté. Réessayez, ou revenez à l'accueil.",
+      "retry": "Réessayer",
+      "home": "Retour à l'accueil"
+    }
   }
 }

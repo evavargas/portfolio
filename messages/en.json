@@ -18,7 +18,8 @@
     "theme": "Theme",
     "themeLight": "Switch to light mode",
     "themeDark": "Switch to dark mode",
-    "themeSystem": "Switch to system theme"
+    "themeSystem": "Switch to system theme",
+    "opensNewTab": "(opens in a new tab)"
   },
   "hero": {
     "greeting": "Hi, I'm",
@@ -136,6 +137,9 @@
       "submit": "Send message",
       "sending": "Sending…",
       "success": "Message sent. Looking forward to talking.",
+      "verifyHint": "Complete the security check to enable sending.",
+      "captchaLabel": "Security verification",
+      "captchaMissing": "Security verification is not configured.",
       "errors": {
         "invalid": "Please check the form and try again.",
         "captcha": "Verification failed. Please retry.",
@@ -148,6 +152,7 @@
   "about": {
     "eyebrow": "About Me",
     "title": "Hi, I'm Eva.",
+    "photoAlt": "Portrait of Eva Vargas",
     "intro": [
       "I'm a Software Engineer with more than six years of experience building digital products.",
       "I started my career focused on frontend development, but curiosity has always pushed me beyond that. Today I enjoy working across the entire product lifecycle—from understanding requirements and designing user experiences to defining technical solutions and delivering them to production.",
@@ -262,6 +267,23 @@
     "projects": "Projects",
     "resumes": "Resume",
     "contact": "Contact",
-    "rights": "© {year} Eva Vargas. All rights reserved."
+    "rights": "© {year} Eva Vargas. All rights reserved.",
+    "navLabel": "Footer"
+  },
+  "system": {
+    "notFound": {
+      "eyebrow": "404",
+      "title": "This page wandered off.",
+      "body": "The link might be outdated, or the page never existed.",
+      "home": "Back home",
+      "projects": "See projects"
+    },
+    "error": {
+      "eyebrow": "Glitch",
+      "title": "That didn't go as planned.",
+      "body": "Something broke on my side. Try again, or head back home.",
+      "retry": "Try again",
+      "home": "Back home"
+    }
   }
 }

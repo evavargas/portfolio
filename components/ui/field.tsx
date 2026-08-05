@@ -1,7 +1,8 @@
 import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from "react";
+import { cn } from "@/lib/cn";
 
 const controlClassName =
-  "w-full rounded-2xl border border-[var(--line)] bg-[var(--canvas)] px-4 py-3 text-[var(--ink)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus)]";
+  "w-full rounded-2xl border border-line bg-canvas px-4 py-3 text-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-focus";
 
 type FieldProps = {
   id: string;
@@ -18,7 +19,7 @@ export function Field({ id, label, optionalLabel, children }: FieldProps) {
         {optionalLabel ? (
           <>
             {" "}
-            <span className="font-normal text-[var(--muted)]">({optionalLabel})</span>
+            <span className="font-normal text-muted">({optionalLabel})</span>
           </>
         ) : null}
       </label>
@@ -27,15 +28,10 @@ export function Field({ id, label, optionalLabel, children }: FieldProps) {
   );
 }
 
-export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
-  return <input {...props} className={`${controlClassName} ${props.className ?? ""}`} />;
+export function TextInput({ className, ...props }: InputHTMLAttributes<HTMLInputElement>) {
+  return <input {...props} className={cn(controlClassName, className)} />;
 }
 
-export function TextTextarea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
-  return (
-    <textarea
-      {...props}
-      className={`resize-y ${controlClassName} ${props.className ?? ""}`}
-    />
-  );
+export function TextTextarea({ className, ...props }: TextareaHTMLAttributes<HTMLTextAreaElement>) {
+  return <textarea {...props} className={cn("resize-y", controlClassName, className)} />;
 }

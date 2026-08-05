@@ -9,11 +9,18 @@ const paddingMap = {
   xl: "p-8 md:p-12",
 } as const;
 
-/** Radii map to styles/tokens.css --radius-* */
+/** Radii map to styles/tokens.css --radius-* via @theme */
 const radiusMap = {
-  md: "rounded-[var(--radius-md)]",
-  lg: "rounded-[var(--radius-lg)]",
-  xl: "rounded-[var(--radius-xl)]",
+  md: "rounded-ds-md",
+  lg: "rounded-ds-lg",
+  xl: "rounded-ds-xl",
+} as const;
+
+const toneMap = {
+  solid: "border border-line bg-surface",
+  soft: "border border-line bg-canvas",
+  dashed: "border border-dashed border-line bg-canvas",
+  accent: "border border-line bg-gradient-to-br from-accent-blue-soft to-accent-pink-soft",
 } as const;
 
 type SurfaceProps = {
@@ -21,17 +28,12 @@ type SurfaceProps = {
   as?: ElementType;
   padding?: keyof typeof paddingMap;
   radius?: keyof typeof radiusMap;
-  tone?: "solid" | "soft" | "dashed" | "accent";
+  tone?: keyof typeof toneMap;
   className?: string;
+  id?: string;
+  "aria-labelledby"?: string;
+  "aria-label"?: string;
 };
-
-const toneMap = {
-  solid: "border border-[var(--line)] bg-[var(--surface)]",
-  soft: "border border-[var(--line)] bg-[var(--canvas)]",
-  dashed: "border border-dashed border-[var(--line)] bg-[var(--canvas)]",
-  accent:
-    "border border-[var(--line)] bg-gradient-to-br from-[var(--accent-blue-soft)] to-[var(--accent-pink-soft)]",
-} as const;
 
 export function Surface({
   children,
@@ -40,9 +42,13 @@ export function Surface({
   radius = "lg",
   tone = "solid",
   className = "",
+  ...rest
 }: SurfaceProps) {
   return (
-    <Tag className={cn(toneMap[tone], radiusMap[radius], paddingMap[padding], className)}>
+    <Tag
+      className={cn(toneMap[tone], radiusMap[radius], paddingMap[padding], className)}
+      {...rest}
+    >
       {children}
     </Tag>
   );

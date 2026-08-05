@@ -25,9 +25,17 @@ type TurnstileProps = {
   onToken: (token: string) => void;
   onExpire?: () => void;
   theme?: "light" | "dark" | "auto";
+  label: string;
+  missingLabel: string;
 };
 
-export function TurnstileField({ onToken, onExpire, theme = "auto" }: TurnstileProps) {
+export function TurnstileField({
+  onToken,
+  onExpire,
+  theme = "auto",
+  label,
+  missingLabel,
+}: TurnstileProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -80,11 +88,18 @@ export function TurnstileField({ onToken, onExpire, theme = "auto" }: TurnstileP
 
   if (!siteKey) {
     return (
-      <p className="rounded-2xl border border-dashed border-[var(--line)] px-4 py-3 text-sm text-[var(--muted)]">
-        Turnstile site key is not configured.
+      <p className="rounded-2xl border border-dashed border-line px-4 py-3 text-sm text-muted">
+        {missingLabel}
       </p>
     );
   }
 
-  return <div ref={containerRef} className="min-h-[65px]" />;
+  return (
+    <div
+      ref={containerRef}
+      className="min-h-[65px]"
+      role="group"
+      aria-label={label}
+    />
+  );
 }

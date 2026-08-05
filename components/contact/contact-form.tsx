@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useCallback, useState } from "react";
+import { useActionState, useCallback, useId, useState } from "react";
 import { useTranslations } from "next-intl";
 import { sendContactMessage, type ContactActionState } from "@/lib/actions/contact";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,8 @@ export function ContactForm() {
   const t = useTranslations("contact");
   const [state, formAction, pending] = useActionState(sendContactMessage, initialState);
   const [token, setToken] = useState("");
+  const verifyHintId = useId();
+  const needsVerification = !token;
 
   const onToken = useCallback((value: string) => setToken(value), []);
   const onExpire = useCallback(() => setToken(""), []);
@@ -64,10 +66,20 @@ export function ContactForm() {
       </div>
 
       <input type="hidden" name="turnstileToken" value={token} />
-      <TurnstileField onToken={onToken} onExpire={onExpire} />
+      <TurnstileField
+        onToken={onToken}
+        onExpire={onExpire}
+        label={t("form.captchaLabel")}
+        missingLabel={t("form.captchaMissing")}
+      />
 
       <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit" disabled={pending || !token} magnetic={false}>
+        <Button
+          type="submit"
+          disabled={pending || needsVerification}
+          magnetic={false}
+          aria-describedby={needsVerification ? verifyHintId : undefined}
+        >
           {pending ? (
             <>
               <span className="btn-spinner" aria-hidden="true" />
@@ -77,6 +89,11 @@ export function ContactForm() {
             t("form.submit")
           )}
         </Button>
+        {needsVerification ? (
+          <p id={verifyHintId} className="text-sm text-muted">
+            {t("form.verifyHint")}
+          </p>
+        ) : null}
         {statusMessage ? (
           <p
             key={`${state.status}-${statusMessage}`}

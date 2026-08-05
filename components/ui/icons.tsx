@@ -1,4 +1,14 @@
-import { CloseSquare, ExportSquare, HamburgerMenu } from "iconsax-reactjs";
+import {
+  ArrowDown2,
+  ArrowRight2,
+  CloseSquare,
+  ExportSquare,
+  HamburgerMenu,
+  Monitor,
+  Moon,
+  Sun1,
+  TickCircle,
+} from "iconsax-reactjs";
 
 type IconProps = {
   size?: number;
@@ -28,6 +38,57 @@ export function MenuIcon({ open, size = 18, color = defaults.color }: IconProps 
   return <Icon size={size} color={color} variant={defaults.variant} aria-hidden />;
 }
 
+export function ChevronIcon({ size = 12, color = defaults.color, className }: IconProps) {
+  return (
+    <ArrowDown2
+      size={size}
+      color={color}
+      variant={defaults.variant}
+      className={className}
+      aria-hidden
+    />
+  );
+}
+
+export function CheckIcon({ size = 14, color = defaults.color, className }: IconProps) {
+  return (
+    <TickCircle
+      size={size}
+      color={color}
+      variant={defaults.variant}
+      className={className}
+      aria-hidden
+    />
+  );
+}
+
+export function ArrowIcon({ size = 16, color = defaults.color, className }: IconProps) {
+  return (
+    <ArrowRight2
+      size={size}
+      color={color}
+      variant={defaults.variant}
+      className={className}
+      aria-hidden
+    />
+  );
+}
+
+export function SunIcon({ size = 16, color = defaults.color, className }: IconProps) {
+  return <Sun1 size={size} color={color} variant={defaults.variant} className={className} aria-hidden />;
+}
+
+export function MoonIcon({ size = 16, color = defaults.color, className }: IconProps) {
+  return <Moon size={size} color={color} variant={defaults.variant} className={className} aria-hidden />;
+}
+
+export function SystemIcon({ size = 16, color = defaults.color, className }: IconProps) {
+  return (
+    <Monitor size={size} color={color} variant={defaults.variant} className={className} aria-hidden />
+  );
+}
+
+/** Iconsax has no brand marks; keep the GitHub glyph for recognition. */
 export function GitHubIcon({ size = 16, color = "currentColor", className }: IconProps) {
   return (
     <svg

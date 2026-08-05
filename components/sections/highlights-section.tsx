@@ -3,7 +3,6 @@ import { HighlightCard } from "@/components/highlights/highlight-card";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerList } from "@/components/motion/stagger-list";
 import { Container } from "@/components/ui/container";
-import { SectionTitle } from "@/components/ui/section-heading";
 import { asStringArray } from "@/lib/messages";
 
 export async function HighlightsSection() {
@@ -13,9 +12,8 @@ export async function HighlightsSection() {
   return (
     <Container as="section" className="pb-8 md:pb-12" aria-labelledby="highlights-title">
       <Reveal>
-        <SectionTitle>{t("eyebrow")}</SectionTitle>
-        <h2 id="highlights-title" className="sr-only">
-          {t("title")}
+        <h2 id="highlights-title" className="section-title">
+          {t("eyebrow")}
         </h2>
       </Reveal>
       <StaggerList

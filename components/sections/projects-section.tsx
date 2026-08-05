@@ -8,12 +8,23 @@ import { asProjectItems } from "@/lib/messages";
 
 export async function ProjectsSection() {
   const t = await getTranslations("projects");
+  const nav = await getTranslations("nav");
   const items = asProjectItems(t.raw("items"));
 
   return (
-    <Container as="section" id="projects" className="scroll-mt-28 py-8 md:py-16">
+    <Container
+      as="section"
+      id="projects"
+      className="scroll-mt-28 py-8 md:py-16"
+      aria-labelledby="projects-title"
+    >
       <Reveal>
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
+        <SectionHeading
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          subtitle={t("subtitle")}
+          titleId="projects-title"
+        />
       </Reveal>
 
       <StaggerList
@@ -32,6 +43,7 @@ export async function ProjectsSection() {
               visit: t("visit"),
               repo: t("repo"),
               tech: t("tech"),
+              opensNewTab: nav("opensNewTab"),
             }}
           />
         )}

@@ -12,7 +12,6 @@ import { ParagraphList } from "@/components/ui/prose";
 import { SectionTitle } from "@/components/ui/section-heading";
 import { TextLink } from "@/components/ui/text-link";
 import { asAboutJobs, asSkillGroups, asStringArray } from "@/lib/messages";
-import { site } from "@/lib/site";
 
 export async function AboutPageContent() {
   const t = await getTranslations("about");
@@ -22,6 +21,8 @@ export async function AboutPageContent() {
   const experienceIntro = asStringArray(t.raw("experienceIntro"));
   const jobs = asAboutJobs(t.raw("jobs"));
   const skillGroups = asSkillGroups(t.raw("skillGroups"));
+
+  const opensNewTab = nav("opensNewTab");
 
   const actions: ButtonAction[] = [
     { key: "projects", label: t("ctaProjects"), href: `/${locale}#projects` },
@@ -45,30 +46,30 @@ export async function AboutPageContent() {
         />
       </Reveal>
 
-      <AboutIntro paragraphs={intro} imageAlt={site.name} />
+      <AboutIntro paragraphs={intro} imageAlt={t("photoAlt")} />
 
       <section className="mt-16" aria-labelledby="about-experience">
         <Reveal>
-          <SectionTitle>{t("experienceTitle")}</SectionTitle>
-          <h2 id="about-experience" className="sr-only">
+          <h2 id="about-experience" className="section-title">
             {t("experienceTitle")}
           </h2>
           <ParagraphList items={experienceIntro} className="mt-5 max-w-3xl" />
-          <p className="mt-4 text-sm text-[var(--muted)]">{t("experienceNote")}</p>
+          <p className="mt-4 text-sm text-muted">{t("experienceNote")}</p>
         </Reveal>
         <StaggerList
           items={jobs}
           getKey={(job) => job.role + job.dates}
           as="ol"
           className="mt-8 grid gap-5"
-          renderItem={(job, index) => <JobCard job={job} index={index} />}
+          renderItem={(job, index) => (
+            <JobCard job={job} index={index} opensNewTabLabel={opensNewTab} />
+          )}
         />
       </section>
 
       <section className="mt-16" aria-labelledby="about-skills">
         <Reveal>
-          <SectionTitle>{t("skillsTitle")}</SectionTitle>
-          <h2 id="about-skills" className="sr-only">
+          <h2 id="about-skills" className="section-title">
             {t("skillsTitle")}
           </h2>
         </Reveal>

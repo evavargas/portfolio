@@ -12,25 +12,35 @@ export function asStringArray(value: unknown): string[] {
   return value;
 }
 
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item) => typeof item === "string");
+}
+
 export function asProjectItems(value: unknown): ProjectItem[] {
   if (!Array.isArray(value)) {
     throw new Error("Expected project items");
   }
 
   return value.map((item) => {
+    if (!item || typeof item !== "object") {
+      throw new Error("Invalid project item");
+    }
+
+    const project = item as Record<string, unknown>;
     if (
-      !item ||
-      typeof item !== "object" ||
-      typeof (item as ProjectItem).id !== "string" ||
-      typeof (item as ProjectItem).title !== "string" ||
-      typeof (item as ProjectItem).href !== "string" ||
-      typeof (item as ProjectItem).repo !== "string" ||
-      typeof (item as ProjectItem).image !== "string" ||
-      !Array.isArray((item as ProjectItem).tech)
+      typeof project.id !== "string" ||
+      typeof project.eyebrow !== "string" ||
+      typeof project.title !== "string" ||
+      typeof project.description !== "string" ||
+      typeof project.href !== "string" ||
+      typeof project.repo !== "string" ||
+      typeof project.image !== "string" ||
+      !isStringArray(project.tech)
     ) {
       throw new Error("Invalid project item");
     }
-    return item as ProjectItem;
+
+    return project as ProjectItem;
   });
 }
 
@@ -40,24 +50,26 @@ export function asAboutJobs(value: unknown): AboutJob[] {
   }
 
   return value.map((item) => {
+    if (!item || typeof item !== "object") {
+      throw new Error("Invalid about job");
+    }
+
+    const job = item as Record<string, unknown>;
     if (
-      !item ||
-      typeof item !== "object" ||
-      typeof (item as AboutJob).role !== "string" ||
-      typeof (item as AboutJob).company !== "string" ||
-      typeof (item as AboutJob).dates !== "string" ||
-      typeof (item as AboutJob).summary !== "string" ||
-      !Array.isArray((item as AboutJob).stack)
+      typeof job.role !== "string" ||
+      typeof job.company !== "string" ||
+      typeof job.dates !== "string" ||
+      typeof job.summary !== "string" ||
+      !isStringArray(job.stack)
     ) {
       throw new Error("Invalid about job");
     }
 
-    const companyUrl = (item as AboutJob & { companyUrl?: unknown }).companyUrl;
-    if (companyUrl !== undefined && typeof companyUrl !== "string") {
+    if (job.companyUrl !== undefined && typeof job.companyUrl !== "string") {
       throw new Error("Invalid about job companyUrl");
     }
 
-    return item as AboutJob;
+    return job as AboutJob;
   });
 }
 
@@ -67,15 +79,15 @@ export function asSkillGroups(value: unknown): SkillGroup[] {
   }
 
   return value.map((item) => {
-    if (
-      !item ||
-      typeof item !== "object" ||
-      typeof (item as SkillGroup).title !== "string" ||
-      !Array.isArray((item as SkillGroup).items) ||
-      (item as SkillGroup).items.some((entry) => typeof entry !== "string")
-    ) {
+    if (!item || typeof item !== "object") {
       throw new Error("Invalid skill group");
     }
-    return item as SkillGroup;
+
+    const group = item as Record<string, unknown>;
+    if (typeof group.title !== "string" || !isStringArray(group.items)) {
+      throw new Error("Invalid skill group");
+    }
+
+    return group as SkillGroup;
   });
 }

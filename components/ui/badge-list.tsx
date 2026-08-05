@@ -37,7 +37,9 @@ export function BadgeListLabeled({
 }: BadgeListProps & { label: ReactNode }) {
   return (
     <div className={className}>
-      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--muted)]">{label}</p>
+      <p className="text-xs font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-muted">
+        {label}
+      </p>
       <BadgeList items={items} tone={tone} toneForIndex={toneForIndex} className="mt-2" />
     </div>
   );

@@ -18,7 +18,8 @@
     "theme": "Tema",
     "themeLight": "Cambiar a modo claro",
     "themeDark": "Cambiar a modo oscuro",
-    "themeSystem": "Usar tema del sistema"
+    "themeSystem": "Usar tema del sistema",
+    "opensNewTab": "(se abre en una pestaña nueva)"
   },
   "hero": {
     "greeting": "Hola, soy",
@@ -165,6 +166,9 @@
       "submit": "Enviar mensaje",
       "sending": "Enviando…",
       "success": "Mensaje enviado. Ganas de charlar.",
+      "verifyHint": "Completá la verificación de seguridad para poder enviar.",
+      "captchaLabel": "Verificación de seguridad",
+      "captchaMissing": "La verificación de seguridad no está configurada.",
       "errors": {
         "invalid": "Revisá el formulario e intentá de nuevo.",
         "captcha": "Falló la verificación. Reintentá.",
@@ -177,6 +181,7 @@
   "about": {
     "eyebrow": "Sobre mí",
     "title": "Hola, soy Eva.",
+    "photoAlt": "Retrato de Eva Vargas",
     "intro": [
       "Soy ingeniera de software con más de seis años construyendo productos digitales.",
       "Empecé enfocada en frontend, pero la curiosidad siempre me empujó más allá. Hoy disfruto trabajar en todo el ciclo de producto: desde entender requisitos y diseñar experiencias hasta definir soluciones técnicas y llevarlas a producción.",
@@ -349,6 +354,23 @@
     "projects": "Proyectos",
     "resumes": "CV",
     "contact": "Contacto",
-    "rights": "© {year} Eva Vargas. Todos los derechos reservados."
+    "rights": "© {year} Eva Vargas. Todos los derechos reservados.",
+    "navLabel": "Pie de página"
+  },
+  "system": {
+    "notFound": {
+      "eyebrow": "404",
+      "title": "Esta página se fue de paseo.",
+      "body": "El link puede estar desactualizado, o la página nunca existió.",
+      "home": "Volver al inicio",
+      "projects": "Ver proyectos"
+    },
+    "error": {
+      "eyebrow": "Glitch",
+      "title": "Esto no salió como esperaba.",
+      "body": "Algo falló de mi lado. Probá de nuevo, o volvé al inicio.",
+      "retry": "Reintentar",
+      "home": "Volver al inicio"
+    }
   }
 }

@@ -13,6 +13,7 @@ type ProjectCardProps = {
     visit: string;
     repo: string;
     tech: string;
+    opensNewTab: string;
   };
 };
 
@@ -25,6 +26,7 @@ export function ProjectCard({ project, index, labels }: ProjectCardProps) {
       target: "_blank",
       rel: "noopener noreferrer",
       size: "sm",
+      newTabLabel: labels.opensNewTab,
     },
     {
       key: "repo",
@@ -39,6 +41,7 @@ export function ProjectCard({ project, index, labels }: ProjectCardProps) {
       target: "_blank",
       rel: "noopener noreferrer",
       size: "sm",
+      newTabLabel: labels.opensNewTab,
     },
   ];
 
@@ -52,11 +55,11 @@ export function ProjectCard({ project, index, labels }: ProjectCardProps) {
           )}
         >
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+            <p className="text-xs font-semibold uppercase tracking-[var(--tracking-eyebrow-lg)] text-muted">
               {project.eyebrow}
             </p>
             <h3 className="mt-1.5 text-xl font-semibold md:text-2xl">{project.title}</h3>
-            <p className="mt-2.5 text-sm leading-relaxed text-[var(--muted)] md:text-[0.95rem]">
+            <p className="mt-2.5 text-sm leading-relaxed text-muted md:text-[0.95rem]">
               {project.description}
             </p>
             <ButtonGroup actions={actions} className="mt-3.5" />
@@ -68,6 +71,7 @@ export function ProjectCard({ project, index, labels }: ProjectCardProps) {
               image={project.image}
               title={project.title}
               cta={labels.visit}
+              opensNewTabLabel={labels.opensNewTab}
             />
           </div>
         </div>

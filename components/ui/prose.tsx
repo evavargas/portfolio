@@ -14,7 +14,7 @@ const sizeMap = {
 } as const;
 
 export function Prose({ children, className = "", size = "lg" }: ProseProps) {
-  return <div className={cn("space-y-4 text-[var(--muted)]", sizeMap[size], className)}>{children}</div>;
+  return <div className={cn("space-y-4 text-muted", sizeMap[size], className)}>{children}</div>;
 }
 
 export function ParagraphList({

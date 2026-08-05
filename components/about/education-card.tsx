@@ -1,5 +1,4 @@
 import { Surface } from "@/components/ui/surface";
-import { SectionTitle } from "@/components/ui/section-heading";
 
 type EducationCardProps = {
   eyebrow: string;
@@ -19,14 +18,16 @@ export function EducationCard({
   languages,
 }: EducationCardProps) {
   return (
-    <Surface padding="lg" radius="xl">
-      <SectionTitle>{eyebrow}</SectionTitle>
-      <h2 className="mt-4 text-2xl font-semibold">{degree}</h2>
-      <p className="mt-2 text-[var(--muted)]">{school}</p>
-      <p className="mt-1 text-sm font-semibold text-[var(--muted)]">
+    <Surface as="section" padding="lg" radius="xl" aria-labelledby="about-education">
+      <h2 id="about-education" className="section-title">
+        {eyebrow}
+      </h2>
+      <p className="mt-4 text-2xl font-semibold">{degree}</p>
+      <p className="mt-2 text-muted">{school}</p>
+      <p className="mt-1 text-sm font-semibold text-muted">
         {dates} · {note}
       </p>
-      <p className="mt-4 text-[var(--muted)]">{languages}</p>
+      <p className="mt-4 text-muted">{languages}</p>
     </Surface>
   );
 }

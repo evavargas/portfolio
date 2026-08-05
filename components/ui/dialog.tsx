@@ -40,7 +40,7 @@ export function Dialog({ open, title, children, onClose, closeLabel }: DialogPro
   return (
     <dialog
       ref={dialogRef}
-      className="fixed inset-0 m-auto w-[min(92vw,28rem)] rounded-[var(--radius-xl)] border border-[var(--line)] bg-[var(--surface)] p-0 text-[var(--ink)] shadow-2xl backdrop:bg-[var(--overlay-scrim)]"
+      className="fixed inset-0 m-auto w-[min(92vw,28rem)] rounded-ds-xl border border-line bg-surface p-0 text-ink shadow-2xl backdrop:bg-[var(--overlay-scrim)]"
       aria-labelledby={titleId}
       onClick={(event) => {
         if (event.target === dialogRef.current) onClose();
@@ -54,7 +54,7 @@ export function Dialog({ open, title, children, onClose, closeLabel }: DialogPro
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-[var(--line)] px-3 py-1 text-sm"
+            className="rounded-full border border-line px-3 py-1 text-sm"
             aria-label={closeLabel}
           >
             ×
