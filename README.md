@@ -23,14 +23,33 @@ Live: [evavargasportfolio.vercel.app](https://evavargasportfolio.vercel.app)
 
 | Path | Purpose |
 |------|---------|
-| `/en`, `/es`, `/fr` | Home — hero, how I work, resumes, projects, contact |
-| `/[locale]/about` | Profile narrative, experience, tools, education |
+| `/` | Home — hero, how I work, resumes, projects, contact |
+| `/about` | Profile narrative, experience, tools, education |
+| `/og` | Generated Open Graph image (`?lang=` for other languages) |
 | `/api/whatsapp` | Server redirect to WhatsApp (phone from env) |
 | `/resume/*.pdf` | Local resume files |
 | `/sitemap.xml` | Localized sitemap |
 | `/robots.txt` | Crawler rules |
 
-Default locale is English. Language and theme controls live in the header.
+The language never goes in the path. English (default) uses clean URLs; Spanish and French use
+`?lang=es` / `?lang=fr`. Without the param, `proxy.ts` uses the `NEXT_LOCALE` cookie (set by the
+header switcher) or the browser's `Accept-Language`, then rewrites internally to `app/[locale]/`.
+Legacy `/en`, `/es`, `/fr` URLs redirect permanently. Language and theme controls live in the header.
+Switching language in the header is a client-side navigation (no full page reload).
+
+### Adding a language
+
+1. Add it to `locales` and `localeLabels` in `i18n/config.ts`.
+2. Create `messages/<code>.json` (TypeScript flags missing keys against `en.json`).
+3. Register the catalog in `i18n/request.ts`.
+4. Add its Open Graph locale to `ogLocales` in `lib/seo.ts`.
+
+## SEO
+
+- Each page sets a canonical URL plus `hreflang` alternates (`en`, `es`, `fr`, `x-default`) via `lib/seo.ts`.
+- Open Graph / Twitter images are generated per language by `/og?lang=`.
+- JSON-LD: `Person` (all pages) and `ProfilePage` (`/about`).
+- The sitemap lists every page in every language. Bump `CONTENT_UPDATED_AT` in `app/sitemap.ts` when copy changes.
 
 ## Local development
 
@@ -44,7 +63,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) (redirects to `/en`).
+Open [http://localhost:3000](http://localhost:3000) (English by default; your browser language may redirect to `?lang=es` or `?lang=fr`).
 
 **Habit:** use `npm run dev` while iterating. It hot-reloads and avoids stale `_next/static` hashes.
 
@@ -96,9 +115,8 @@ Files in `public/resume/`:
 
 | File | Status |
 |------|--------|
-| `eva-vargas-en.pdf` | Available |
-| `eva-vargas-es.pdf` | Available |
-| `eva-vargas-ats.pdf` | Available |
+| `eva-vargas-product-engineer-en.pdf` | Available |
+| `eva-vargas-product-engineer-es.pdf` | Available |
 
 Toggle availability in `lib/site.ts`.
 
@@ -114,13 +132,14 @@ Tokens live in `styles/tokens.css`; map in `styles/DESIGN.md`.
 ```text
 app/[locale]/             Localized pages (home, about, error, not-found)
 app/global-error.tsx      Root error boundary
-app/opengraph-image.tsx   Generated OG image
+app/og/route.tsx          Generated OG image
 app/sitemap.ts            Sitemap
+proxy.ts                  Locale resolution (?lang, cookie, Accept-Language) + internal rewrite
 lib/actions/              Server Actions (contact)
-components/               Layout, UI, contact, resumes, sections, system
+components/               Layout, UI, about, contact, resumes, sections, seo, system
 messages/                 en / es / fr copy
-i18n/                     Locale config
-lib/                      Site config, theme, vCard, helpers
+i18n/                     Locale config, URL helpers, language-switch hook
+lib/                      Site config, SEO, theme, vCard, helpers
 public/img/               Project and profile images
 public/resume/            PDF resumes
 styles/                   Design tokens + map

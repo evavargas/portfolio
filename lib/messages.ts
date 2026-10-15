@@ -1,9 +1,10 @@
 import type en from "@/messages/en.json";
 
-export type Messages = typeof en;
+type Messages = typeof en;
 export type ProjectItem = Messages["projects"]["items"][number];
 export type AboutJob = Messages["about"]["jobs"][number];
 export type SkillGroup = Messages["about"]["skillGroups"][number];
+export type EducationItem = Messages["about"]["education"][number];
 
 export function asStringArray(value: unknown): string[] {
   if (!Array.isArray(value) || value.some((item) => typeof item !== "string")) {
@@ -89,5 +90,29 @@ export function asSkillGroups(value: unknown): SkillGroup[] {
     }
 
     return group as SkillGroup;
+  });
+}
+
+export function asEducationItems(value: unknown): EducationItem[] {
+  if (!Array.isArray(value)) {
+    throw new Error("Expected education items");
+  }
+
+  return value.map((item) => {
+    if (!item || typeof item !== "object") {
+      throw new Error("Invalid education item");
+    }
+
+    const entry = item as Record<string, unknown>;
+    if (
+      typeof entry.title !== "string" ||
+      typeof entry.school !== "string" ||
+      typeof entry.dates !== "string" ||
+      typeof entry.note !== "string"
+    ) {
+      throw new Error("Invalid education item");
+    }
+
+    return entry as EducationItem;
   });
 }

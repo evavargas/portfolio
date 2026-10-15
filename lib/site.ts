@@ -1,33 +1,38 @@
 export const site = {
   name: "Eva Vargas",
-  title: "Software Engineer - Senior Frontend Developer",
+  title: "Software Engineer · Frontend & Product Engineering",
   note: "Frontend · Product · AI-Assisted Development",
   linkedin: "https://www.linkedin.com/in/eva-estrella-vargas-zevallos/",
   github: "https://github.com/evavargas",
 } as const;
 
-export type ResumeId = "en" | "es" | "ats";
+export type ResumeId = "en" | "es";
 
 export const resumes: Record<
   ResumeId,
   { fileName: string; href: string; available: boolean }
 > = {
   en: {
-    fileName: "eva-vargas-en.pdf",
-    href: "/resume/eva-vargas-en.pdf",
+    fileName: "eva-vargas-product-engineer-en.pdf",
+    href: "/resume/eva-vargas-product-engineer-en.pdf",
     available: true,
   },
   es: {
-    fileName: "eva-vargas-es.pdf",
-    href: "/resume/eva-vargas-es.pdf",
-    available: true,
-  },
-  ats: {
-    fileName: "eva-vargas-ats.pdf",
-    href: "/resume/eva-vargas-ats.pdf",
+    fileName: "eva-vargas-product-engineer-es.pdf",
+    href: "/resume/eva-vargas-product-engineer-es.pdf",
     available: true,
   },
 };
+
+/** Absolute origin without trailing slash, used for canonical URLs, sitemap, and structured data. */
+export function getSiteUrl() {
+  const url =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://evavargasportfolio.vercel.app");
+  return url.replace(/\/$/, "");
+}
 
 export function getContactEmail() {
   return process.env.CONTACT_TO_EMAIL?.trim() || "";

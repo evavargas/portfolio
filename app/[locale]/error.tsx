@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { StatusPage } from "@/components/system/status-page";
 import type { ButtonAction } from "@/components/ui/button-group";
+import { localizedHref } from "@/i18n/locale-url";
 
 export default function ErrorPage({
   reset,
@@ -18,7 +19,7 @@ export default function ErrorPage({
     {
       key: "home",
       label: t("home"),
-      href: `/${locale}`,
+      href: localizedHref("/", locale),
       variant: "secondary",
     },
   ];

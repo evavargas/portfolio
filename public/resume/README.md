@@ -1,3 +1,2 @@
-English resume: eva-vargas-en.pdf
-Spanish resume: eva-vargas-es.pdf
-ATS-friendly resume: place as eva-vargas-ats.pdf when ready
+English resume: eva-vargas-product-engineer-en.pdf
+Spanish resume: eva-vargas-product-engineer-es.pdf

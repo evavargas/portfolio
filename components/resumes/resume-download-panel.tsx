@@ -14,7 +14,7 @@ type DialogState =
   | { open: false }
   | { open: true; status: "success" | "error"; id: ResumeId };
 
-const RESUME_IDS: ResumeId[] = ["en", "es", "ats"];
+const RESUME_IDS: ResumeId[] = ["en", "es"];
 
 /** Interactive download cards + status dialog (client island). */
 export function ResumeDownloadPanel() {
@@ -44,7 +44,7 @@ export function ResumeDownloadPanel() {
       <StaggerList
         items={RESUME_IDS}
         getKey={(resumeId) => resumeId}
-        className="grid gap-4 md:grid-cols-3"
+        className="grid gap-4 md:grid-cols-2"
         renderItem={(resumeId) => {
           const available = resumes[resumeId].available;
           const pending = pendingId === resumeId;

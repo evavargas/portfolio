@@ -1,8 +1,10 @@
 {
   "meta": {
-    "title": "Eva Vargas · Software Engineer",
-    "description": "Software engineer specializing in frontend, product development, and AI-assisted software. A personal portfolio about how I turn ideas into products.",
-    "aboutTitle": "About Me · Eva Vargas"
+    "title": "Eva Vargas · Software Engineer — Frontend & Product Engineering",
+    "description": "Software engineer in Montevideo, Uruguay, specializing in frontend and product engineering — React, Next.js, TypeScript, and AI-assisted development. Portfolio, projects, and resume.",
+    "aboutTitle": "About Me · Eva Vargas",
+    "aboutDescription": "My path as a software engineer: experience in fintech and product teams, the technologies I work with, education, and downloadable resumes in English and Spanish.",
+    "jobTitle": "Software Engineer — Frontend & Product Engineering"
   },
   "nav": {
     "home": "Home",
@@ -161,39 +163,48 @@
     ],
     "experienceTitle": "What I've been doing",
     "experienceIntro": [
-      "Over the last six years, I've had the opportunity to work on fintechs, enterprise platforms, cloud solutions, and digital products.",
-      "My experience started in frontend development, evolved into technical leadership, and eventually expanded to product design, backend collaboration, automation, and software architecture.",
+      "Over the last six years, I've had the opportunity to work on fintech products, educational and enterprise platforms, e-commerce, and cloud solutions.",
+      "My experience started in frontend development, evolved into technical leadership, and eventually expanded to product design, backend, automation, and software architecture. Today I'm building my own products as an independent engineer.",
       "Each role has taught me something different, but they all share one thing in common: building products that people actually use."
     ],
     "experienceNote": "A short tour of the path — the full story lives in the resume.",
     "jobs": [
       {
-        "role": "Senior Frontend Developer / Frontend Lead",
-        "company": "ICASH.ONE · Montevideo, Uruguay",
+        "role": "Software Engineer",
+        "company": "Independent",
+        "companyUrl": "https://github.com/evavargas",
+        "dates": "2026-10 — Present",
+        "summary": "I'm building my own software projects, exploring product ideas, and applying AI-assisted development across frontend, backend, and workflow automation.",
+        "stack": ["Next.js", "React", "TypeScript", "Claude", "Cursor", "n8n"]
+      },
+      {
+        "role": "Senior Frontend Developer / Forward Deployed Engineer",
+        "company": "ICASH.ONE · Fintech · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
         "dates": "2024-07 — 2026-07",
-        "summary": "I led technical work across the product lifecycle — from discovery and UX decisions to frontend architecture, backend collaboration, automation, and shipping to production.",
-        "stack": ["TypeScript", "React", "Redux", "Tailwind", "Zustand", "Radix", "shadcn", "Nx"]
+        "summary": "I led frontend engineering and technical decisions across several financial products — a multi-currency user portal built from scratch, a multi-client architecture with Module Federation, a migration from Create React App to Vite, and mentoring the developers and designers who joined the team.",
+        "stack": ["TypeScript", "React", "Module Federation", "Vite", "Nx", "Zustand", "Tailwind", "shadcn", "Java", "SQL"]
       },
       {
         "role": "Frontend Software Engineer",
-        "company": "IUGO Software & Design Studio · Montevideo, Uruguay",
+        "company": "IUGO Software & Design Studio by Domus Global · Montevideo, Uruguay",
         "companyUrl": "https://www.iugo.com.uy/",
         "dates": "2022-03 — 2024-07",
-        "summary": "I built enterprise web apps for international clients, working side by side with designers, PMs, and engineers to ship scalable, user-focused products.",
+        "summary": "Through staff augmentation, I worked on fintech and educational platforms — shipping new features, redesigning user interfaces, and extending admin and support tools.",
         "stack": ["TypeScript", "React", "Next.js", "Vue", "Nuxt", "Tailwind", "Material UI"]
       },
       {
-        "role": "Cloud Analyst Developer",
-        "company": "Replica · Lima, Peru",
+        "role": "Cloud Analyst Developer / Software Developer",
+        "company": "Replica · Microsoft Partner · Lima, Peru",
         "companyUrl": "https://replica.com.pe/",
         "dates": "2020-05 — 2021-09",
-        "summary": "I delivered web and cloud platforms, touching frontend, infrastructure, data, and deployment — learning how products live beyond the browser.",
-        "stack": ["Vue", "Nuxt", "React", "JavaScript", "Material UI", "MJML"]
+        "summary": "I worked on web apps and cloud solutions — e-commerce, corporate websites, and database work — using Azure, Microsoft, and Power Platform technologies.",
+        "stack": ["Vue", "Nuxt", "React", "JavaScript", "Azure", "Power Platform", "SQL Server"]
       },
       {
-        "role": "Freelance Frontend Developer",
+        "role": "Freelance Software Developer",
         "company": "Independent",
+        "companyUrl": "https://github.com/evavargas",
         "dates": "2019-01 — 2020-05",
         "summary": "I designed and shipped custom digital solutions from the first conversation about requirements all the way to launch.",
         "stack": ["JavaScript", "React", "HTML", "CSS", "Bootstrap", "D3"]
@@ -203,36 +214,53 @@
     "skillGroups": [
       {
         "title": "Frontend",
-        "items": ["React", "TypeScript", "Next.js", "Vue", "Nuxt", "Tailwind", "Redux", "Zustand"]
+        "items": ["React", "Next.js", "TypeScript", "JavaScript", "Vue", "Nuxt", "Redux", "Zustand", "Tailwind CSS", "shadcn/ui"]
       },
       {
-        "title": "Product",
-        "items": ["UX/UI", "Figma", "Requirements Analysis", "Design Systems", "Product Development"]
+        "title": "Architecture & Performance",
+        "items": ["Module Federation", "Nx", "Design Systems", "Responsive Design", "Performance Optimization"]
       },
       {
-        "title": "Software Engineering",
-        "items": ["REST APIs", "SQL", "GitHub Workflows", "CI/CD", "Module Federation", "Performance"]
+        "title": "Product & UX",
+        "items": ["UX/UI", "Figma", "Prototyping", "Requirements Analysis", "Product Development"]
       },
       {
-        "title": "AI",
-        "items": ["Claude", "Cursor", "AI-Assisted Development", "n8n"]
+        "title": "Backend & Data",
+        "items": ["Java", "SQL", "PostgreSQL", "MySQL", "SQL Server", "REST APIs"]
+      },
+      {
+        "title": "AI & Automation",
+        "items": ["Claude", "Cursor", "AI-Assisted Development", "n8n", "Brevo", "MJML"]
+      },
+      {
+        "title": "Cloud & CI/CD",
+        "items": ["AWS", "Azure", "GitHub Actions", "Bitbucket"]
       }
     ],
     "educationTitle": "Education",
-    "education": {
-      "degree": "Information Systems Engineering",
-      "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
-      "dates": "2015-03 — 2019",
-      "note": "Not completed",
-      "languages": "English — Intermediate"
-    },
+    "education": [
+      {
+        "title": "UX/UI Designer",
+        "school": "Google",
+        "dates": "2026-08 — 2026-10",
+        "note": "Coursera"
+      },
+      {
+        "title": "Information Systems Engineering",
+        "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
+        "dates": "2015-03 — 2018-12",
+        "note": "Coursework completed; degree not completed"
+      }
+    ],
+    "languagesTitle": "Languages",
+    "languages": "Spanish — Native · English — B1 (Intermediate)",
     "ctaProjects": "Explore my work",
     "ctaResume": "Download resume"
   },
   "resumes": {
     "eyebrow": "Resume",
     "title": "My resume",
-    "subtitle": "If you'd like the written version of my background — in English, Spanish, or an ATS-friendly format.",
+    "subtitle": "If you'd like the written version of my background — in English or Spanish.",
     "available": "Available",
     "comingSoon": "Coming soon",
     "download": "Download",
@@ -245,10 +273,6 @@
       "es": {
         "title": "Spanish",
         "description": "The same story, written in Spanish."
-      },
-      "ats": {
-        "title": "ATS-friendly",
-        "description": "A simpler layout for applicant tracking systems."
       }
     },
     "dialog": {

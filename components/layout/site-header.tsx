@@ -9,6 +9,7 @@ import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { useFocusTrap, useHeaderOffset } from "@/components/layout/use-header-a11y";
 import { Container } from "@/components/ui/container";
 import { IconButton } from "@/components/ui/icon-button";
+import { localizedHref } from "@/i18n/locale-url";
 import { MenuIcon } from "@/components/ui/icons";
 import { NewTabHint } from "@/components/ui/new-tab-hint";
 import { getHomeNavLinks, getSocialLinks, type SiteLink } from "@/lib/site-links";
@@ -60,9 +61,9 @@ export function SiteHeader() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLElement>(null);
   const mobileNavId = useId();
-  const home = `/${locale}`;
-  const onAbout = pathname === `${home}/about` || pathname.startsWith(`${home}/about/`);
-  const onHome = pathname === home || pathname === `${home}/`;
+  const home = localizedHref("/", locale);
+  const onAbout = pathname === "/about" || pathname.startsWith("/about/");
+  const onHome = pathname === "/";
   const opensNewTab = t("opensNewTab");
 
   const closeMenu = useCallback(() => {
@@ -70,7 +71,7 @@ export function SiteHeader() {
     menuButtonRef.current?.focus();
   }, []);
 
-  const pageLinks = getHomeNavLinks(home).map((link) => ({
+  const pageLinks = getHomeNavLinks(locale).map((link) => ({
     ...link,
     label: link.labelKey ? t(link.labelKey) : (link.label ?? ""),
   }));

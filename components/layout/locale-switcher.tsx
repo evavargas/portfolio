@@ -1,17 +1,15 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useId, useRef, useState, useTransition } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { localeLabels, locales, type Locale } from "@/i18n/config";
+import { useSwitchLocale } from "@/i18n/use-switch-locale";
 import { CheckIcon, ChevronIcon } from "@/components/ui/icons";
 
 export function LocaleSwitcher({ label }: { label: string }) {
   const locale = useLocale() as Locale;
-  const pathname = usePathname();
-  const router = useRouter();
+  const { switchLocale, isPending } = useSwitchLocale();
   const [open, setOpen] = useState(false);
-  const [isPending, startTransition] = useTransition();
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuId = useId();
@@ -24,29 +22,8 @@ export function LocaleSwitcher({ label }: { label: string }) {
       return;
     }
 
-    const segments = pathname.split("/");
-    segments[1] = next;
-    const href = segments.join("/") || `/${next}`;
-
-    const navigate = () => {
-      startTransition(() => {
-        router.replace(href);
-      });
-      setOpen(false);
-    };
-
-    const doc = document as Document & {
-      startViewTransition?: (callback: () => void) => void;
-    };
-
-    if (
-      typeof doc.startViewTransition === "function" &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      doc.startViewTransition(navigate);
-    } else {
-      navigate();
-    }
+    setOpen(false);
+    switchLocale(next);
   };
 
   useEffect(() => {

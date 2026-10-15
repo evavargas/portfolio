@@ -4,7 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useSyncExternalStore,
   type ReactNode,
@@ -52,7 +52,8 @@ function getServerSnapshot(): ThemeMode {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const theme = useSyncExternalStore(subscribe, readStoredTheme, getServerSnapshot);
 
-  useEffect(() => {
+  // Layout effect: remounting <html> (e.g. on locale change) drops `data-theme`; restore it before paint.
+  useLayoutEffect(() => {
     applyTheme(theme);
     if (theme !== "system") return;
 

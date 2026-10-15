@@ -1,8 +1,10 @@
 {
   "meta": {
-    "title": "Eva Vargas · Ingeniera de software",
-    "description": "Ingeniera de software especializada en frontend, producto y desarrollo asistido por IA. Un portfolio personal sobre cómo convierto ideas en productos.",
-    "aboutTitle": "Sobre mí · Eva Vargas"
+    "title": "Eva Vargas · Ingeniera de software — Frontend e ingeniería de producto",
+    "description": "Ingeniera de software en Montevideo, Uruguay, especializada en frontend e ingeniería de producto — React, Next.js, TypeScript y desarrollo asistido por IA. Portfolio, proyectos y CV.",
+    "aboutTitle": "Sobre mí · Eva Vargas",
+    "aboutDescription": "Mi recorrido como ingeniera de software: experiencia en fintech y equipos de producto, las tecnologías con las que trabajo, formación y CV descargable en inglés y español.",
+    "jobTitle": "Ingeniera de software — Frontend e ingeniería de producto"
   },
   "nav": {
     "home": "Inicio",
@@ -190,35 +192,52 @@
     ],
     "experienceTitle": "En qué anduve",
     "experienceIntro": [
-      "En estos seis años tuve la oportunidad de trabajar en fintechs, plataformas enterprise, soluciones cloud y productos digitales.",
-      "Empecé en frontend, crecí hacia liderazgo técnico, y con el tiempo sumé diseño de producto, colaboración backend, automatización y arquitectura de software.",
+      "En estos seis años tuve la oportunidad de trabajar en productos fintech, plataformas educativas y enterprise, e-commerce y soluciones cloud.",
+      "Empecé en frontend, crecí hacia liderazgo técnico, y con el tiempo sumé diseño de producto, backend, automatización y arquitectura de software. Hoy construyo mis propios productos como ingeniera independiente.",
       "Cada rol me enseñó algo distinto, pero todos comparten lo mismo: construir productos que la gente realmente usa."
     ],
     "experienceNote": "Un recorrido corto del camino — la historia completa está en el CV.",
     "jobs": [
       {
-        "role": "Senior Frontend Developer / Frontend Lead",
-        "company": "ICASH.ONE · Montevideo, Uruguay",
+        "role": "Software Engineer",
+        "company": "Independiente",
+        "companyUrl": "https://github.com/evavargas",
+        "dates": "2026-10 — Presente",
+        "summary": "Desarrollo proyectos de software propios, exploro ideas de producto y aplico desarrollo asistido por IA en frontend, backend y automatización de flujos de trabajo.",
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Claude",
+          "Cursor",
+          "n8n"
+        ]
+      },
+      {
+        "role": "Senior Frontend Developer / Forward Deployed Engineer",
+        "company": "ICASH.ONE · Fintech · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
         "dates": "2024-07 — 2026-07",
-        "summary": "Lideré el trabajo técnico en todo el ciclo de producto: desde discovery y decisiones de UX hasta arquitectura frontend, colaboración backend, automatización y salida a producción.",
+        "summary": "Lideré la ingeniería frontend y las decisiones técnicas de varios productos financieros: un portal de usuarios multimoneda construido desde cero, una arquitectura multicliente con Module Federation, la migración de Create React App a Vite y la mentoría de los desarrolladores y diseñadores que se sumaron al equipo.",
         "stack": [
           "TypeScript",
           "React",
-          "Redux",
-          "Tailwind",
+          "Module Federation",
+          "Vite",
+          "Nx",
           "Zustand",
-          "Radix",
+          "Tailwind",
           "shadcn",
-          "Nx"
+          "Java",
+          "SQL"
         ]
       },
       {
         "role": "Frontend Software Engineer",
-        "company": "IUGO Software & Design Studio · Montevideo, Uruguay",
+        "company": "IUGO Software & Design Studio by Domus Global · Montevideo, Uruguay",
         "companyUrl": "https://www.iugo.com.uy/",
         "dates": "2022-03 — 2024-07",
-        "summary": "Construí aplicaciones web empresariales para clientes internacionales, codo a codo con diseñadores, PMs e ingenieros, para entregar productos escalables y centrados en las personas.",
+        "summary": "A través de staff augmentation trabajé en plataformas fintech y educativas: nuevas funcionalidades, rediseño de interfaces y ampliación de herramientas administrativas y de soporte.",
         "stack": [
           "TypeScript",
           "React",
@@ -230,23 +249,25 @@
         ]
       },
       {
-        "role": "Cloud Analyst Developer",
-        "company": "Replica · Lima, Perú",
+        "role": "Cloud Analyst Developer / Software Developer",
+        "company": "Replica · Microsoft Partner · Lima, Perú",
         "companyUrl": "https://replica.com.pe/",
         "dates": "2020-05 — 2021-09",
-        "summary": "Entregué plataformas web y cloud tocando frontend, infraestructura, datos y despliegue — aprendiendo cómo viven los productos más allá del navegador.",
+        "summary": "Trabajé en aplicaciones web y soluciones cloud — e-commerce, sitios corporativos y tareas de bases de datos — con tecnologías de Azure, Microsoft y Power Platform.",
         "stack": [
           "Vue",
           "Nuxt",
           "React",
           "JavaScript",
-          "Material UI",
-          "MJML"
+          "Azure",
+          "Power Platform",
+          "SQL Server"
         ]
       },
       {
-        "role": "Freelance Frontend Developer",
+        "role": "Freelance Software Developer",
         "company": "Independiente",
+        "companyUrl": "https://github.com/evavargas",
         "dates": "2019-01 — 2020-05",
         "summary": "Diseñé y entregué soluciones digitales a medida, desde la primera conversación sobre requisitos hasta el lanzamiento.",
         "stack": [
@@ -265,61 +286,93 @@
         "title": "Frontend",
         "items": [
           "React",
-          "TypeScript",
           "Next.js",
+          "TypeScript",
+          "JavaScript",
           "Vue",
           "Nuxt",
-          "Tailwind",
           "Redux",
-          "Zustand"
+          "Zustand",
+          "Tailwind CSS",
+          "shadcn/ui"
         ]
       },
       {
-        "title": "Producto",
+        "title": "Arquitectura y performance",
+        "items": [
+          "Module Federation",
+          "Nx",
+          "Sistemas de diseño",
+          "Diseño responsive",
+          "Optimización de performance"
+        ]
+      },
+      {
+        "title": "Producto y UX",
         "items": [
           "UX/UI",
           "Figma",
+          "Prototipado",
           "Análisis de requisitos",
-          "Design Systems",
           "Desarrollo de producto"
         ]
       },
       {
-        "title": "Ingeniería de software",
+        "title": "Backend y datos",
         "items": [
-          "REST APIs",
+          "Java",
           "SQL",
-          "GitHub Workflows",
-          "CI/CD",
-          "Module Federation",
-          "Performance"
+          "PostgreSQL",
+          "MySQL",
+          "SQL Server",
+          "REST APIs"
         ]
       },
       {
-        "title": "IA",
+        "title": "IA y automatización",
         "items": [
           "Claude",
           "Cursor",
           "Desarrollo asistido por IA",
-          "n8n"
+          "n8n",
+          "Brevo",
+          "MJML"
+        ]
+      },
+      {
+        "title": "Cloud y CI/CD",
+        "items": [
+          "AWS",
+          "Azure",
+          "GitHub Actions",
+          "Bitbucket"
         ]
       }
     ],
     "educationTitle": "Educación",
-    "education": {
-      "degree": "Ingeniería en Sistemas de Información",
-      "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
-      "dates": "2015-03 — 2019",
-      "note": "No finalizada",
-      "languages": "Inglés — Intermedio"
-    },
+    "education": [
+      {
+        "title": "Diseñadora UX/UI",
+        "school": "Google",
+        "dates": "2026-08 — 2026-10",
+        "note": "Coursera"
+      },
+      {
+        "title": "Ingeniería en Sistemas de Información",
+        "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
+        "dates": "2015-03 — 2018-12",
+        "note": "Cursada completa; título no finalizado"
+      }
+    ],
+    "languagesTitle": "Idiomas",
+    "languages": "Español — Nativo · Inglés — B1 (Intermedio)",
     "ctaProjects": "Explorar mi trabajo",
     "ctaResume": "Descargar CV"
   },
   "resumes": {
     "eyebrow": "CV",
     "title": "Mi CV",
-    "subtitle": "Si preferís la versión escrita de mi recorrido — en inglés, español o formato ATS.",
+    "subtitle": "Si preferís la versión escrita de mi recorrido — en inglés o español.",
     "available": "Disponible",
     "comingSoon": "Próximamente",
     "download": "Descargar",
@@ -332,10 +385,6 @@
       "es": {
         "title": "Español",
         "description": "La misma historia, escrita en español."
-      },
-      "ats": {
-        "title": "ATS-friendly",
-        "description": "Una versión más simple para sistemas de tracking."
       }
     },
     "dialog": {

@@ -1,8 +1,10 @@
 {
   "meta": {
-    "title": "Eva Vargas · Ingénieure logicielle",
-    "description": "Ingénieure logicielle spécialisée en frontend, produit et développement assisté par l'IA. Un portfolio personnel sur la façon dont je transforme des idées en produits.",
-    "aboutTitle": "À propos · Eva Vargas"
+    "title": "Eva Vargas · Ingénieure logicielle — Frontend et ingénierie produit",
+    "description": "Ingénieure logicielle à Montevideo, Uruguay, spécialisée en frontend et ingénierie produit — React, Next.js, TypeScript et développement assisté par l'IA. Portfolio, projets et CV.",
+    "aboutTitle": "À propos · Eva Vargas",
+    "aboutDescription": "Mon parcours d'ingénieure logicielle : expérience en fintech et en équipes produit, les technologies que j'utilise, ma formation et mes CV téléchargeables en anglais et en espagnol.",
+    "jobTitle": "Ingénieure logicielle — Frontend et ingénierie produit"
   },
   "nav": {
     "home": "Accueil",
@@ -190,35 +192,52 @@
     ],
     "experienceTitle": "Ce que j'ai fait",
     "experienceIntro": [
-      "Ces six dernières années, j'ai eu l'opportunité de travailler sur des fintechs, des plateformes enterprise, des solutions cloud et des produits numériques.",
-      "Mon parcours a commencé en frontend, a évolué vers le leadership technique, puis s'est élargi au design produit, à la collaboration backend, à l'automatisation et à l'architecture logicielle.",
+      "Ces six dernières années, j'ai eu l'opportunité de travailler sur des produits fintech, des plateformes éducatives et enterprise, de l'e-commerce et des solutions cloud.",
+      "Mon parcours a commencé en frontend, a évolué vers le leadership technique, puis s'est élargi au design produit, au backend, à l'automatisation et à l'architecture logicielle. Aujourd'hui, je construis mes propres produits en tant qu'ingénieure indépendante.",
       "Chaque rôle m'a appris quelque chose de différent, mais tous partagent la même chose : construire des produits que les gens utilisent vraiment."
     ],
     "experienceNote": "Un court parcours du chemin — l'histoire complète est dans le CV.",
     "jobs": [
       {
-        "role": "Senior Frontend Developer / Frontend Lead",
-        "company": "ICASH.ONE · Montevideo, Uruguay",
+        "role": "Software Engineer",
+        "company": "Indépendante",
+        "companyUrl": "https://github.com/evavargas",
+        "dates": "2026-10 — Aujourd'hui",
+        "summary": "Je développe mes propres projets logiciels, j'explore des idées produit et j'applique le développement assisté par l'IA au frontend, au backend et à l'automatisation des workflows.",
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Claude",
+          "Cursor",
+          "n8n"
+        ]
+      },
+      {
+        "role": "Senior Frontend Developer / Forward Deployed Engineer",
+        "company": "ICASH.ONE · Fintech · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
         "dates": "2024-07 — 2026-07",
-        "summary": "J'ai mené le travail technique sur tout le cycle produit — de la découverte et des décisions UX à l'architecture frontend, la collaboration backend, l'automatisation et la mise en production.",
+        "summary": "J'ai dirigé l'ingénierie frontend et les décisions techniques de plusieurs produits financiers : un portail utilisateur multidevise construit de zéro, une architecture multi-client avec Module Federation, la migration de Create React App vers Vite et le mentorat des développeurs et designers arrivés dans l'équipe.",
         "stack": [
           "TypeScript",
           "React",
-          "Redux",
-          "Tailwind",
+          "Module Federation",
+          "Vite",
+          "Nx",
           "Zustand",
-          "Radix",
+          "Tailwind",
           "shadcn",
-          "Nx"
+          "Java",
+          "SQL"
         ]
       },
       {
         "role": "Frontend Software Engineer",
-        "company": "IUGO Software & Design Studio · Montevideo, Uruguay",
+        "company": "IUGO Software & Design Studio by Domus Global · Montevideo, Uruguay",
         "companyUrl": "https://www.iugo.com.uy/",
         "dates": "2022-03 — 2024-07",
-        "summary": "J'ai construit des applications web d'entreprise pour des clients internationaux, aux côtés de designers, PMs et ingénieurs, pour livrer des produits scalables et centrés sur les utilisateurs.",
+        "summary": "En staff augmentation, j'ai travaillé sur des plateformes fintech et éducatives : nouvelles fonctionnalités, refonte d'interfaces et extension d'outils d'administration et de support.",
         "stack": [
           "TypeScript",
           "React",
@@ -230,23 +249,25 @@
         ]
       },
       {
-        "role": "Cloud Analyst Developer",
-        "company": "Replica · Lima, Pérou",
+        "role": "Cloud Analyst Developer / Software Developer",
+        "company": "Replica · Microsoft Partner · Lima, Pérou",
         "companyUrl": "https://replica.com.pe/",
         "dates": "2020-05 — 2021-09",
-        "summary": "J'ai livré des plateformes web et cloud en touchant frontend, infrastructure, données et déploiement — en apprenant comment les produits vivent au-delà du navigateur.",
+        "summary": "J'ai travaillé sur des applications web et des solutions cloud — e-commerce, sites corporate et bases de données — avec les technologies Azure, Microsoft et Power Platform.",
         "stack": [
           "Vue",
           "Nuxt",
           "React",
           "JavaScript",
-          "Material UI",
-          "MJML"
+          "Azure",
+          "Power Platform",
+          "SQL Server"
         ]
       },
       {
-        "role": "Freelance Frontend Developer",
+        "role": "Freelance Software Developer",
         "company": "Indépendante",
+        "companyUrl": "https://github.com/evavargas",
         "dates": "2019-01 — 2020-05",
         "summary": "J'ai conçu et livré des solutions numériques sur mesure, de la première conversation sur les besoins jusqu'au lancement.",
         "stack": [
@@ -265,61 +286,93 @@
         "title": "Frontend",
         "items": [
           "React",
-          "TypeScript",
           "Next.js",
+          "TypeScript",
+          "JavaScript",
           "Vue",
           "Nuxt",
-          "Tailwind",
           "Redux",
-          "Zustand"
+          "Zustand",
+          "Tailwind CSS",
+          "shadcn/ui"
         ]
       },
       {
-        "title": "Produit",
+        "title": "Architecture et performance",
+        "items": [
+          "Module Federation",
+          "Nx",
+          "Design systems",
+          "Design responsive",
+          "Optimisation des performances"
+        ]
+      },
+      {
+        "title": "Produit et UX",
         "items": [
           "UX/UI",
           "Figma",
+          "Prototypage",
           "Analyse des besoins",
-          "Design Systems",
           "Développement produit"
         ]
       },
       {
-        "title": "Ingénierie logicielle",
+        "title": "Backend et données",
         "items": [
-          "REST APIs",
+          "Java",
           "SQL",
-          "GitHub Workflows",
-          "CI/CD",
-          "Module Federation",
-          "Performance"
+          "PostgreSQL",
+          "MySQL",
+          "SQL Server",
+          "REST APIs"
         ]
       },
       {
-        "title": "IA",
+        "title": "IA et automatisation",
         "items": [
           "Claude",
           "Cursor",
           "Développement assisté par l'IA",
-          "n8n"
+          "n8n",
+          "Brevo",
+          "MJML"
+        ]
+      },
+      {
+        "title": "Cloud et CI/CD",
+        "items": [
+          "AWS",
+          "Azure",
+          "GitHub Actions",
+          "Bitbucket"
         ]
       }
     ],
     "educationTitle": "Formation",
-    "education": {
-      "degree": "Ingénierie des systèmes d'information",
-      "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentine",
-      "dates": "2015-03 — 2019",
-      "note": "Non terminée",
-      "languages": "Anglais — Intermédiaire"
-    },
+    "education": [
+      {
+        "title": "Designer UX/UI",
+        "school": "Google",
+        "dates": "2026-08 — 2026-10",
+        "note": "Coursera"
+      },
+      {
+        "title": "Ingénierie des systèmes d'information",
+        "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentine",
+        "dates": "2015-03 — 2018-12",
+        "note": "Cursus complété ; diplôme non obtenu"
+      }
+    ],
+    "languagesTitle": "Langues",
+    "languages": "Espagnol — Langue maternelle · Anglais — B1 (Intermédiaire)",
     "ctaProjects": "Explorer mon travail",
     "ctaResume": "Télécharger le CV"
   },
   "resumes": {
     "eyebrow": "CV",
     "title": "Mon CV",
-    "subtitle": "Si vous préférez la version écrite de mon parcours — en anglais, espagnol ou format ATS.",
+    "subtitle": "Si vous préférez la version écrite de mon parcours — en anglais ou en espagnol.",
     "available": "Disponible",
     "comingSoon": "Bientôt",
     "download": "Télécharger",
@@ -332,10 +385,6 @@
       "es": {
         "title": "Espagnol",
         "description": "La même histoire, écrite en espagnol."
-      },
-      "ats": {
-        "title": "ATS-friendly",
-        "description": "Une mise en page plus simple pour les systèmes de tracking."
       }
     },
     "dialog": {

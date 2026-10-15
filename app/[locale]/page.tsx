@@ -9,6 +9,8 @@ import {
 import { ContactSection } from "@/components/contact/contact-section";
 import { Container } from "@/components/ui/container";
 import { ResumeGallery } from "@/components/resumes/resume-gallery";
+import type { Locale } from "@/i18n/config";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -18,21 +20,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
 
-  return {
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: "/",
     title: t("title"),
     description: t("description"),
-    openGraph: {
-      title: t("title"),
-      description: t("description"),
-      locale,
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
-    },
-  };
+  });
 }
 
 export default async function HomePage({

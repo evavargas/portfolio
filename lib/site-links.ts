@@ -1,3 +1,4 @@
+import { localizedHref } from "@/i18n/locale-url";
 import { site } from "@/lib/site";
 
 export type SiteLink = {
@@ -10,12 +11,27 @@ export type SiteLink = {
   about?: boolean;
 };
 
-export function getHomeNavLinks(home: string): SiteLink[] {
+export function getHomeNavLinks(locale: string): SiteLink[] {
   return [
-    { key: "resumes", href: `${home}#resumes`, labelKey: "resumes", section: "resumes" },
-    { key: "projects", href: `${home}#projects`, labelKey: "projects", section: "projects" },
-    { key: "contact", href: `${home}#contact`, labelKey: "contact", section: "contact" },
-    { key: "about", href: `${home}/about`, labelKey: "about", about: true },
+    {
+      key: "resumes",
+      href: localizedHref("/#resumes", locale),
+      labelKey: "resumes",
+      section: "resumes",
+    },
+    {
+      key: "projects",
+      href: localizedHref("/#projects", locale),
+      labelKey: "projects",
+      section: "projects",
+    },
+    {
+      key: "contact",
+      href: localizedHref("/#contact", locale),
+      labelKey: "contact",
+      section: "contact",
+    },
+    { key: "about", href: localizedHref("/about", locale), labelKey: "about", about: true },
   ];
 }
 
@@ -26,6 +42,6 @@ export function getSocialLinks(): SiteLink[] {
   ];
 }
 
-export function getFooterLinks(home: string): SiteLink[] {
-  return [...getHomeNavLinks(home), ...getSocialLinks()];
+export function getFooterLinks(locale: string): SiteLink[] {
+  return [...getHomeNavLinks(locale), ...getSocialLinks()];
 }

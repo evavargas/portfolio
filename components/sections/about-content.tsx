@@ -11,7 +11,8 @@ import { Container } from "@/components/ui/container";
 import { ParagraphList } from "@/components/ui/prose";
 import { SectionTitle } from "@/components/ui/section-heading";
 import { TextLink } from "@/components/ui/text-link";
-import { asAboutJobs, asSkillGroups, asStringArray } from "@/lib/messages";
+import { localizedHref } from "@/i18n/locale-url";
+import { asAboutJobs, asEducationItems, asSkillGroups, asStringArray } from "@/lib/messages";
 
 export async function AboutPageContent() {
   const t = await getTranslations("about");
@@ -21,11 +22,12 @@ export async function AboutPageContent() {
   const experienceIntro = asStringArray(t.raw("experienceIntro"));
   const jobs = asAboutJobs(t.raw("jobs"));
   const skillGroups = asSkillGroups(t.raw("skillGroups"));
+  const education = asEducationItems(t.raw("education"));
 
   const opensNewTab = nav("opensNewTab");
 
   const actions: ButtonAction[] = [
-    { key: "projects", label: t("ctaProjects"), href: `/${locale}#projects` },
+    { key: "projects", label: t("ctaProjects"), href: localizedHref("/#projects", locale) },
     { key: "resume", label: t("ctaResume"), href: "#about-resumes", variant: "secondary" },
   ];
 
@@ -42,7 +44,7 @@ export async function AboutPageContent() {
         <ButtonGroup
           actions={actions}
           className="mt-8"
-          trailing={<TextLink href={`/${locale}`}>← {nav("home")}</TextLink>}
+          trailing={<TextLink href={localizedHref("/", locale)}>← {nav("home")}</TextLink>}
         />
       </Reveal>
 
@@ -87,11 +89,9 @@ export async function AboutPageContent() {
         <div className="mt-16">
           <EducationCard
             eyebrow={t("educationTitle")}
-            degree={t("education.degree")}
-            school={t("education.school")}
-            dates={t("education.dates")}
-            note={t("education.note")}
-            languages={t("education.languages")}
+            items={education}
+            languagesTitle={t("languagesTitle")}
+            languages={t("languages")}
           />
         </div>
       </Reveal>

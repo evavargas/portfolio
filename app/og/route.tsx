@@ -1,12 +1,19 @@
 import { ImageResponse } from "next/og";
+import type { NextRequest } from "next/server";
+import { getTranslations } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { defaultLocale, LOCALE_PARAM, locales } from "@/i18n/config";
 import { brandColors } from "@/lib/brand-colors";
+import { OG_IMAGE_SIZE } from "@/lib/seo";
 
 export const runtime = "edge";
-export const alt = "Eva Vargas — Software Engineer";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export async function GET(request: NextRequest) {
+  const param = request.nextUrl.searchParams.get(LOCALE_PARAM);
+  const locale = hasLocale(locales, param) ? param : defaultLocale;
+  const hero = await getTranslations({ locale, namespace: "hero" });
+  const meta = await getTranslations({ locale, namespace: "meta" });
+
   return new ImageResponse(
     (
       <div
@@ -40,14 +47,14 @@ export default function OpenGraphImage() {
             Eva Vargas
           </div>
           <div style={{ fontSize: 34, fontWeight: 600, letterSpacing: "-0.02em", maxWidth: 900 }}>
-            I enjoy turning ideas into products.
+            {hero("idea")}
           </div>
           <div style={{ fontSize: 24, color: brandColors.accentBlue, maxWidth: 880 }}>
-            Software Engineer · Frontend · Product · AI-Assisted Development
+            {meta("jobTitle")}
           </div>
         </div>
       </div>
     ),
-    { ...size },
+    OG_IMAGE_SIZE,
   );
 }

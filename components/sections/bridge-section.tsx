@@ -3,13 +3,14 @@ import { Reveal } from "@/components/motion/reveal";
 import { ButtonGroup, type ButtonAction } from "@/components/ui/button-group";
 import { Container } from "@/components/ui/container";
 import { Surface } from "@/components/ui/surface";
+import { localizedHref } from "@/i18n/locale-url";
 
 export async function BridgeSection() {
   const t = await getTranslations("bridge");
   const locale = await getLocale();
 
   const actions: ButtonAction[] = [
-    { key: "about", label: t("cta"), href: `/${locale}/about` },
+    { key: "about", label: t("cta"), href: localizedHref("/about", locale) },
   ];
 
   return (

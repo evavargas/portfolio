@@ -9,10 +9,9 @@ export async function SiteFooter() {
   const nav = await getTranslations("nav");
   const locale = await getLocale();
   const year = new Date().getFullYear();
-  const home = `/${locale}`;
   const opensNewTab = nav("opensNewTab");
 
-  const links = getFooterLinks(home).map((link) => ({
+  const links = getFooterLinks(locale).map((link) => ({
     ...link,
     label: link.labelKey ? t(link.labelKey) : (link.label ?? ""),
   }));

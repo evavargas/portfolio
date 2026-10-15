@@ -9,6 +9,9 @@ import { AnalyticsProviders } from "@/components/providers/analytics-providers";
 import { PageEffects } from "@/components/layout/page-effects";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { JsonLd } from "@/components/seo/json-ld";
+import { InlineScript } from "@/components/ui/inline-script";
+import { personJsonLd } from "@/lib/seo";
 import { themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
@@ -44,13 +47,15 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations("nav");
+  const meta = await getTranslations("meta");
 
   return (
     <html lang={locale} className={`${outfit.variable} ${sourceSans.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <InlineScript html={themeInitScript} />
       </head>
       <body className="font-body antialiased">
+        <JsonLd data={personJsonLd(locale as Locale, meta("jobTitle"))} />
         <PageEffects />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>

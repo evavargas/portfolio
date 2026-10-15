@@ -1,6 +1,12 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { contactSchema } from "@/lib/contact-schema";
-import { asAboutJobs, asProjectItems, asSkillGroups, asStringArray } from "@/lib/messages";
+import {
+  asAboutJobs,
+  asEducationItems,
+  asProjectItems,
+  asSkillGroups,
+  asStringArray,
+} from "@/lib/messages";
 import { checkRateLimit, resetRateLimitStore } from "@/lib/rate-limit";
 import { buildVCard } from "@/lib/vcard";
 
@@ -151,6 +157,19 @@ describe("message helpers", () => {
   it("parses skill groups", () => {
     const groups = asSkillGroups([{ title: "Frontend", items: ["React", "TypeScript"] }]);
     expect(groups[0]?.title).toBe("Frontend");
+  });
+
+  it("parses education items", () => {
+    const items = asEducationItems([
+      { title: "Engineering", school: "UTN", dates: "2015 — 2018", note: "Not completed" },
+    ]);
+    expect(items[0]?.school).toBe("UTN");
+  });
+
+  it("rejects incomplete education items", () => {
+    expect(() => asEducationItems([{ title: "Engineering", school: "UTN" }])).toThrow(
+      "Invalid education item",
+    );
   });
 });
 

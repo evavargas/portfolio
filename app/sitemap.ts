@@ -1,31 +1,31 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
+import { localizedHref } from "@/i18n/locale-url";
+import { getSiteUrl } from "@/lib/site";
 
-function siteOrigin() {
-  return (
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "https://evavargasportfolio.vercel.app")
-  );
-}
+/** Bump when page content changes. */
+const CONTENT_UPDATED_AT = new Date("2026-10-15");
+
+const ROUTES = [
+  { path: "/", priority: 1 },
+  { path: "/about", priority: 0.8 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const origin = siteOrigin().replace(/\/$/, "");
-  const lastModified = new Date();
+  const origin = getSiteUrl();
 
-  return locales.flatMap((locale) => [
-    {
-      url: `${origin}/${locale}`,
-      lastModified,
+  return ROUTES.flatMap(({ path, priority }) => {
+    const languages: Record<string, string> = Object.fromEntries(
+      locales.map((locale) => [locale, `${origin}${localizedHref(path, locale)}`]),
+    );
+    languages["x-default"] = `${origin}${path}`;
+
+    return locales.map((locale) => ({
+      url: `${origin}${localizedHref(path, locale)}`,
+      lastModified: CONTENT_UPDATED_AT,
       changeFrequency: "monthly" as const,
-      priority: 1,
-    },
-    {
-      url: `${origin}/${locale}/about`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-  ]);
+      priority,
+      alternates: { languages },
+    }));
+  });
 }

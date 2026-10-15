@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { HeroIdea } from "@/components/motion/hero-idea";
 import { ButtonGroup, type ButtonAction } from "@/components/ui/button-group";
 import { Container } from "@/components/ui/container";
+import { localizedHref } from "@/i18n/locale-url";
 import { ParagraphList } from "@/components/ui/prose";
 import { asStringArray } from "@/lib/messages";
 
@@ -11,11 +12,11 @@ export async function HeroSection() {
   const paragraphs = asStringArray(t.raw("paragraphs"));
 
   const actions: ButtonAction[] = [
-    { key: "projects", label: t("ctaProjects"), href: `/${locale}#projects` },
+    { key: "projects", label: t("ctaProjects"), href: localizedHref("/#projects", locale) },
     {
       key: "contact",
       label: t("ctaContact"),
-      href: `/${locale}#contact`,
+      href: localizedHref("/#contact", locale),
       variant: "secondary",
     },
   ];
