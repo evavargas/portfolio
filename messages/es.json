@@ -69,6 +69,24 @@
         "image": "/img/project6.png"
       },
       {
+        "id": "merece",
+        "eyebrow": "Pastelería · 2026",
+        "title": "Merece",
+        "description": "Landing de una pastelería sin gluten de Montevideo, con un panel de administración mínimo para controlar stock, precios y fotos, y un mapa de zonas de entrega.",
+        "tech": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Hono",
+          "Supabase",
+          "Tailwind",
+          "MapLibre"
+        ],
+        "href": "https://merecesingluten.vercel.app",
+        "repo": "https://github.com/evavargas/merece",
+        "image": "/img/project7.png"
+      },
+      {
         "id": "tiendatuya",
         "eyebrow": "Marketplace · 2026",
         "title": "TiendaTuya",
