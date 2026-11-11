@@ -43,8 +43,8 @@ export default async function HomePage({
       <Container className="py-10">
         <ResumeGallery />
       </Container>
-      <ProjectsSection />
       <ContactSection />
+      <ProjectsSection />
       <BridgeSection />
     </>
   );

@@ -1,5 +1,6 @@
 import { SpotlightCard } from "@/components/motion/spotlight-card";
 import { ProjectMediaLink } from "@/components/projects/project-media-link";
+import { Badge } from "@/components/ui/badge";
 import { BadgeListLabeled } from "@/components/ui/badge-list";
 import { ButtonGroup, type ButtonAction } from "@/components/ui/button-group";
 import { GitHubIcon } from "@/components/ui/icons";
@@ -18,6 +19,7 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, index, labels }: ProjectCardProps) {
+  const [category, year] = project.eyebrow.split(" · ");
   const actions: ButtonAction[] = [
     {
       key: "visit",
@@ -55,8 +57,9 @@ export function ProjectCard({ project, index, labels }: ProjectCardProps) {
           )}
         >
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[var(--tracking-eyebrow-lg)] text-muted">
-              {project.eyebrow}
+            <p className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[var(--tracking-eyebrow-lg)] text-muted">
+              {category}
+              {year && <Badge tone="pink">{year}</Badge>}
             </p>
             <h3 className="mt-1.5 text-xl font-semibold md:text-2xl">{project.title}</h3>
             <p className="mt-2.5 text-sm leading-relaxed text-muted md:text-[0.95rem]">

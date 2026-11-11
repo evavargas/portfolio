@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { Surface } from "@/components/ui/surface";
 import type { EducationItem } from "@/lib/messages";
 
@@ -19,8 +20,9 @@ export function EducationCard({ eyebrow, items, languagesTitle, languages }: Edu
           <li key={item.title + item.dates}>
             <p className="text-xl font-semibold md:text-2xl">{item.title}</p>
             <p className="mt-1 text-muted">{item.school}</p>
-            <p className="mt-1 text-sm font-semibold text-muted">
-              {item.dates} · {item.note}
+            <p className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted">
+              <Badge tone="pink">{item.dates}</Badge>
+              {item.note}
             </p>
           </li>
         ))}

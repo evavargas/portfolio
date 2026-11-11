@@ -52,11 +52,35 @@
     "tech": "Built with",
     "items": [
       {
+        "id": "coffeemaster",
+        "eyebrow": "Coffee · 2026",
+        "title": "Coffee Master",
+        "description": "A virtual barista chat for brewing better coffee at home: recipe catalog, personal recipe book and AI tips, on web and Android.",
+        "tech": [
+          "Next.js",
+          "React",
+          "Expo",
+          "FastAPI",
+          "PostgreSQL",
+          "Claude"
+        ],
+        "href": "https://coffeemasteruy.vercel.app",
+        "repo": "https://github.com/evavargas/coffee-master",
+        "image": "/img/project6.png"
+      },
+      {
         "id": "tiendatuya",
         "eyebrow": "Marketplace · 2026",
         "title": "TiendaTuya",
         "description": "A multi-vendor marketplace with white-label storefronts — sellers get their own space, buyers discover products in one place.",
-        "tech": ["Next.js 15", "React 19", "TypeScript", "Supabase", "Tailwind", "Stripe"],
+        "tech": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "Supabase",
+          "Tailwind",
+          "Stripe"
+        ],
         "href": "https://tiendatuya-4bvr.vercel.app/",
         "repo": "https://github.com/evavargas/tiendatuya",
         "image": "/img/project5.png"
@@ -66,7 +90,12 @@
         "eyebrow": "Calendar · 2022",
         "title": "Personal Calendar",
         "description": "A calm personal calendar for creating and organizing events across month, week, and day views.",
-        "tech": ["Vue 3", "Vite", "Pinia", "FullCalendar"],
+        "tech": [
+          "Vue 3",
+          "Vite",
+          "Pinia",
+          "FullCalendar"
+        ],
         "href": "https://calendar-bay-kappa.vercel.app/",
         "repo": "https://github.com/evavargas/calendar",
         "image": "/img/project4.png"
@@ -76,7 +105,12 @@
         "eyebrow": "Events · 2022",
         "title": "Dualipa Events",
         "description": "An events and merchandise experience built with a team — from browsing shows to cart and checkout.",
-        "tech": ["React 19", "Vite", "Redux Toolkit", "Bootstrap"],
+        "tech": [
+          "React 19",
+          "Vite",
+          "Redux Toolkit",
+          "Bootstrap"
+        ],
         "href": "https://c3-g45.vercel.app/",
         "repo": "https://github.com/evavargas/C3-G45",
         "image": "/img/project0.png"
@@ -86,7 +120,11 @@
         "eyebrow": "Catalog · 2021",
         "title": "Gatálogo",
         "description": "An interactive digital catalog with a page-turning reader — made for browsing that feels like holding a book.",
-        "tech": ["Vue 2", "CoffeeScript", "Turn.js"],
+        "tech": [
+          "Vue 2",
+          "CoffeeScript",
+          "Turn.js"
+        ],
         "href": "https://flipbook-sooty.vercel.app/",
         "repo": "https://github.com/evavargas/flipbook",
         "image": "/img/project2.png"
@@ -96,7 +134,11 @@
         "eyebrow": "Diagrams · 2021",
         "title": "Connect Nodes",
         "description": "A relationship diagram editor for mapping ideas visually — create nodes, connect them, then export or import JSON.",
-        "tech": ["Vue 3", "D3.js", "SVG"],
+        "tech": [
+          "Vue 3",
+          "D3.js",
+          "SVG"
+        ],
         "href": "https://connect-nodes.vercel.app/",
         "repo": "https://github.com/evavargas/connect-nodes",
         "image": "/img/project1.png"
@@ -106,7 +148,11 @@
         "eyebrow": "Studio · 2022",
         "title": "Catalina Design",
         "description": "A website for an architecture studio — galleries, services, and a project viewer built around the work itself.",
-        "tech": ["HTML", "CSS", "JavaScript"],
+        "tech": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
         "href": "https://catalina-design.vercel.app/",
         "repo": "https://github.com/evavargas/catalina-design",
         "image": "/img/project3.png"
@@ -173,87 +219,193 @@
         "role": "Software Engineer",
         "company": "Independent",
         "companyUrl": "https://github.com/evavargas",
-        "dates": "2026-10 — Present",
-        "summary": "I'm building my own software projects, exploring product ideas, and applying AI-assisted development across frontend, backend, and workflow automation.",
-        "stack": ["Next.js", "React", "TypeScript", "Claude", "Cursor", "n8n"]
+        "dates": "2026-08 — Present",
+        "summary": "Building products end-to-end with AI-assisted development: Coffee Master (AI barista chat powered by Claude, web and mobile, with streaming and per-user limits), Patio (a reasoning game for kids with a teacher panel) and ProveCheck (a field-service app).",
+        "stack": [
+          "Next.js",
+          "React",
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "Supabase",
+          "Claude",
+          "Cursor"
+        ]
       },
       {
-        "role": "Senior Frontend Developer / Forward Deployed Engineer",
+        "role": "Senior Frontend Developer / Product Engineer",
         "company": "ICASH.ONE · Fintech · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
         "dates": "2024-07 — 2026-07",
-        "summary": "I led frontend engineering and technical decisions across several financial products — a multi-currency user portal built from scratch, a multi-client architecture with Module Federation, a migration from Create React App to Vite, and mentoring the developers and designers who joined the team.",
-        "stack": ["TypeScript", "React", "Module Federation", "Vite", "Nx", "Zustand", "Tailwind", "shadcn", "Java", "SQL"]
+        "summary": "Worked end-to-end, design to production, on wallet payment and checkout flows for users across four continents. Designed a multi-tenant architecture with Module Federation, built a multi-currency portal and a user-management panel from scratch, migrated apps from Create React App to Vite (~80% faster builds) and mentored a developer from junior to semi-senior.",
+        "stack": [
+          "TypeScript",
+          "React",
+          "Module Federation",
+          "Vite",
+          "Nx",
+          "Zustand",
+          "TanStack Query",
+          "Redux",
+          "Tailwind",
+          "shadcn",
+          "Java",
+          "SQL"
+        ]
       },
       {
         "role": "Frontend Software Engineer",
         "company": "IUGO Software & Design Studio by Domus Global · Montevideo, Uruguay",
         "companyUrl": "https://www.iugo.com.uy/",
         "dates": "2022-03 — 2024-07",
-        "summary": "Through staff augmentation, I worked on fintech and educational platforms — shipping new features, redesigning user interfaces, and extending admin and support tools.",
-        "stack": ["TypeScript", "React", "Next.js", "Vue", "Nuxt", "Tailwind", "Material UI"]
+        "summary": "Through staff augmentation at D24 and ERON International (payments), built merchant, admin and internal finance panels and led the redesign and rebrand of a creator payouts portal. Also built an admin panel and a user app with games, achievements and events for a kids' education platform.",
+        "stack": [
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Redux",
+          "Vue",
+          "SQL"
+        ]
       },
       {
         "role": "Cloud Analyst Developer / Software Developer",
         "company": "Replica · Microsoft Partner · Lima, Peru",
         "companyUrl": "https://replica.com.pe/",
         "dates": "2020-05 — 2021-09",
-        "summary": "I worked on web apps and cloud solutions — e-commerce, corporate websites, and database work — using Azure, Microsoft, and Power Platform technologies.",
-        "stack": ["Vue", "Nuxt", "React", "JavaScript", "Azure", "Power Platform", "SQL Server"]
+        "summary": "Worked on web apps, e-commerce, corporate sites and cloud solutions with Azure, Power Platform, Vue/Nuxt and React.",
+        "stack": [
+          "Vue",
+          "Nuxt",
+          "React",
+          "Azure",
+          "Power Platform"
+        ]
       },
       {
-        "role": "Freelance Software Developer",
+        "role": "Freelance Frontend Developer",
         "company": "Independent",
         "companyUrl": "https://github.com/evavargas",
-        "dates": "2019-01 — 2020-05",
-        "summary": "I designed and shipped custom digital solutions from the first conversation about requirements all the way to launch.",
-        "stack": ["JavaScript", "React", "HTML", "CSS", "Bootstrap", "D3"]
+        "dates": "2020-01 — 2020-05",
+        "summary": "Built landing pages and dashboards with Vue.js and D3.js, including a drag-and-drop UML diagram editor.",
+        "stack": [
+          "Vue",
+          "D3",
+          "JavaScript"
+        ]
       }
     ],
     "skillsTitle": "What I work with",
     "skillGroups": [
       {
         "title": "Frontend",
-        "items": ["React", "Next.js", "TypeScript", "JavaScript", "Vue", "Nuxt", "Redux", "Zustand", "Tailwind CSS", "shadcn/ui"]
+        "items": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript",
+          "Vue/Nuxt",
+          "React Native/Expo",
+          "Redux",
+          "Zustand",
+          "TanStack Query",
+          "Tailwind",
+          "Material UI",
+          "shadcn/ui",
+          "i18n"
+        ]
       },
       {
         "title": "Architecture & Performance",
-        "items": ["Module Federation", "Nx", "Design Systems", "Responsive Design", "Performance Optimization"]
+        "items": [
+          "Module Federation",
+          "Multi-tenant / white-label",
+          "Nx",
+          "Vite",
+          "Design systems",
+          "Performance"
+        ]
       },
       {
         "title": "Product & UX",
-        "items": ["UX/UI", "Figma", "Prototyping", "Requirements Analysis", "Product Development"]
+        "items": [
+          "Figma",
+          "UX/UI"
+        ]
       },
       {
         "title": "Backend & Data",
-        "items": ["Java", "SQL", "PostgreSQL", "MySQL", "SQL Server", "REST APIs"]
+        "items": [
+          "Java",
+          "Python/FastAPI",
+          "Node.js",
+          "REST APIs",
+          "SQL",
+          "PostgreSQL",
+          "MySQL",
+          "SQL Server",
+          "Supabase"
+        ]
       },
       {
         "title": "AI & Automation",
-        "items": ["Claude", "Cursor", "AI-Assisted Development", "n8n", "Brevo", "MJML"]
+        "items": [
+          "Claude",
+          "Cursor",
+          "AI-assisted development",
+          "LLM integration",
+          "n8n"
+        ]
       },
       {
         "title": "Cloud & CI/CD",
-        "items": ["AWS", "Azure", "GitHub Actions", "Bitbucket"]
+        "items": [
+          "AWS",
+          "Azure",
+          "Vercel",
+          "GitHub Actions",
+          "Bitbucket"
+        ]
       }
     ],
     "educationTitle": "Education",
     "education": [
       {
-        "title": "UX/UI Designer",
-        "school": "Google",
-        "dates": "2026-08 — 2026-10",
-        "note": "Coursera"
+        "title": "McKinsey Forward Program",
+        "school": "McKinsey & Company",
+        "dates": "In progress",
+        "note": "Expected Dec 2026"
+      },
+      {
+        "title": "Google UX Design Certificate",
+        "school": "Coursera",
+        "dates": "In progress",
+        "note": "Certificate"
+      },
+      {
+        "title": "AWS Certified Cloud Practitioner & AWS Certified AI Practitioner",
+        "school": "AWS Skills Center",
+        "dates": "In preparation",
+        "note": "Certifications"
+      },
+      {
+        "title": "English, CEFR B2 level",
+        "school": "Wall Street English",
+        "dates": "In progress",
+        "note": "Expected early 2027"
       },
       {
         "title": "Information Systems Engineering",
         "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
-        "dates": "2015-03 — 2018-12",
+        "dates": "2015 — 2018",
         "note": "Coursework completed; degree not completed"
       }
     ],
     "languagesTitle": "Languages",
-    "languages": "Spanish — Native · English — B1 (Intermediate)",
+    "languages": "Spanish — Native · English — Intermediate (B1), currently completing B2",
     "ctaProjects": "Explore my work",
     "ctaResume": "Download resume"
   },

@@ -52,6 +52,23 @@
     "tech": "Réalisé avec",
     "items": [
       {
+        "id": "coffeemaster",
+        "eyebrow": "Café · 2026",
+        "title": "Coffee Master",
+        "description": "Un chat de barista virtuel pour mieux préparer son café à la maison : catalogue de recettes, recettes perso et conseils par IA, sur web et Android.",
+        "tech": [
+          "Next.js",
+          "React",
+          "Expo",
+          "FastAPI",
+          "PostgreSQL",
+          "Claude"
+        ],
+        "href": "https://coffeemasteruy.vercel.app",
+        "repo": "https://github.com/evavargas/coffee-master",
+        "image": "/img/project6.png"
+      },
+      {
         "id": "tiendatuya",
         "eyebrow": "Marketplace · 2026",
         "title": "TiendaTuya",
@@ -202,23 +219,28 @@
         "role": "Software Engineer",
         "company": "Indépendante",
         "companyUrl": "https://github.com/evavargas",
-        "dates": "2026-10 — Aujourd'hui",
-        "summary": "Je développe mes propres projets logiciels, j'explore des idées produit et j'applique le développement assisté par l'IA au frontend, au backend et à l'automatisation des workflows.",
+        "dates": "2026-08 — Aujourd'hui",
+        "summary": "Je construis des produits de bout en bout avec le développement assisté par IA : Coffee Master (chat de barista avec Claude, web et mobile, avec streaming et limites par utilisateur), Patio (jeu de raisonnement pour enfants avec espace enseignant) et ProveCheck (app de services sur le terrain).",
         "stack": [
           "Next.js",
           "React",
+          "React Native",
+          "Expo",
           "TypeScript",
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "Supabase",
           "Claude",
-          "Cursor",
-          "n8n"
+          "Cursor"
         ]
       },
       {
-        "role": "Senior Frontend Developer / Forward Deployed Engineer",
+        "role": "Senior Frontend Developer / Product Engineer",
         "company": "ICASH.ONE · Fintech · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
         "dates": "2024-07 — 2026-07",
-        "summary": "J'ai dirigé l'ingénierie frontend et les décisions techniques de plusieurs produits financiers : un portail utilisateur multidevise construit de zéro, une architecture multi-client avec Module Federation, la migration de Create React App vers Vite et le mentorat des développeurs et designers arrivés dans l'équipe.",
+        "summary": "J'ai travaillé de bout en bout, du design à la production, sur des parcours de paiement et de checkout de portefeuille pour des utilisateurs sur quatre continents. J'ai conçu une architecture multi-client avec Module Federation, construit de zéro un portail multi-devises et un panneau de gestion des utilisateurs, migré des apps de Create React App vers Vite (~80 % de temps de build en moins) et accompagné un développeur de junior à semi-senior.",
         "stack": [
           "TypeScript",
           "React",
@@ -226,6 +248,8 @@
           "Vite",
           "Nx",
           "Zustand",
+          "TanStack Query",
+          "Redux",
           "Tailwind",
           "shadcn",
           "Java",
@@ -237,15 +261,14 @@
         "company": "IUGO Software & Design Studio by Domus Global · Montevideo, Uruguay",
         "companyUrl": "https://www.iugo.com.uy/",
         "dates": "2022-03 — 2024-07",
-        "summary": "En staff augmentation, j'ai travaillé sur des plateformes fintech et éducatives : nouvelles fonctionnalités, refonte d'interfaces et extension d'outils d'administration et de support.",
+        "summary": "En staff augmentation chez D24 et ERON International (paiements), j'ai construit des panneaux marchands, d'administration et de finance interne, et dirigé la refonte et le rebranding d'un portail de paiements pour créateurs. J'ai aussi réalisé un panneau d'administration et une app avec jeux, succès et événements pour une plateforme éducative pour enfants.",
         "stack": [
           "TypeScript",
           "React",
           "Next.js",
+          "Redux",
           "Vue",
-          "Nuxt",
-          "Tailwind",
-          "Material UI"
+          "SQL"
         ]
       },
       {
@@ -253,30 +276,25 @@
         "company": "Replica · Microsoft Partner · Lima, Pérou",
         "companyUrl": "https://replica.com.pe/",
         "dates": "2020-05 — 2021-09",
-        "summary": "J'ai travaillé sur des applications web et des solutions cloud — e-commerce, sites corporate et bases de données — avec les technologies Azure, Microsoft et Power Platform.",
+        "summary": "J'ai travaillé sur des applications web, de l'e-commerce, des sites d'entreprise et des solutions cloud avec Azure, Power Platform, Vue/Nuxt et React.",
         "stack": [
           "Vue",
           "Nuxt",
           "React",
-          "JavaScript",
           "Azure",
-          "Power Platform",
-          "SQL Server"
+          "Power Platform"
         ]
       },
       {
-        "role": "Freelance Software Developer",
+        "role": "Freelance Frontend Developer",
         "company": "Indépendante",
         "companyUrl": "https://github.com/evavargas",
-        "dates": "2019-01 — 2020-05",
-        "summary": "J'ai conçu et livré des solutions numériques sur mesure, de la première conversation sur les besoins jusqu'au lancement.",
+        "dates": "2020-01 — 2020-05",
+        "summary": "J'ai réalisé des landing pages et des dashboards avec Vue.js et D3.js, dont un éditeur de diagrammes UML en drag-and-drop.",
         "stack": [
-          "JavaScript",
-          "React",
-          "HTML",
-          "CSS",
-          "Bootstrap",
-          "D3"
+          "Vue",
+          "D3",
+          "JavaScript"
         ]
       }
     ],
@@ -289,43 +307,47 @@
           "Next.js",
           "TypeScript",
           "JavaScript",
-          "Vue",
-          "Nuxt",
+          "Vue/Nuxt",
+          "React Native/Expo",
           "Redux",
           "Zustand",
-          "Tailwind CSS",
-          "shadcn/ui"
+          "TanStack Query",
+          "Tailwind",
+          "Material UI",
+          "shadcn/ui",
+          "i18n"
         ]
       },
       {
         "title": "Architecture et performance",
         "items": [
           "Module Federation",
+          "Multi-tenant / white-label",
           "Nx",
+          "Vite",
           "Design systems",
-          "Design responsive",
-          "Optimisation des performances"
+          "Performance"
         ]
       },
       {
         "title": "Produit et UX",
         "items": [
-          "UX/UI",
           "Figma",
-          "Prototypage",
-          "Analyse des besoins",
-          "Développement produit"
+          "UX/UI"
         ]
       },
       {
         "title": "Backend et données",
         "items": [
           "Java",
+          "Python/FastAPI",
+          "Node.js",
+          "REST APIs",
           "SQL",
           "PostgreSQL",
           "MySQL",
           "SQL Server",
-          "REST APIs"
+          "Supabase"
         ]
       },
       {
@@ -333,10 +355,9 @@
         "items": [
           "Claude",
           "Cursor",
-          "Développement assisté par l'IA",
-          "n8n",
-          "Brevo",
-          "MJML"
+          "Développement assisté par IA",
+          "Intégration de LLM",
+          "n8n"
         ]
       },
       {
@@ -344,6 +365,7 @@
         "items": [
           "AWS",
           "Azure",
+          "Vercel",
           "GitHub Actions",
           "Bitbucket"
         ]
@@ -352,20 +374,38 @@
     "educationTitle": "Formation",
     "education": [
       {
-        "title": "Designer UX/UI",
-        "school": "Google",
-        "dates": "2026-08 — 2026-10",
-        "note": "Coursera"
+        "title": "McKinsey Forward Program",
+        "school": "McKinsey & Company",
+        "dates": "En cours",
+        "note": "Fin prévue déc. 2026"
+      },
+      {
+        "title": "Google UX Design Certificate",
+        "school": "Coursera",
+        "dates": "En cours",
+        "note": "Certificat"
+      },
+      {
+        "title": "AWS Certified Cloud Practitioner et AWS Certified AI Practitioner",
+        "school": "AWS Skills Center",
+        "dates": "En préparation",
+        "note": "Certifications"
+      },
+      {
+        "title": "Anglais, niveau B2 (CECRL)",
+        "school": "Wall Street English",
+        "dates": "En cours",
+        "note": "Fin prévue début 2027"
       },
       {
         "title": "Ingénierie des systèmes d'information",
         "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentine",
-        "dates": "2015-03 — 2018-12",
+        "dates": "2015 — 2018",
         "note": "Cursus complété ; diplôme non obtenu"
       }
     ],
     "languagesTitle": "Langues",
-    "languages": "Espagnol — Langue maternelle · Anglais — B1 (Intermédiaire)",
+    "languages": "Espagnol — Langue maternelle · Anglais — Intermédiaire (B1), B2 en cours",
     "ctaProjects": "Explorer mon travail",
     "ctaResume": "Télécharger le CV"
   },

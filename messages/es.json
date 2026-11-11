@@ -32,7 +32,7 @@
       "Construyo productos digitales que conectan tecnología, diseño y negocio — entendiendo el problema antes de entregar soluciones que la gente realmente usa."
     ],
     "ctaProjects": "Explorar mi trabajo",
-    "ctaContact": "Decime hola"
+    "ctaContact": "Contactame"
   },
   "highlights": {
     "eyebrow": "Cómo trabajo",
@@ -51,6 +51,23 @@
     "repo": "GitHub",
     "tech": "Hecho con",
     "items": [
+      {
+        "id": "coffeemaster",
+        "eyebrow": "Café · 2026",
+        "title": "Coffee Master",
+        "description": "Chat de barista virtual para aprender a preparar mejor café en casa: catálogo de recetas, recetario personal y consejos por IA, en web y Android.",
+        "tech": [
+          "Next.js",
+          "React",
+          "Expo",
+          "FastAPI",
+          "PostgreSQL",
+          "Claude"
+        ],
+        "href": "https://coffeemasteruy.vercel.app",
+        "repo": "https://github.com/evavargas/coffee-master",
+        "image": "/img/project6.png"
+      },
       {
         "id": "tiendatuya",
         "eyebrow": "Marketplace · 2026",
@@ -152,7 +169,7 @@
     "title": "Construyamos algo con sentido.",
     "body": "Ya sea que busques una Software Engineer, una especialista en Frontend, o alguien a quien le guste resolver desafíos complejos de producto, me encantaría escuchar tu proyecto.",
     "formTitle": "Enviar un mensaje",
-    "formIntro": "Contame un poco en qué estás trabajando — te respondo.",
+    "formIntro": "Contame un poco en qué estás trabajando — te responderé.",
     "channelsTitle": "O escribime directo",
     "channelsBody": "WhatsApp y LinkedIn van perfecto para una charla rápida. También podés guardar mi tarjeta de contacto.",
     "whatsapp": "WhatsApp",
@@ -202,23 +219,28 @@
         "role": "Software Engineer",
         "company": "Independiente",
         "companyUrl": "https://github.com/evavargas",
-        "dates": "2026-10 — Presente",
-        "summary": "Desarrollo proyectos de software propios, exploro ideas de producto y aplico desarrollo asistido por IA en frontend, backend y automatización de flujos de trabajo.",
+        "dates": "2026-08 — Presente",
+        "summary": "Construyo productos de punta a punta con desarrollo asistido por IA: Coffee Master (chat de barista con Claude, web y app móvil, con streaming y límites por usuario), Patio (juego de razonamiento para niños con panel docente) y ProveCheck (app de servicios en campo).",
         "stack": [
           "Next.js",
           "React",
+          "React Native",
+          "Expo",
           "TypeScript",
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "Supabase",
           "Claude",
-          "Cursor",
-          "n8n"
+          "Cursor"
         ]
       },
       {
-        "role": "Senior Frontend Developer / Forward Deployed Engineer",
+        "role": "Senior Frontend Developer / Product Engineer",
         "company": "ICASH.ONE · Fintech · Montevideo, Uruguay",
         "companyUrl": "https://www.icash.one/",
         "dates": "2024-07 — 2026-07",
-        "summary": "Lideré la ingeniería frontend y las decisiones técnicas de varios productos financieros: un portal de usuarios multimoneda construido desde cero, una arquitectura multicliente con Module Federation, la migración de Create React App a Vite y la mentoría de los desarrolladores y diseñadores que se sumaron al equipo.",
+        "summary": "Trabajé de punta a punta, del diseño a producción, en flujos de pago y checkout de billetera para usuarios de cuatro continentes. Diseñé una arquitectura multicliente con Module Federation, construí desde cero un portal multimoneda y un panel de gestión de usuarios, migré apps de Create React App a Vite (~80% menos de tiempo de build) y mentoré a una persona de junior a semi-senior.",
         "stack": [
           "TypeScript",
           "React",
@@ -226,6 +248,8 @@
           "Vite",
           "Nx",
           "Zustand",
+          "TanStack Query",
+          "Redux",
           "Tailwind",
           "shadcn",
           "Java",
@@ -237,15 +261,14 @@
         "company": "IUGO Software & Design Studio by Domus Global · Montevideo, Uruguay",
         "companyUrl": "https://www.iugo.com.uy/",
         "dates": "2022-03 — 2024-07",
-        "summary": "A través de staff augmentation trabajé en plataformas fintech y educativas: nuevas funcionalidades, rediseño de interfaces y ampliación de herramientas administrativas y de soporte.",
+        "summary": "Con staff augmentation en D24 y ERON International (pagos) construí paneles de comercios, administración y finanzas internas, y lideré el rediseño y rebranding de un portal de pagos a creadores. También armé un panel de administración y una app con juegos, logros y eventos para una plataforma educativa infantil.",
         "stack": [
           "TypeScript",
           "React",
           "Next.js",
+          "Redux",
           "Vue",
-          "Nuxt",
-          "Tailwind",
-          "Material UI"
+          "SQL"
         ]
       },
       {
@@ -253,30 +276,25 @@
         "company": "Replica · Microsoft Partner · Lima, Perú",
         "companyUrl": "https://replica.com.pe/",
         "dates": "2020-05 — 2021-09",
-        "summary": "Trabajé en aplicaciones web y soluciones cloud — e-commerce, sitios corporativos y tareas de bases de datos — con tecnologías de Azure, Microsoft y Power Platform.",
+        "summary": "Trabajé en aplicaciones web, e-commerce, sitios corporativos y soluciones cloud con Azure, Power Platform, Vue/Nuxt y React.",
         "stack": [
           "Vue",
           "Nuxt",
           "React",
-          "JavaScript",
           "Azure",
-          "Power Platform",
-          "SQL Server"
+          "Power Platform"
         ]
       },
       {
-        "role": "Freelance Software Developer",
+        "role": "Freelance Frontend Developer",
         "company": "Independiente",
         "companyUrl": "https://github.com/evavargas",
-        "dates": "2019-01 — 2020-05",
-        "summary": "Diseñé y entregué soluciones digitales a medida, desde la primera conversación sobre requisitos hasta el lanzamiento.",
+        "dates": "2020-01 — 2020-05",
+        "summary": "Desarrollé landing pages y dashboards con Vue.js y D3.js, incluido un editor de diagramas UML con drag-and-drop.",
         "stack": [
-          "JavaScript",
-          "React",
-          "HTML",
-          "CSS",
-          "Bootstrap",
-          "D3"
+          "Vue",
+          "D3",
+          "JavaScript"
         ]
       }
     ],
@@ -289,43 +307,47 @@
           "Next.js",
           "TypeScript",
           "JavaScript",
-          "Vue",
-          "Nuxt",
+          "Vue/Nuxt",
+          "React Native/Expo",
           "Redux",
           "Zustand",
-          "Tailwind CSS",
-          "shadcn/ui"
+          "TanStack Query",
+          "Tailwind",
+          "Material UI",
+          "shadcn/ui",
+          "i18n"
         ]
       },
       {
         "title": "Arquitectura y performance",
         "items": [
           "Module Federation",
+          "Multi-tenant / white-label",
           "Nx",
+          "Vite",
           "Sistemas de diseño",
-          "Diseño responsive",
-          "Optimización de performance"
+          "Performance"
         ]
       },
       {
         "title": "Producto y UX",
         "items": [
-          "UX/UI",
           "Figma",
-          "Prototipado",
-          "Análisis de requisitos",
-          "Desarrollo de producto"
+          "UX/UI"
         ]
       },
       {
         "title": "Backend y datos",
         "items": [
           "Java",
+          "Python/FastAPI",
+          "Node.js",
+          "REST APIs",
           "SQL",
           "PostgreSQL",
           "MySQL",
           "SQL Server",
-          "REST APIs"
+          "Supabase"
         ]
       },
       {
@@ -334,9 +356,8 @@
           "Claude",
           "Cursor",
           "Desarrollo asistido por IA",
-          "n8n",
-          "Brevo",
-          "MJML"
+          "Integración de LLMs",
+          "n8n"
         ]
       },
       {
@@ -344,6 +365,7 @@
         "items": [
           "AWS",
           "Azure",
+          "Vercel",
           "GitHub Actions",
           "Bitbucket"
         ]
@@ -352,20 +374,38 @@
     "educationTitle": "Educación",
     "education": [
       {
-        "title": "Diseñadora UX/UI",
-        "school": "Google",
-        "dates": "2026-08 — 2026-10",
-        "note": "Coursera"
+        "title": "McKinsey Forward Program",
+        "school": "McKinsey & Company",
+        "dates": "En curso",
+        "note": "Finaliza dic 2026"
+      },
+      {
+        "title": "Google UX Design Certificate",
+        "school": "Coursera",
+        "dates": "En curso",
+        "note": "Certificado"
+      },
+      {
+        "title": "AWS Certified Cloud Practitioner y AWS Certified AI Practitioner",
+        "school": "AWS Skills Center",
+        "dates": "En preparación",
+        "note": "Certificaciones"
+      },
+      {
+        "title": "Inglés, nivel B2 (MCER)",
+        "school": "Wall Street English",
+        "dates": "En curso",
+        "note": "Finaliza a inicios de 2027"
       },
       {
         "title": "Ingeniería en Sistemas de Información",
         "school": "Universidad Tecnológica Nacional · Buenos Aires, Argentina",
-        "dates": "2015-03 — 2018-12",
-        "note": "Cursada completa; título no finalizado"
+        "dates": "2015 — 2018",
+        "note": "Materias completadas; título no finalizado"
       }
     ],
     "languagesTitle": "Idiomas",
-    "languages": "Español — Nativo · Inglés — B1 (Intermedio)",
+    "languages": "Español — Nativo · Inglés — Intermedio (B1), cursando B2",
     "ctaProjects": "Explorar mi trabajo",
     "ctaResume": "Descargar CV"
   },

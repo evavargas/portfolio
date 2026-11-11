@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { BadgeList } from "@/components/ui/badge-list";
 import { Surface } from "@/components/ui/surface";
 import { TextLink } from "@/components/ui/text-link";
@@ -14,7 +15,7 @@ export function JobCard({ job, index, opensNewTabLabel }: JobCardProps) {
     <Surface padding="md" radius="lg">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 className="text-xl font-semibold md:text-2xl">{job.role}</h3>
-        <p className="text-sm font-semibold text-muted">{job.dates}</p>
+        <Badge tone="pink">{job.dates}</Badge>
       </div>
       {job.companyUrl ? (
         <TextLink
