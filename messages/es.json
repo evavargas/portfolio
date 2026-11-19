@@ -52,8 +52,26 @@
     "tech": "Hecho con",
     "items": [
       {
+        "id": "patio",
+        "eyebrow": "Juego · 2026",
+        "title": "Patio",
+        "description": "Un juego educativo 3D para niños de 6 a 11 años que premia entender y no el tiempo de pantalla, con un panel para moderadores para gestionar grupos, desafíos y estadísticas.",
+        "tech": [
+          "React",
+          "Three.js",
+          "NestJS",
+          "MongoDB",
+          "TypeScript",
+          "Docker",
+          "Cloud Run"
+        ],
+        "href": "https://patio-game.pages.dev",
+        "repo": "https://github.com/evavargas/patio",
+        "image": "/img/project8.png"
+      },
+      {
         "id": "coffeemaster",
-        "eyebrow": "Café · 2026",
+        "eyebrow": "Chat con agente IA · 2026",
         "title": "Coffee Master",
         "description": "Chat de barista virtual para aprender a preparar mejor café en casa: catálogo de recetas, recetario personal y consejos por IA, en web y Android.",
         "tech": [
@@ -62,7 +80,11 @@
           "Expo",
           "FastAPI",
           "PostgreSQL",
-          "Claude"
+          "Claude",
+          "Python",
+          "SQLAlchemy",
+          "pgvector",
+          "Supabase"
         ],
         "href": "https://coffeemasteruy.vercel.app",
         "repo": "https://github.com/evavargas/coffee-master",
@@ -80,28 +102,29 @@
           "Hono",
           "Supabase",
           "Tailwind",
-          "MapLibre"
+          "MapLibre",
+          "Node.js",
+          "Zod"
         ],
         "href": "https://merecesingluten.vercel.app",
         "repo": "https://github.com/evavargas/merece",
         "image": "/img/project7.png"
       },
       {
-        "id": "tiendatuya",
+        "id": "merece-marketplace",
         "eyebrow": "Marketplace · 2026",
-        "title": "TiendaTuya",
-        "description": "Un marketplace multi-vendor con vitrinas white-label — cada vendedor tiene su espacio y los compradores descubren todo en un solo lugar.",
+        "title": "Merece Marketplace",
+        "description": "Un widget de video comprable para la tienda de Merece: carrusel embebible y reproductor a pantalla completa con hotspots de productos, chat en vivo, encuestas y un carrito conectado a la tienda.",
         "tech": [
-          "Next.js 15",
-          "React 19",
+          "React",
           "TypeScript",
-          "Supabase",
-          "Tailwind",
-          "Stripe"
+          "Shadow DOM",
+          "Shopify",
+          "Firebase"
         ],
-        "href": "https://tiendatuya-4bvr.vercel.app/",
-        "image": "/img/project5.png",
-        "repo": "https://github.com/evavargas/tiendatuya"
+        "href": "https://merece.web.app",
+        "repo": "https://github.com/evavargas/shoppable-video-poc",
+        "image": "/img/project9.jpg"
       },
       {
         "id": "calendar",
@@ -117,21 +140,6 @@
         "href": "https://calendar-bay-kappa.vercel.app/",
         "image": "/img/project4.png",
         "repo": "https://github.com/evavargas/calendar"
-      },
-      {
-        "id": "dualipa",
-        "eyebrow": "Eventos · 2022",
-        "title": "Dualipa Events",
-        "description": "Una experiencia de eventos y merch hecha en equipo — desde recorrer shows hasta el carrito y el checkout.",
-        "tech": [
-          "React 19",
-          "Vite",
-          "Redux Toolkit",
-          "Bootstrap"
-        ],
-        "href": "https://c3-g45.vercel.app/",
-        "image": "/img/project0.png",
-        "repo": "https://github.com/evavargas/C3-G45"
       },
       {
         "id": "flipbook",
@@ -160,20 +168,6 @@
         "href": "https://connect-nodes.vercel.app/",
         "image": "/img/project1.png",
         "repo": "https://github.com/evavargas/connect-nodes"
-      },
-      {
-        "id": "catalina",
-        "eyebrow": "Estudio · 2022",
-        "title": "Catalina Design",
-        "description": "El sitio de un estudio de arquitectura — galerías, servicios y un visor de proyectos centrado en el trabajo mismo.",
-        "tech": [
-          "HTML",
-          "CSS",
-          "JavaScript"
-        ],
-        "href": "https://catalina-design.vercel.app/",
-        "image": "/img/project3.png",
-        "repo": "https://github.com/evavargas/catalina-design"
       }
     ]
   },
