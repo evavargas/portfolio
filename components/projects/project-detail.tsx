@@ -7,7 +7,6 @@ import { ButtonGroup, type ButtonAction } from "@/components/ui/button-group";
 import { Container } from "@/components/ui/container";
 import { ParagraphList } from "@/components/ui/prose";
 import { SectionTitle } from "@/components/ui/section-heading";
-import { TextLink } from "@/components/ui/text-link";
 import { localizedHref } from "@/i18n/locale-url";
 import { asProjectDetail, asProjectItems } from "@/lib/messages";
 
@@ -20,17 +19,27 @@ export async function ProjectDetailPage({ slug }: { slug: string }) {
   if (!project) throw new Error(`Unknown project ${slug}`);
 
   const external = { target: "_blank", rel: "noopener noreferrer", newTabLabel: nav("opensNewTab") };
-  const actions: ButtonAction[] = [
-    { key: "visit", label: t("visit"), href: project.href, ...external },
-    { key: "repo", label: t("repo"), href: project.repo, variant: "secondary", ...external },
-  ];
-
-  const linkActions: ButtonAction[] = detail.links.map((l) => ({
+  // An APK download is the main call to action; otherwise Live is. Everything else is outline.
+  const isApk = (url: string) => url.endsWith(".apk");
+  const toAction = (l: { label: string; url: string }): ButtonAction => ({
     key: l.url,
     label: l.label,
     href: l.url,
     ...external,
-  }));
+  });
+  const apkActions = detail.links.filter((l) => isApk(l.url)).map(toAction);
+  const actions: ButtonAction[] = [
+    ...apkActions,
+    {
+      key: "visit",
+      label: t("visit"),
+      href: project.href,
+      variant: apkActions.length ? "ghost" : "primary",
+      ...external,
+    },
+    ...detail.links.filter((l) => !isApk(l.url)).map((l) => ({ ...toAction(l), variant: "ghost" as const })),
+    { key: "repo", label: t("repo"), href: project.repo, variant: "ghost", ...external },
+  ];
 
   const sections: { id: string; title: string; paragraphs: string[] }[] = [
     { id: "purpose", title: t("page.purpose"), paragraphs: detail.purpose },
@@ -38,6 +47,8 @@ export async function ProjectDetailPage({ slug }: { slug: string }) {
     { id: "built", title: t("page.built"), paragraphs: detail.built },
     { id: "why", title: t("page.why"), paragraphs: detail.why },
   ];
+
+  const hasVideos = detail.videos.length > 0;
 
   return (
     <Container className="py-14 md:py-20">
@@ -54,8 +65,15 @@ export async function ProjectDetailPage({ slug }: { slug: string }) {
         <BadgeListLabeled label={t("tech")} items={project.tech} className="mt-6" />
       </Reveal>
 
-      <Reveal delayMs={80}>
-        <div className="mt-10 max-w-4xl">
+      {/* Desktop: text column + sticky portrait video on the right. Mobile: image, links, video, text. */}
+      <div
+        className={
+          hasVideos
+            ? "mt-10 grid gap-x-12 lg:grid-cols-[minmax(0,1fr)_300px]"
+            : "mt-10 grid"
+        }
+      >
+        <Reveal delayMs={80} className="lg:col-start-1 lg:row-start-1">
           <ProjectMediaLink
             href={project.href}
             image={project.image}
@@ -63,54 +81,60 @@ export async function ProjectDetailPage({ slug }: { slug: string }) {
             cta={t("visit")}
             opensNewTabLabel={nav("opensNewTab")}
           />
-        </div>
-      </Reveal>
-
-      {linkActions.length > 0 && (
-        <Reveal>
-          <ButtonGroup actions={linkActions} className="mt-12" />
         </Reveal>
-      )}
 
-      {sections.map(({ id, title, paragraphs }) => (
-        <section key={id} className="mt-14" aria-labelledby={`project-${id}`}>
-          <Reveal>
-            <h2 id={`project-${id}`} className="section-title">
-              {title}
-            </h2>
-            <ParagraphList items={paragraphs} className="mt-5 max-w-3xl" />
-            {id === "access" && detail.access.credentials.length > 0 && (
-              <dl className="mt-5 grid max-w-md gap-1 rounded-xl border border-line p-4 text-sm">
-                <dt className="font-semibold">{t("page.credentials")}</dt>
-                {detail.access.credentials.map((c) => (
-                  <dd key={c.label} className="text-muted">
-                    {c.label}: <code>{c.value}</code>
-                  </dd>
-                ))}
-              </dl>
-            )}
-          </Reveal>
-        </section>
-      ))}
+        {hasVideos && (
+          <aside
+            aria-label={t("page.videos")}
+            className="mt-10 flex flex-col gap-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-start lg:sticky lg:top-28"
+          >
+            {detail.videos.map((v) => (
+              <div key={v.url} className="mx-auto w-full max-w-[300px] lg:mx-0">
+                {/* Portrait clip: width/height reserve the exact ratio at any viewport. */}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                  playsInline
+                  preload="auto"
+                  aria-label={v.title}
+                  width={v.width}
+                  height={v.height}
+                  style={{ aspectRatio: `${v.width} / ${v.height}` }}
+                  className="h-auto w-full rounded-2xl border border-line bg-black shadow-[0_10px_28px_-14px_rgb(0_0_0/0.3)]"
+                  src={v.url}
+                />
+              </div>
+            ))}
+          </aside>
+        )}
 
-      {detail.videos.length > 0 && (
-        <section className="mt-14" aria-labelledby="project-videos">
-          <Reveal>
-            <h2 id="project-videos" className="section-title">
-              {t("page.videos")}
-            </h2>
-            <ul className="mt-5 grid gap-2">
-              {detail.videos.map((v) => (
-                <li key={v.url}>
-                  <TextLink href={v.url} external opensNewTabLabel={nav("opensNewTab")}>
-                    {v.title}
-                  </TextLink>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </section>
-      )}
+        <div className="lg:col-start-1 lg:row-start-2">
+          {sections.map(({ id, title, paragraphs }) => (
+            <section key={id} className="mt-14" aria-labelledby={`project-${id}`}>
+              <Reveal>
+                <h2 id={`project-${id}`} className="section-title">
+                  {title}
+                </h2>
+                <ParagraphList items={paragraphs} className="mt-5 max-w-3xl" />
+                {id === "access" && detail.access.credentials.length > 0 && (
+                  <dl className="mt-5 grid max-w-xl gap-2 rounded-xl border border-line p-4 text-sm">
+                    <dt className="font-semibold">{t("page.credentials")}</dt>
+                    {detail.access.credentials.map((c) => (
+                      <dd key={c.label} className="text-muted">
+                        {c.label}
+                        <code className="block break-all text-ink">{c.value}</code>
+                      </dd>
+                    ))}
+                    <dd className="text-xs text-muted">{t("page.credentialsNote")}</dd>
+                  </dl>
+                )}
+              </Reveal>
+            </section>
+          ))}
+        </div>
+      </div>
     </Container>
   );
 }

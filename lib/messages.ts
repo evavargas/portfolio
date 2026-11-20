@@ -51,7 +51,7 @@ export type ProjectDetail = {
   built: string[];
   why: string[];
   links: { label: string; url: string }[];
-  videos: { title: string; url: string }[];
+  videos: { title: string; url: string; width: number; height: number }[];
 };
 
 function isPairs<K extends string, K2 extends string>(value: unknown, a: K, b: K2) {
@@ -71,7 +71,8 @@ export function asProjectDetail(value: unknown): ProjectDetail {
     !isStringArray(d.built) ||
     !isStringArray(d.why) ||
     !isPairs(d.links, "label", "url") ||
-    !isPairs(d.videos, "title", "url")
+    !isPairs(d.videos, "title", "url") ||
+    !d.videos.every((v: { width: unknown; height: unknown }) => typeof v.width === "number" && typeof v.height === "number")
   ) {
     throw new Error("Invalid project detail");
   }

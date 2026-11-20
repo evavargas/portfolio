@@ -157,7 +157,8 @@
       "videos": "Videos",
       "links": "Links",
       "user": "User",
-      "password": "Password"
+      "password": "Password",
+      "credentialsNote": "Shared demo accounts: please don't change the passwords, so the next visitor can sign in too."
     },
     "details": {
       "patio": {
@@ -188,7 +189,14 @@
             "url": "https://patio-panel.pages.dev"
           }
         ],
-        "videos": []
+        "videos": [
+          {
+            "title": "Patio · Walkthrough",
+            "url": "/videos/patio.mp4",
+            "width": 540,
+            "height": 1196
+          }
+        ]
       },
       "provecheck": {
         "title": "ProveCheck",
@@ -199,17 +207,22 @@
         "access": {
           "steps": [
             "Demo panel: sign in with the administrator credentials below.",
-            "Administrators use the web panel. Workers and clients use the mobile app (React Native, Expo) or its web version.",
-            "Accounts are created by the administrator with a temporary password. The first login asks for a new one."
+            "Workers and clients use the Android app: download the APK, allow the install from an unknown source when Android asks, and sign in.",
+            "Accounts are created by the administrator with a temporary password. The first login asks for a new one.",
+            "The API runs on a free plan and sleeps when idle, so the first request can take up to 50 seconds. Wait and try again."
           ],
           "credentials": [
             {
-              "label": "Email",
-              "value": "eva.estrella96+admin@gmail.com"
+              "label": "Administrator (web panel)",
+              "value": "eva.estrella96+admin@gmail.com / xCB9gYUupFAJXYl"
             },
             {
-              "label": "Password",
-              "value": "xCB9gYUupFAJXYl"
+              "label": "Collaborator (Android app)",
+              "value": "eva.estrella96+collab@gmail.com / mtb9kWzAMzg9Y4Cm"
+            },
+            {
+              "label": "Client user (Android app)",
+              "value": "eva.estrella96+client@gmail.com / iyRCK6ntXzY_BLg1"
             }
           ]
         },
@@ -224,11 +237,18 @@
         ],
         "links": [
           {
-            "label": "Panel",
-            "url": "https://provecheck-panel.vercel.app"
+            "label": "Android APK",
+            "url": "https://expo.dev/artifacts/eas/xnZPeqRUj8b1AciuGKYy9vXcha1rrONV3RD1nxKK7aY.apk"
           }
         ],
-        "videos": []
+        "videos": [
+          {
+            "title": "ProveCheck · Walkthrough",
+            "url": "/videos/provecheck.mp4",
+            "width": 540,
+            "height": 1194
+          }
+        ]
       },
       "coffeemaster": {
         "title": "Coffee Master",
@@ -259,7 +279,14 @@
             "url": "https://github.com/evavargas/coffee-master/releases/latest/download/coffee-master.apk"
           }
         ],
-        "videos": []
+        "videos": [
+          {
+            "title": "Coffee Master · Walkthrough",
+            "url": "/videos/coffee-master.mp4",
+            "width": 540,
+            "height": 1194
+          }
+        ]
       }
     }
   },

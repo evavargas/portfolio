@@ -22,19 +22,20 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, index, detailsHref, labels }: ProjectCardProps) {
   const [category, year] = project.eyebrow.split(" · ");
+  // The image already opens the live site, so with a detail page the card has one primary action.
+  const primary: ButtonAction = detailsHref
+    ? { key: "details", label: <>{labels.details} →</>, href: detailsHref, size: "sm" }
+    : {
+        key: "visit",
+        label: labels.visit,
+        href: project.href,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        size: "sm",
+        newTabLabel: labels.opensNewTab,
+      };
   const actions: ButtonAction[] = [
-    ...(detailsHref
-      ? [{ key: "details", label: labels.details, href: detailsHref, size: "sm" as const }]
-      : []),
-    {
-      key: "visit",
-      label: labels.visit,
-      href: project.href,
-      target: "_blank",
-      rel: "noopener noreferrer",
-      size: "sm",
-      newTabLabel: labels.opensNewTab,
-    },
+    primary,
     {
       key: "repo",
       label: (
