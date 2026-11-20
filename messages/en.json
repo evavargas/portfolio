@@ -67,7 +67,7 @@
         ],
         "href": "https://patio-game.pages.dev",
         "repo": "https://github.com/evavargas/patio",
-        "image": "/img/project8.png"
+        "image": "/img/project11.png"
       },
       {
         "id": "coffeemaster",
@@ -146,7 +146,122 @@
         "repo": "https://github.com/evavargas/shoppable-video-poc",
         "image": "/img/project9.jpg"
       }
-    ]
+    ],
+    "page": {
+      "details": "How it works",
+      "purpose": "What it's for",
+      "access": "How to sign in",
+      "credentials": "Test credentials",
+      "built": "How it's built",
+      "why": "Why I built it",
+      "videos": "Videos",
+      "links": "Links",
+      "user": "User",
+      "password": "Password"
+    },
+    "details": {
+      "patio": {
+        "title": "Patio",
+        "purpose": [
+          "An educational 3D game for children aged 6 to 11 and a web panel for moderators. Each day a child solves a short set of challenges (drag and drop, number input, word drop) in a virtual schoolyard.",
+          "The panel lets moderators and administrators manage groups, players, challenges, daily sets and rules, and see stats. It works end to end but is not open to players yet."
+        ],
+        "access": {
+          "steps": [
+            "Game: open the link and choose an alias. No email, password or account is needed. You get a one-time recovery code to come back later.",
+            "Panel: for moderators and administrators, by invitation only. No demo credentials are provided."
+          ],
+          "credentials": []
+        },
+        "built": [
+          "React Three Fiber and Rapier for the 3D schoolyard, with an alien modeled in Blender. The panel is React with shadcn/Radix.",
+          "A NestJS API on Google Cloud Run with MongoDB Atlas. JSON Schema contracts are the single source of truth and generate the types and validators.",
+          "pnpm monorepo, GitHub Actions CI, game and panel on Cloudflare Pages. WCAG 2.2 AA, no analytics, ads or third-party SDKs."
+        ],
+        "why": [
+          "I wanted a game where the goal is to understand a problem, not to spend more time on a screen: no streaks, rankings, timers or penalties. The level is computed on the server and never shown to the child.",
+          "I built it with AI-assisted development (Claude Code), keeping the decisions written down in the repo so the work can be resumed at any time."
+        ],
+        "links": [
+          {
+            "label": "Panel",
+            "url": "https://patio-panel.pages.dev"
+          }
+        ],
+        "videos": []
+      },
+      "provecheck": {
+        "title": "ProveCheck",
+        "purpose": [
+          "A task-management suite for service companies. The admin assigns tasks, the field worker records arrival and finishes the task with photos and notes, and the client automatically gets a PDF by email.",
+          "Clients can file a complaint on a finished task and rate the workers from 1 to 5. There are three roles: administrator, collaborator and client user."
+        ],
+        "access": {
+          "steps": [
+            "Demo panel: sign in with the administrator credentials below.",
+            "Administrators use the web panel. Workers and clients use the mobile app (React Native, Expo) or its web version.",
+            "Accounts are created by the administrator with a temporary password. The first login asks for a new one."
+          ],
+          "credentials": [
+            {
+              "label": "Email",
+              "value": "eva.estrella96+admin@gmail.com"
+            },
+            {
+              "label": "Password",
+              "value": "xCB9gYUupFAJXYl"
+            }
+          ]
+        },
+        "built": [
+          "pnpm monorepo: Fastify API on Render, React and Vite panel with TanStack Query, Expo and React Native app, and a shared package with Zod schemas.",
+          "Supabase for Postgres, auth and files. Permissions are enforced in the API and again with row-level security.",
+          "PDFs are generated with react-pdf and sent by email in the background. Once a task is finished, its record cannot be edited."
+        ],
+        "why": [
+          "Service companies often depend on reviews in Google Maps and on chat messages to prove the work was done. I wanted the evidence (photos, notes, PDF) and the client's feedback to live in the same place, tied to each task.",
+          "I wrote the spec first, with the business rules and roles, and then built it in slices with AI-assisted development."
+        ],
+        "links": [
+          {
+            "label": "Panel",
+            "url": "https://provecheck-panel.vercel.app"
+          }
+        ],
+        "videos": []
+      },
+      "coffeemaster": {
+        "title": "Coffee Master",
+        "purpose": [
+          "A chat to learn how to brew better coffee at home. You ask a virtual barista and it answers by your name, with concrete advice.",
+          "It has a catalog of validated recipes (V60, French press, moka, espresso), a personal recipe book, quantity calculations and help fixing bitter or sour coffee. Nothing is saved without your confirmation."
+        ],
+        "access": {
+          "steps": [
+            "Create an account with your name, email and password.",
+            "Enter the 6-digit code that arrives by email, sign in and ask your first question.",
+            "Each user has a daily message limit."
+          ],
+          "credentials": []
+        },
+        "built": [
+          "Claude (Anthropic) for the chat, with answers grounded in a coffee guide written for the project. Optional semantic search (RAG) with pgvector.",
+          "Next.js on the web, Expo and React Native on Android, and a Python FastAPI backend with PostgreSQL on Supabase.",
+          "Answers stream with Server-Sent Events. The server keeps the history, so cost per message stays bounded, and it has rules against prompt injection and evaluation cases."
+        ],
+        "why": [
+          "I wanted a useful AI product with clear limits: it proposes recipes but never edits yours, and it stays inside a verified guide.",
+          "It was developed with AI assistance: written rules, specs and evaluation cases keep the result consistent after every change."
+        ],
+        "links": [
+          {
+            "label": "Android APK",
+            "url": "https://github.com/evavargas/coffee-master/releases/latest/download/coffee-master.apk"
+          }
+        ],
+        "videos": []
+      }
+    }
   },
   "bridge": {
     "title": "Want to know me a little better?",

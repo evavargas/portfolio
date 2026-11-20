@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 import { localizedHref } from "@/i18n/locale-url";
+import { PROJECT_SLUGS } from "@/lib/project-slugs";
 import { getSiteUrl } from "@/lib/site";
 
 /** Bump when page content changes. */
@@ -9,6 +10,7 @@ const CONTENT_UPDATED_AT = new Date("2026-10-15");
 const ROUTES = [
   { path: "/", priority: 1 },
   { path: "/about", priority: 0.8 },
+  ...PROJECT_SLUGS.map((slug) => ({ path: `/projects/${slug}`, priority: 0.7 })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

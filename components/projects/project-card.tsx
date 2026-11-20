@@ -10,7 +10,9 @@ import type { ProjectItem } from "@/lib/messages";
 type ProjectCardProps = {
   project: ProjectItem;
   index: number;
+  detailsHref?: string;
   labels: {
+    details: string;
     visit: string;
     repo: string;
     tech: string;
@@ -18,9 +20,12 @@ type ProjectCardProps = {
   };
 };
 
-export function ProjectCard({ project, index, labels }: ProjectCardProps) {
+export function ProjectCard({ project, index, detailsHref, labels }: ProjectCardProps) {
   const [category, year] = project.eyebrow.split(" · ");
   const actions: ButtonAction[] = [
+    ...(detailsHref
+      ? [{ key: "details", label: labels.details, href: detailsHref, size: "sm" as const }]
+      : []),
     {
       key: "visit",
       label: labels.visit,

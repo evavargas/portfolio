@@ -67,7 +67,7 @@
         ],
         "href": "https://patio-game.pages.dev",
         "repo": "https://github.com/evavargas/patio",
-        "image": "/img/project8.png"
+        "image": "/img/project11.png"
       },
       {
         "id": "coffeemaster",
@@ -146,7 +146,122 @@
         "repo": "https://github.com/evavargas/shoppable-video-poc",
         "image": "/img/project9.jpg"
       }
-    ]
+    ],
+    "page": {
+      "details": "Comment ça marche",
+      "purpose": "À quoi ça sert",
+      "access": "Comment se connecter",
+      "credentials": "Identifiants de test",
+      "built": "Comment c'est fait",
+      "why": "Pourquoi je l'ai fait",
+      "videos": "Vidéos",
+      "links": "Liens",
+      "user": "Utilisateur",
+      "password": "Mot de passe"
+    },
+    "details": {
+      "patio": {
+        "title": "Patio",
+        "purpose": [
+          "Un jeu éducatif 3D pour les enfants de 6 à 11 ans et un panneau web pour les modérateurs. Chaque jour, l'enfant résout une courte série de défis (glisser-déposer, saisie d'un nombre, mots à placer) dans une cour d'école virtuelle.",
+          "Le panneau permet aux modérateurs et aux administrateurs de gérer groupes, joueurs, défis, séries quotidiennes et règles, et de consulter les statistiques. Il fonctionne de bout en bout, mais n'est pas encore ouvert aux joueurs."
+        ],
+        "access": {
+          "steps": [
+            "Jeu : ouvrez le lien et choisissez un alias. Pas besoin d'e-mail, de mot de passe ni de compte. Vous recevez un code de récupération à usage unique pour revenir plus tard.",
+            "Panneau : pour les modérateurs et les administrateurs, sur invitation uniquement. Aucun identifiant de test n'est fourni."
+          ],
+          "credentials": []
+        },
+        "built": [
+          "React Three Fiber et Rapier pour la cour 3D, avec un alien modélisé dans Blender. Le panneau est en React avec shadcn/Radix.",
+          "Une API NestJS sur Google Cloud Run avec MongoDB Atlas. Les contrats JSON Schema sont l'unique source de vérité et génèrent types et validateurs.",
+          "Monorepo pnpm, CI GitHub Actions, jeu et panneau sur Cloudflare Pages. WCAG 2.2 AA, sans analytics, publicité ni SDK tiers."
+        ],
+        "why": [
+          "Je voulais un jeu dont l'objectif est de comprendre un problème, pas de passer plus de temps devant un écran : pas de séries, de classements, de chronomètres ni de pénalités. Le niveau est calculé côté serveur et n'est jamais montré à l'enfant.",
+          "Je l'ai construit avec le développement assisté par l'IA (Claude Code), en gardant les décisions écrites dans le dépôt pour pouvoir reprendre le travail à tout moment."
+        ],
+        "links": [
+          {
+            "label": "Panneau",
+            "url": "https://patio-panel.pages.dev"
+          }
+        ],
+        "videos": []
+      },
+      "provecheck": {
+        "title": "ProveCheck",
+        "purpose": [
+          "Une suite de gestion de tâches pour les entreprises de services. L'administrateur assigne les tâches, l'agent de terrain enregistre son arrivée et termine avec photos et observations, et le client reçoit automatiquement un PDF par e-mail.",
+          "Le client peut déposer une réclamation sur une tâche terminée et noter les agents de 1 à 5. Il y a trois rôles : administrateur, collaborateur et utilisateur client."
+        ],
+        "access": {
+          "steps": [
+            "Panneau démo : connectez-vous avec les identifiants administrateur ci-dessous.",
+            "Les administrateurs utilisent le panneau web. Les collaborateurs et les clients utilisent l'app mobile (React Native, Expo) ou sa version web.",
+            "L'administrateur crée les comptes avec un mot de passe temporaire. La première connexion en demande un nouveau."
+          ],
+          "credentials": [
+            {
+              "label": "E-mail",
+              "value": "eva.estrella96+admin@gmail.com"
+            },
+            {
+              "label": "Mot de passe",
+              "value": "xCB9gYUupFAJXYl"
+            }
+          ]
+        },
+        "built": [
+          "Monorepo pnpm : API Fastify sur Render, panneau React et Vite avec TanStack Query, app Expo et React Native, et un paquet partagé avec des schémas Zod.",
+          "Supabase pour Postgres, l'authentification et les fichiers. Les permissions sont appliquées dans l'API, puis à nouveau par la sécurité au niveau des lignes.",
+          "Les PDF sont générés avec react-pdf et envoyés par e-mail en arrière-plan. Une fois la tâche terminée, son rapport ne peut plus être modifié."
+        ],
+        "why": [
+          "Les entreprises de services dépendent souvent des avis Google Maps et des messages de chat pour prouver que le travail a été fait. Je voulais que les preuves (photos, observations, PDF) et l'avis du client vivent au même endroit, liés à chaque tâche.",
+          "J'ai d'abord écrit la spécification, avec les règles métier et les rôles, puis construit le produit par étapes avec le développement assisté par l'IA."
+        ],
+        "links": [
+          {
+            "label": "Panneau",
+            "url": "https://provecheck-panel.vercel.app"
+          }
+        ],
+        "videos": []
+      },
+      "coffeemaster": {
+        "title": "Coffee Master",
+        "purpose": [
+          "Un chat pour apprendre à mieux préparer le café à la maison. Vous posez vos questions à un barista virtuel qui vous répond par votre prénom, avec des conseils concrets.",
+          "Il propose un catalogue de recettes validées (V60, cafetière à piston, moka, espresso), un carnet de recettes personnel, le calcul des quantités et de l'aide pour corriger un café amer ou acide. Rien n'est enregistré sans votre confirmation."
+        ],
+        "access": {
+          "steps": [
+            "Créez un compte avec votre nom, votre e-mail et un mot de passe.",
+            "Saisissez le code à 6 chiffres reçu par e-mail, connectez-vous et posez votre première question.",
+            "Chaque utilisateur a une limite quotidienne de messages."
+          ],
+          "credentials": []
+        },
+        "built": [
+          "Claude (Anthropic) pour le chat, avec des réponses fondées sur un guide du café écrit pour le projet. Recherche sémantique optionnelle (RAG) avec pgvector.",
+          "Next.js pour le web, Expo et React Native sur Android, et un backend Python FastAPI avec PostgreSQL sur Supabase.",
+          "Les réponses arrivent en streaming via Server-Sent Events. Le serveur conserve l'historique, ce qui borne le coût par message, et des règles contre le prompt injection ainsi que des cas d'évaluation sont en place."
+        ],
+        "why": [
+          "Je voulais un produit d'IA utile et aux limites claires : il propose des recettes mais ne modifie jamais les vôtres, et reste dans un guide vérifié.",
+          "Il a été développé avec l'aide de l'IA : règles écrites, spécifications et cas d'évaluation gardent le résultat cohérent après chaque changement."
+        ],
+        "links": [
+          {
+            "label": "APK Android",
+            "url": "https://github.com/evavargas/coffee-master/releases/latest/download/coffee-master.apk"
+          }
+        ],
+        "videos": []
+      }
+    }
   },
   "bridge": {
     "title": "Envie de me connaître un peu mieux ?",

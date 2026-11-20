@@ -67,7 +67,7 @@
         ],
         "href": "https://patio-game.pages.dev",
         "repo": "https://github.com/evavargas/patio",
-        "image": "/img/project8.png"
+        "image": "/img/project11.png"
       },
       {
         "id": "coffeemaster",
@@ -146,7 +146,122 @@
         "repo": "https://github.com/evavargas/shoppable-video-poc",
         "image": "/img/project9.jpg"
       }
-    ]
+    ],
+    "page": {
+      "details": "Cómo funciona",
+      "purpose": "Para qué sirve",
+      "access": "Cómo iniciar sesión",
+      "credentials": "Credenciales de prueba",
+      "built": "Cómo está hecho",
+      "why": "Por qué lo hice",
+      "videos": "Videos",
+      "links": "Enlaces",
+      "user": "Usuario",
+      "password": "Contraseña"
+    },
+    "details": {
+      "patio": {
+        "title": "Patio",
+        "purpose": [
+          "Un juego educativo 3D para niños de 6 a 11 años y un panel web para moderadores. Cada día el niño resuelve un set corto de desafíos (arrastrar y soltar, ingresar un número, completar palabras) en un patio de escuela virtual.",
+          "El panel permite a moderadores y administradores gestionar grupos, jugadores, desafíos, sets diarios y reglas, y ver estadísticas. Funciona de punta a punta, pero todavía no está abierto a jugadores."
+        ],
+        "access": {
+          "steps": [
+            "Juego: abre el enlace y elige un alias. No hace falta email, contraseña ni cuenta. Recibes un código de recuperación de un solo uso para volver más tarde.",
+            "Panel: para moderadores y administradores, solo por invitación. No se entregan credenciales de prueba."
+          ],
+          "credentials": []
+        },
+        "built": [
+          "React Three Fiber y Rapier para el patio 3D, con un alien modelado en Blender. El panel es React con shadcn/Radix.",
+          "Una API en NestJS sobre Google Cloud Run con MongoDB Atlas. Los contratos en JSON Schema son la única fuente de verdad y generan tipos y validadores.",
+          "Monorepo con pnpm, CI en GitHub Actions, juego y panel en Cloudflare Pages. WCAG 2.2 AA, sin analíticas, publicidad ni SDK de terceros."
+        ],
+        "why": [
+          "Quería un juego cuyo objetivo sea entender un problema y no pasar más tiempo en pantalla: sin rachas, rankings, cronómetros ni penalizaciones. El nivel lo calcula el servidor y nunca se le muestra al niño.",
+          "Lo construí con desarrollo asistido por IA (Claude Code), dejando las decisiones escritas en el repo para poder retomar el trabajo en cualquier momento."
+        ],
+        "links": [
+          {
+            "label": "Panel",
+            "url": "https://patio-panel.pages.dev"
+          }
+        ],
+        "videos": []
+      },
+      "provecheck": {
+        "title": "ProveCheck",
+        "purpose": [
+          "Una suite de gestión de tareas para empresas de servicios. El administrador asigna tareas, el trabajador de campo registra su llegada y finaliza con fotos y observaciones, y el cliente recibe automáticamente un PDF por mail.",
+          "El cliente puede presentar un descargo sobre una tarea finalizada y calificar a los colaboradores de 1 a 5. Hay tres roles: administrador, colaborador y usuario cliente."
+        ],
+        "access": {
+          "steps": [
+            "Panel demo: inicia sesión con las credenciales de administrador de abajo.",
+            "Los administradores usan el panel web. Los colaboradores y clientes usan la app mobile (React Native, Expo) o su versión web.",
+            "El administrador crea las cuentas con una contraseña temporal. El primer ingreso pide una nueva."
+          ],
+          "credentials": [
+            {
+              "label": "Email",
+              "value": "eva.estrella96+admin@gmail.com"
+            },
+            {
+              "label": "Contraseña",
+              "value": "xCB9gYUupFAJXYl"
+            }
+          ]
+        },
+        "built": [
+          "Monorepo con pnpm: API en Fastify sobre Render, panel en React y Vite con TanStack Query, app en Expo y React Native, y un paquete compartido con esquemas Zod.",
+          "Supabase para Postgres, autenticación y archivos. Los permisos se aplican en la API y otra vez con seguridad a nivel de fila.",
+          "Los PDF se generan con react-pdf y se envían por mail en segundo plano. Una vez finalizada la tarea, su registro no se puede editar."
+        ],
+        "why": [
+          "Las empresas de servicios suelen depender de reseñas en Google Maps y de mensajes de chat para demostrar que el trabajo se hizo. Quería que la evidencia (fotos, observaciones, PDF) y la opinión del cliente vivan en un solo lugar, atadas a cada tarea.",
+          "Escribí primero la especificación, con las reglas de negocio y los roles, y después lo construí por etapas con desarrollo asistido por IA."
+        ],
+        "links": [
+          {
+            "label": "Panel",
+            "url": "https://provecheck-panel.vercel.app"
+          }
+        ],
+        "videos": []
+      },
+      "coffeemaster": {
+        "title": "Coffee Master",
+        "purpose": [
+          "Un chat para aprender a preparar mejor café en casa. Le preguntas a un barista virtual y te responde por tu nombre, con consejos concretos.",
+          "Tiene un catálogo de recetas validadas (V60, prensa francesa, moka, espresso), un recetario personal, cálculo de cantidades y ayuda para corregir un café amargo o ácido. Nada se guarda sin tu confirmación."
+        ],
+        "access": {
+          "steps": [
+            "Crea una cuenta con tu nombre, email y contraseña.",
+            "Escribe el código de 6 dígitos que llega por mail, inicia sesión y haz tu primera pregunta.",
+            "Cada usuario tiene un límite diario de mensajes."
+          ],
+          "credentials": []
+        },
+        "built": [
+          "Claude (Anthropic) para el chat, con respuestas basadas en una guía de café armada para el proyecto. Búsqueda semántica opcional (RAG) con pgvector.",
+          "Next.js en la web, Expo y React Native en Android, y un backend en Python con FastAPI y PostgreSQL en Supabase.",
+          "Las respuestas llegan en streaming con Server-Sent Events. El servidor guarda el historial, así el costo por mensaje queda acotado, y hay reglas contra prompt injection y casos de evaluación."
+        ],
+        "why": [
+          "Quería un producto de IA útil y con límites claros: propone recetas pero nunca edita las tuyas, y se mantiene dentro de una guía verificada.",
+          "Se desarrolló con asistencia de IA: reglas escritas, especificaciones y casos de evaluación mantienen el resultado consistente después de cada cambio."
+        ],
+        "links": [
+          {
+            "label": "APK para Android",
+            "url": "https://github.com/evavargas/coffee-master/releases/latest/download/coffee-master.apk"
+          }
+        ],
+        "videos": []
+      }
+    }
   },
   "bridge": {
     "title": "¿Querés conocerme un poco más?",

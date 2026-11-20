@@ -45,6 +45,39 @@ export function asProjectItems(value: unknown): ProjectItem[] {
   });
 }
 
+export type ProjectDetail = {
+  purpose: string[];
+  access: { steps: string[]; credentials: { label: string; value: string }[] };
+  built: string[];
+  why: string[];
+  links: { label: string; url: string }[];
+  videos: { title: string; url: string }[];
+};
+
+function isPairs<K extends string, K2 extends string>(value: unknown, a: K, b: K2) {
+  return (
+    Array.isArray(value) &&
+    value.every((v) => v && typeof v[a] === "string" && typeof v[b] === "string")
+  );
+}
+
+export function asProjectDetail(value: unknown): ProjectDetail {
+  const d = value as Record<string, any> | undefined; // eslint-disable-line @typescript-eslint/no-explicit-any
+  if (
+    !d ||
+    !isStringArray(d.purpose) ||
+    !isStringArray(d.access?.steps) ||
+    !isPairs(d.access?.credentials, "label", "value") ||
+    !isStringArray(d.built) ||
+    !isStringArray(d.why) ||
+    !isPairs(d.links, "label", "url") ||
+    !isPairs(d.videos, "title", "url")
+  ) {
+    throw new Error("Invalid project detail");
+  }
+  return d as ProjectDetail;
+}
+
 export function asAboutJobs(value: unknown): AboutJob[] {
   if (!Array.isArray(value)) {
     throw new Error("Expected about jobs");
