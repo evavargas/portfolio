@@ -1,7 +1,7 @@
 # Eva Vargas · Portfolio
 
-Personal portfolio for Eva Vargas — software engineer specializing in
-frontend, product development, and AI-assisted delivery. Conversational
+Personal portfolio for Eva Vargas — product engineer building web and mobile
+products end to end, with AI-assisted development. Conversational
 profile, selected work, contact flow, and downloadable resumes.
 
 Live: [evavargasportfolio.vercel.app](https://evavargasportfolio.vercel.app)
@@ -53,7 +53,7 @@ Switching language in the header is a client-side navigation (no full page reloa
 
 ## Local development
 
-Requires Node.js 22.12+.
+Requires Node.js 24.x.
 
 ```sh
 cp .env.example .env.local

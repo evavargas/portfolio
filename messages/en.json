@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Eva Vargas · Software Engineer — Frontend & Product Engineering",
-    "description": "Software engineer in Montevideo, Uruguay, specializing in frontend and product engineering — React, Next.js, TypeScript, and AI-assisted development. Portfolio, projects, and resume.",
+    "title": "Eva Vargas · Product Engineer",
+    "description": "Product Engineer in Montevideo, Uruguay, building web and mobile products end to end with React, React Native, Next.js, and TypeScript. Portfolio, projects, and resume.",
     "aboutTitle": "About Me · Eva Vargas",
-    "aboutDescription": "My path as a software engineer: experience in fintech and product teams, the technologies I work with, education, and downloadable resumes in English and Spanish.",
-    "jobTitle": "Software Engineer — Frontend & Product Engineering"
+    "aboutDescription": "My path as a product engineer: experience in fintech and product teams, the technologies I work with, education, and downloadable resumes in English and Spanish.",
+    "jobTitle": "Product Engineer"
   },
   "nav": {
     "home": "Home",
@@ -27,7 +27,7 @@
     "greeting": "Hi, I'm",
     "name": "Eva Vargas",
     "idea": "I enjoy turning ideas into products.",
-    "role": "Software Engineer specialized in Frontend Engineering, Product Development, and AI-Assisted Software Development.",
+    "role": "Product Engineer building web and mobile products end to end, with AI-assisted development.",
     "paragraphs": [
       "I build digital products that connect technology, design, and business — understanding problems before shipping solutions that people actually use."
     ],
@@ -39,7 +39,7 @@
     "title": "How I work",
     "items": [
       "I start by understanding the problem — business, users, and constraints — before jumping into code.",
-      "Frontend is my home base, but I happily cross into product design, architecture, automation, and AI-assisted development when the product needs it.",
+      "I build products end to end: web, mobile, backend and the design decisions in between.",
       "I use AI as a working companion: to think faster, explore options, and ship better software."
     ]
   },
@@ -91,6 +91,26 @@
         "image": "/img/project6.png"
       },
       {
+        "id": "provecheck",
+        "eyebrow": "Task management · 2026",
+        "title": "ProveCheck",
+        "description": "A task-management suite connecting a service company, its field workers and its clients, with a React Native (Expo) mobile app for the workers and a web panel.",
+        "tech": [
+          "React",
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Fastify",
+          "Supabase",
+          "Vite",
+          "TanStack Query",
+          "Zod"
+        ],
+        "href": "https://provecheck-panel.vercel.app",
+        "repo": "https://github.com/evavargas/provecheck",
+        "image": "/img/project10.png"
+      },
+      {
         "id": "merece",
         "eyebrow": "Bakery · 2026",
         "title": "Merece",
@@ -125,49 +145,6 @@
         "href": "https://merece.web.app",
         "repo": "https://github.com/evavargas/shoppable-video-poc",
         "image": "/img/project9.jpg"
-      },
-      {
-        "id": "calendar",
-        "eyebrow": "Calendar · 2022",
-        "title": "Personal Calendar",
-        "description": "A calm personal calendar for creating and organizing events across month, week, and day views.",
-        "tech": [
-          "Vue 3",
-          "Vite",
-          "Pinia",
-          "FullCalendar"
-        ],
-        "href": "https://calendar-bay-kappa.vercel.app/",
-        "repo": "https://github.com/evavargas/calendar",
-        "image": "/img/project4.png"
-      },
-      {
-        "id": "flipbook",
-        "eyebrow": "Catalog · 2021",
-        "title": "Gatálogo",
-        "description": "An interactive digital catalog with a page-turning reader — made for browsing that feels like holding a book.",
-        "tech": [
-          "Vue 2",
-          "CoffeeScript",
-          "Turn.js"
-        ],
-        "href": "https://flipbook-sooty.vercel.app/",
-        "repo": "https://github.com/evavargas/flipbook",
-        "image": "/img/project2.png"
-      },
-      {
-        "id": "connect",
-        "eyebrow": "Diagrams · 2021",
-        "title": "Connect Nodes",
-        "description": "A relationship diagram editor for mapping ideas visually — create nodes, connect them, then export or import JSON.",
-        "tech": [
-          "Vue 3",
-          "D3.js",
-          "SVG"
-        ],
-        "href": "https://connect-nodes.vercel.app/",
-        "repo": "https://github.com/evavargas/connect-nodes",
-        "image": "/img/project1.png"
       }
     ]
   },
@@ -179,7 +156,7 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Let's build something meaningful.",
-    "body": "Whether you're looking for a Software Engineer, a Frontend specialist, or someone who enjoys solving complex product challenges, I'd love to hear about your project.",
+    "body": "Whether you're looking for a Product Engineer, a React or React Native developer, or someone who enjoys solving complex product challenges, I'd love to hear about your project.",
     "formTitle": "Send a message",
     "formIntro": "Tell me a bit about what you're working on — I'll get back to you.",
     "channelsTitle": "Or reach me directly",
@@ -214,15 +191,15 @@
     "title": "Hi, I'm Eva.",
     "photoAlt": "Portrait of Eva Vargas",
     "intro": [
-      "I'm a Software Engineer with more than six years of experience building digital products.",
-      "I started my career focused on frontend development, but curiosity has always pushed me beyond that. Today I enjoy working across the entire product lifecycle—from understanding requirements and designing user experiences to defining technical solutions and delivering them to production.",
+      "I'm a Product Engineer with more than six years of experience building digital products.",
+      "I started my career in web development, but curiosity has always pushed me beyond that. Today I enjoy working across the entire product lifecycle—from understanding requirements and designing user experiences to defining technical solutions and delivering them to production.",
       "What motivates me isn't writing code for its own sake; it's building products that solve real problems and create value for users.",
       "Outside of coding, I'm constantly exploring new technologies, especially AI-powered tools that help me work smarter and deliver better software."
     ],
     "experienceTitle": "What I've been doing",
     "experienceIntro": [
       "Over the last six years, I've had the opportunity to work on fintech products, educational and enterprise platforms, e-commerce, and cloud solutions.",
-      "My experience started in frontend development, evolved into technical leadership, and eventually expanded to product design, backend, automation, and software architecture. Today I'm building my own products as an independent engineer.",
+      "My experience started in web development, evolved into technical leadership, and eventually expanded to product design, backend, automation, and software architecture. Today I'm building my own products as an independent engineer.",
       "Each role has taught me something different, but they all share one thing in common: building products that people actually use."
     ],
     "experienceNote": "A short tour of the path — the full story lives in the resume.",
@@ -450,7 +427,7 @@
     }
   },
   "footer": {
-    "tagline": "Eva Vargas · Software Engineer",
+    "tagline": "Eva Vargas · Product Engineer",
     "about": "About Me",
     "projects": "Projects",
     "resumes": "Resume",
